@@ -4,9 +4,20 @@
 #include "Grid.h"
 #include <windows.h>
 
-/*File i/o passed in here*/
-void Game_InitGame(int level);
+enum GameState {
+		Loading,
+		MainMenu,
+		Playing,
+		Credits,
+		Quit
+	};
+
+enum GameState currentState;
+
+void Game_InitGame();
 /*Update game*/
 void Game_Update();
+void Game_setCurrentState(enum GameState newState);
+enum GameState Game_getCurrentState();
 
 #endif GAME_H
