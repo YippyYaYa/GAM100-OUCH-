@@ -24,7 +24,6 @@ void Player_move()
 	/*Left Key Entered*/
 	if ((GetAsyncKeyState(VK_LEFT) &KEY_UP) == KEY_UP)
 	{
-		printf("%c", Grid_getGrid(playerX, playerY));
 		WindowsHelper_SetCursorPosition(playerX, playerY);
 		printf("%c", Grid_getGrid(playerX, playerY));
 		playerX--;
@@ -33,7 +32,6 @@ void Player_move()
 	} /*Right Key Entered*/
 	else if ((GetAsyncKeyState(VK_RIGHT) &KEY_UP) == KEY_UP)
 	{
-		printf("%c", Grid_getGrid(playerX, playerY));
 		WindowsHelper_SetCursorPosition(playerX, playerY);
 		printf("%c", Grid_getGrid(playerX, playerY));
 		playerX++;
@@ -42,7 +40,6 @@ void Player_move()
 	}/*Up Key Entered*/
 	else if ((GetAsyncKeyState(VK_UP) &KEY_UP) == KEY_UP)
 	{
-		printf("%c", Grid_getGrid(playerX, playerY));
 		WindowsHelper_SetCursorPosition(playerX, playerY);
 		printf("%c", Grid_getGrid(playerX, playerY));
 		playerY--;
@@ -51,7 +48,6 @@ void Player_move()
 	}/*Down Key Entered*/
 	else if ((GetAsyncKeyState(VK_DOWN) &KEY_UP) == KEY_UP)
 	{
-		printf("%c", Grid_getGrid(playerX, playerY));
 		WindowsHelper_SetCursorPosition(playerX, playerY);
 		printf("%c", Grid_getGrid(playerX, playerY));
 		playerY++;
