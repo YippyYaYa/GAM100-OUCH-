@@ -1,5 +1,0 @@
-﻿  Game.c
-c:\users\alexc\onedrive\documents\year 1 uni\gam100f18-a\project1\project1\game.c(14): warning C4013: 'Player_move' undefined; assuming extern returning int
-  main.c
-  Generating Code...
-  Project1.vcxproj -> C:\Users\alexc\OneDrive\Documents\Year 1 Uni\gam100f18-a\Project1\Debug\Project1.exe
