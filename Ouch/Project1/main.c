@@ -9,43 +9,19 @@
 
 int main(void)
 {
-	enum GameState {
-		Start,
-		MainMenu,
-		Playing,
-		Credits,
-		Quit
-	};
-
-	enum GameState currentState = Playing;
-	
 	/*Engine Initialise*/
+	/* Initialise Console grid*/
 	WindowsHelper_Init();
-	Player_InitPlayer();
 
 	/*Initialise Game*/
-	Game_InitGame(1);
+	Game_InitGame();
 
-	/*While loop*/
-	while (currentState != Quit)
+	Game_setCurrentState(Playing);
+
+	while (Game_getCurrentState() != Quit)
 	{
-		switch (currentState)
-		{
-			case Start:
-				break;
-			case MainMenu:
-				break;
-			case Playing:
-				Game_Update();
-				break;
-			case Credits:
-				break;
-			case Quit:
-				break;
-		}
+		Game_Update();
 	}
-
-	getchar();
 
 	return 0;
 }

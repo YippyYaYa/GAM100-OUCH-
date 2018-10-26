@@ -1,7 +1,7 @@
 #include "Grid.h"
 #include <stdio.h>
 #include "WindowsHelper.h"
-#define N 100
+#define N 10
 
 int i, j;
 char grid[N][N] = { '0' };

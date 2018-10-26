@@ -5,10 +5,13 @@
 #include <windows.h>
 #include <stdio.h>
 
-int playerX, playerY;
+int playerX, playerY, possessRange;
 char player;
+char direction;
 
 void Player_InitPlayer();
-void PLayer_move();
+void Player_Controls();
+void Player_move();
+void Player_Interact();
 
 #endif

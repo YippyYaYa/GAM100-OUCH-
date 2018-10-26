@@ -7,15 +7,22 @@ void Player_InitPlayer()
 {
 	playerX = 0;
 	playerY = 0;
+	possessRange = 5;
 	player = 'M';
-	WindowsHelper_SetCursorPosition(playerX, playerY);
-	printf("%c", player);
+	direction = 'U';
+}
+
+void Player_Controls()
+{
+	Player_move();
+	Player_Interact();
 }
 
 /*Move player*/
 void Player_move()
 {
-	if (GetAsyncKeyState(VK_LEFT) &KEY_UP == KEY_UP)
+	/*Left Key Entered*/
+	if ((GetAsyncKeyState(VK_LEFT) &KEY_UP) == KEY_UP)
 	{
 		printf("%c", Grid_getGrid(playerX, playerY));
 		WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -23,8 +30,8 @@ void Player_move()
 		playerX--;
 		WindowsHelper_SetCursorPosition(playerX, playerY);
 		printf("%c", player);
-	}
-	else if (GetAsyncKeyState(VK_RIGHT) &KEY_UP == KEY_UP)
+	} /*Right Key Entered*/
+	else if ((GetAsyncKeyState(VK_RIGHT) &KEY_UP) == KEY_UP)
 	{
 		printf("%c", Grid_getGrid(playerX, playerY));
 		WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -32,8 +39,8 @@ void Player_move()
 		playerX++;
 		WindowsHelper_SetCursorPosition(playerX, playerY);
 		printf("%c", player);
-	}
-	else if (GetAsyncKeyState(VK_UP) &KEY_UP == KEY_UP)
+	}/*Up Key Entered*/
+	else if ((GetAsyncKeyState(VK_UP) &KEY_UP) == KEY_UP)
 	{
 		printf("%c", Grid_getGrid(playerX, playerY));
 		WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -41,8 +48,8 @@ void Player_move()
 		playerY--;
 		WindowsHelper_SetCursorPosition(playerX, playerY);
 		printf("%c", player);
-	}
-	else if (GetAsyncKeyState(VK_DOWN) &KEY_UP == KEY_UP)
+	}/*Down Key Entered*/
+	else if ((GetAsyncKeyState(VK_DOWN) &KEY_UP) == KEY_UP)
 	{
 		printf("%c", Grid_getGrid(playerX, playerY));
 		WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -50,5 +57,43 @@ void Player_move()
 		playerY++;
 		WindowsHelper_SetCursorPosition(playerX, playerY);
 		printf("%c", player);
+	}
+}
+
+void Player_Interact()
+{
+	/*Spacebar Entered*/
+	if ((GetAsyncKeyState(VK_SPACE) &KEY_UP) == KEY_UP)
+	{
+		/*Possession Check*/
+		if (player == 'M')
+		{
+			switch (direction)
+			{
+				case 'U':
+					for (possessRange = 1; possessRange <= 5; possessRange++)
+					{
+						if (Grid_getGrid(playerX,playerY + possessRange) != ' ' && Grid_getGrid(playerX, playerY + possessRange) != '#')
+						{
+							printf("HIT\n");
+						}
+						else
+						{
+							printf("NO HIT\n");
+						}
+					}
+					break;
+				case 'D':
+					break;
+				case 'L':
+					break;
+				case 'R':
+					break;
+			}
+		}
+		else
+		{
+			return;
+		}
 	}
 }
