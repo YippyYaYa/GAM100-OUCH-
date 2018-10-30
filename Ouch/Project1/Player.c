@@ -1,14 +1,11 @@
 #include "Player.h"
 /*Player controls file*/
 const int KEY_UP = 0x1;
-<<<<<<< HEAD
-=======
 
 /* Private variables*/
 static int playerX, playerY, possessRange;
 static char player;
 static char direction;
->>>>>>> d710bb04e879a185836e455a9fe8e09b4e8a9710
 
 /*Initialise Player position*/
 void Player_InitPlayer()

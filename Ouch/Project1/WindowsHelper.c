@@ -13,6 +13,10 @@ void WindowsHelper_Init()
 	wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
 	rHnd = GetStdHandle(STD_INPUT_HANDLE);
 	SetConsoleTitle(TEXT(CONSOLE_TITLE));
+
+	SMALL_RECT windowSize = { 0, 0, 150, 40 };
+	SetConsoleWindowInfo(wHnd, TRUE, &windowSize);
+	ShowScrollBar(wHnd, SB_BOTH, FALSE);
 }
 
 /*Sets the console cursor position. Note that (0,0) is the top left of the console*/
