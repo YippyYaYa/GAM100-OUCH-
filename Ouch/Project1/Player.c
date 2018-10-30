@@ -1,6 +1,6 @@
 #include "Player.h"
 /*Player controls file*/
-const KEY_UP = 0x1;
+const int KEY_UP = 0x1;
 
 /*Initialise Player position*/
 void Player_InitPlayer()
