@@ -3,8 +3,8 @@
 #include "WindowsHelper.h"
 #define N 10
 
-int i, j;					/*variable for transversing 2D arrays*/
-FILE*textart;				/*create a variable to store file*/
+static int i, j;					/*private variables for transversing 2D arrays*/
+static FILE*textart;				/*create a private variable to store file*/
 char grid[N][N] = { '0' };	/*define a 2D array by size NxN - all map size must be the same as this, axis is X and Y*/
 
 /*Stores grid from file*/
@@ -40,7 +40,7 @@ void Grid_initGrid(int level)
 		for (j = 0; j < N; j++)
 		{
 			/*stores char in file to grid array and checks if char in file is newline, if true, re-scan to grid array as we don't wan the newline*/
-			if ((grid[j][i] = getc(textart)) == '\n')
+			if ((grid[j][i] = (char)getc(textart)) == '\n')
 				j--;
 		}
 	}
