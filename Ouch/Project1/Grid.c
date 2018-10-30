@@ -11,8 +11,8 @@ This manager is in charge of processing player controls and actions
 #include "Grid.h"
 #include <stdio.h>
 #include "WindowsHelper.h"
-#define X 12
-#define Y 12
+#define X 100
+#define Y 25
 
 /*Private variabes*/
 static int i, j;					/*private variables for transversing 2D arrays*/
@@ -24,6 +24,10 @@ void Grid_initGrid(int level)
 {
 	switch (level)
 	{
+		case 0:
+			/*open file for reading*/
+			fopen_s(&textart, "DigipenLogo.txt", "r");
+			break;
 		case 1:
 			/*open file for reading*/
 			fopen_s(&textart, "level1.txt", "r");
