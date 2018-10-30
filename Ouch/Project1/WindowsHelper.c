@@ -18,7 +18,7 @@ void WindowsHelper_Init()
 /*Sets the console cursor position. Note that (0,0) is the top left of the console*/
 void WindowsHelper_SetCursorPosition(int x, int y)
 {
-	COORD center = { x, y };
+	COORD center = { (short)x, (short)y };
 	SetConsoleCursorPosition(wHnd, center);
 }
 
@@ -42,10 +42,10 @@ void WindowsHelper_FullScreen()
 	int width = 0, height = 0;
 	WindowsHelper_GetLargestConsoleWindowSize(&width, &height);
 
-	COORD bufferSize = { width, height };
+	COORD bufferSize = { (short)width, (short)height };
 	SetConsoleScreenBufferSize(wHnd, bufferSize);
 
-	SMALL_RECT windowSize = { 0, 0, width - 1, height - 1 };
+	SMALL_RECT windowSize = { (short)0, (short)0, (short)width - 1, (short)height - 1 };
 	SetConsoleWindowInfo(wHnd, 1, &windowSize);
 }
 
