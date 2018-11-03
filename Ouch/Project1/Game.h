@@ -12,7 +12,7 @@ enum GameState {
 		Quit
 	};
 
-enum GameState currentState;
+static enum GameState currentState;
 
 void Game_InitGame();
 /*Update game*/

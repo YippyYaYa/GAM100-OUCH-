@@ -3,7 +3,7 @@
 /*Init game and pass in game level file i/o*/
 void Game_InitGame()
 {
-	Grid_initGrid(0);
+	Grid_initGrid(1);
 	Grid_printGrid();
 	Player_InitPlayer();
 }

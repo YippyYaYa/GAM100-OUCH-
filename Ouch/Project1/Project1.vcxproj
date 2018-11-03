@@ -72,7 +72,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
@@ -115,16 +115,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Credits.c" />
     <ClCompile Include="Enemy.c" />
     <ClCompile Include="Game.c" />
+    <ClCompile Include="Loading.c" />
+    <ClCompile Include="MainMenu.c" />
     <ClCompile Include="Player.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Grid.c" />
     <ClCompile Include="WindowsHelper.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Credits.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Loading.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="WindowsHelper.h" />

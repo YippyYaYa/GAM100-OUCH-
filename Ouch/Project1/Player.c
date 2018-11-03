@@ -7,6 +7,13 @@ static int playerX, playerY, possessRange;
 static char player;
 static char direction;
 
+enum PlayerMode {
+	Monkey,
+	Rhino,
+	Bear
+};
+
+
 /*Initialise Player position*/
 void Player_InitPlayer()
 {
@@ -76,7 +83,7 @@ void Player_Interact()
 				case 'U':
 					for (possessRange = 1; possessRange <= 5; possessRange++)
 					{
-						if (Grid_getGrid(playerX,playerY - possessRange) != ' ' && Grid_getGrid(playerX, playerY - possessRange) != '#')
+						if (Grid_getGrid(playerX,playerY - possessRange) != ' ')
 						{
 							printf("HIT\n");
 							break;
