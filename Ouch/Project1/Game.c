@@ -1,6 +1,7 @@
 #pragma once
 #include "Game.h"
 #include "Grid.h"
+#include "Enemy.h"
 #include "Player.h"
 #include "GameStateManager.h"
 
@@ -8,7 +9,7 @@
 void Game_Init()
 {
 	Grid_initGrid(1);
-	Grid_printGrid();
+	Grid_printGridwAll(1);
 	Player_InitPlayer();
 }
 
@@ -16,4 +17,5 @@ void Game_Init()
 void Game_Update()
 {
 	Player_Controls();
+	Enemy_Update();
 }

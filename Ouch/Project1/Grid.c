@@ -10,6 +10,7 @@ This manager is in charge of processing player controls and actions
 /******************************************************************************/
 #pragma once
 #include "Grid.h"
+#include "Enemy.h"
 #include <stdio.h>
 #include "WindowsHelper.h"
 #define X 100
@@ -21,9 +22,9 @@ static FILE*textart;				/*create a private variable to store file*/
 static char grid[X][Y] = { ' ' };	/*define a 2D array by size NxN - all map size must be the same as this, axis is X and Y*/
 
 /*Stores grid from file*/
-void Grid_initGrid(int level)
+void Grid_initGrid(int file)
 {
-	switch (level)
+	switch (file)
 	{
 		case 0:
 			/*open file for reading*/
@@ -56,7 +57,7 @@ void Grid_initGrid(int level)
 	{
 		for (j = 0; j < X;)
 		{
-			/*stores char in file to grid array and checks if char in file is newline, if true, re-scan to grid array as we don't wan the newline*/
+			/*stores char in file to grid array and checks if char in file is newline, if true, re-scan to grid array as we don't want the newline*/
 			if ((grid[j][i] = (char)getc(textart)) == '\n')
 			{
 				if (j == 0)
@@ -92,9 +93,31 @@ void Grid_printGrid()
 	}
 }
 
-/*Print initialised grid with player - probably for levels and menus*/
-void Grid_printGridwPlayer(int x, int y, char player)
+/*Print initialised grid with player*/
+void Grid_printGridwAll(int level)
 {
+	switch (level)
+	{
+		case 1:
+			/*Push stuff into level 1 grid here*/
+			Enemy_init(0, 2, 2, 'D', 'R');
+			Enemy_init(1, 70, 7, 'R', 'B');
+			break;
+		case 2:
+			/*Push stuff into level 2 grid here*/
+			break;
+		case 3:
+			/*Push stuff into level 3 grid here*/
+			break;
+		case 4:
+			/*Push stuff into level 4 grid here*/
+			break;
+		case 5:
+			/*Push stuff into level 5 grid here*/
+			break;
+	}
+
+	/*prints the grid*/
 	for (i = 0; i < Y; i++)
 	{
 		for (j = 0; j < X; j++)
@@ -103,9 +126,6 @@ void Grid_printGridwPlayer(int x, int y, char player)
 			printf("%c", grid[j][i]);
 		}
 	}
-	/*Set cursor position to player position*/
-	WindowsHelper_SetCursorPosition(x, y);
-	printf("%c", player);
 }
 
 /*Get grid element*/
@@ -114,7 +134,7 @@ char Grid_getGrid(int x, int y)
 	return grid[x][y];
 }
 
-/*Set grid element - probably wont be used*/
+/*Set grid element - will be constantly updating grid for collision detection, use this to push enemies, buttons etc into grid*/
 void Grid_setGrid(int x, int y, char z)
 {
 	grid[x][y] = z;
