@@ -4,7 +4,3 @@
 
 void WindowsHelper_Init();
 void WindowsHelper_SetCursorPosition(int x, int y);
-int WindowsHelper_GetConsoleWidth();
-int WindowsHelper_GetConsoleHeight();
-
-void WindowsHelper_ClearScreen();

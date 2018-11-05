@@ -1,5 +1,6 @@
+#pragma once
 #include "MainMenu.h"
-#include "Game.h"
+#include "GameStateManager.h"
 
 /* variables here, must be static */
 
@@ -12,8 +13,7 @@ void MainMenu_Update()
 	/* do stuff here */
 
 	/* change state accordingly e.g. go to play or credits */
-
-	Game_setCurrentState(Playing);
+	GameStateManager_SetGameState(Playing);
 }
 
 /* function definitions here */

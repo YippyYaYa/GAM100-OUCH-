@@ -1,4 +1,8 @@
 #include "Player.h"
+#include "WindowsHelper.h"
+#include "Grid.h"
+#include <windows.h>
+#include <stdio.h>
 /*Player controls file*/
 const int KEY_UP = 0x1;
 

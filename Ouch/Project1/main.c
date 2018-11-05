@@ -1,11 +1,7 @@
 #pragma once
-#include <stdio.h>
-#include <windows.h>
 #include "WindowsHelper.h"
-#include "Grid.h"
-#include "Player.h"
-#include "Game.h"
 #include <time.h>
+#include "GameStateManager.h"
 
 
 int main(void)
@@ -18,15 +14,13 @@ int main(void)
 	WindowsHelper_Init();
 
 	/*Initialise Game*/
-	Game_InitGame();
+	GameStateManager_Init();
 
-	Game_setCurrentState(Playing);
-
-	while (Game_getCurrentState() != Quit)
+	while (GameStateManager_GetCurrentState() != Quit)
 	{
 		timeNow = clock();
 		timePassed = (timeThen - timeNow) / (float)CLOCKS_PER_SEC;
-		Game_Update();
+		GameStateManager_Update();
 	}
 
 	return 0;

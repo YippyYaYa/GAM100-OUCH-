@@ -8,6 +8,7 @@
 This manager is in charge of processing player controls and actions
 */
 /******************************************************************************/
+#pragma once
 #include "Grid.h"
 #include <stdio.h>
 #include "WindowsHelper.h"

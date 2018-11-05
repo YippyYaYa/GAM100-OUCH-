@@ -1,5 +1,4 @@
-#ifndef ENEMY_H
-#define ENEMY_H
+#pragma once
 
-
-#endif
+void Enemy_Init();
+void Enemey_Update();
