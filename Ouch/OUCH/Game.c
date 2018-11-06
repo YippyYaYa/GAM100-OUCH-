@@ -14,7 +14,7 @@ static int currentStage;
 void Game_Init()
 {
 	system("cls");
-	currentStage = 1;
+	currentStage = 2;
 	/* Initialise level 1*/
 	Grid_initGrid(currentStage);
 	Enemy_Init(0, 2, 2, 'D', 'R', 5);

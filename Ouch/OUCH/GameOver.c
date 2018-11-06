@@ -7,7 +7,7 @@
 void GameOver_Init() 
 {
 	system("cls");
-	printf("gg noob");
+	printf("gg noobs");
 }
 
 void GameOver_Update() 

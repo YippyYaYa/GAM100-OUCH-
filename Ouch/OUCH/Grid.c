@@ -31,22 +31,25 @@ void Grid_initGrid(int file)
 			fopen_s(&textart, "DigipenLogo.txt", "r");
 			break;
 		case 1:
-			/*open file for reading*/
-			fopen_s(&textart, "level1.txt", "r");
+			fopen_s(&textart, "TeamLogo.txt", "r");
 			break;
 		case 2:
 			/*open file for reading*/
-			fopen_s(&textart, "level2.txt", "r");
+			fopen_s(&textart, "level1.txt", "r");
 			break;
 		case 3:
 			/*open file for reading*/
-			fopen_s(&textart, "level3.txt", "r");
+			fopen_s(&textart, "level2.txt", "r");
 			break;
 		case 4:
 			/*open file for reading*/
-			fopen_s(&textart, "level4.txt", "r");
+			fopen_s(&textart, "level3.txt", "r");
 			break;
 		case 5:
+			/*open file for reading*/
+			fopen_s(&textart, "level4.txt", "r");
+			break;
+		case 6:
 			/*open file for reading*/
 			fopen_s(&textart, "level5.txt", "r");
 			break;
