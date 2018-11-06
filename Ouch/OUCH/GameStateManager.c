@@ -14,7 +14,7 @@ void GameStateManager_Init()
 	currentState = Loading;
 }
 
-void GameStateManager_Update()
+void GameStateManager_Update(float dt)
 {
 	switch(currentState)
 	{
@@ -25,7 +25,7 @@ void GameStateManager_Update()
 		MainMenu_Update();
 		break;
 	case Playing:
-		Game_Update();
+		Game_Update(dt);
 		break;
 	case Credits:
 		Credits_Update();
