@@ -7,7 +7,7 @@ HANDLE wHnd;    /* Handle to write to the console.*/
 HANDLE rHnd;    /* Handle to read from the console.*/
 
 static short width = 100; /* width of console size*/
-static short height = 26; /* height of console size*/
+static short height = 25; /* height of console size*/
 
 /*Always call this function first before any other WindowsHelper functions*/
 void WindowsHelper_Init()
