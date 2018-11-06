@@ -29,6 +29,7 @@ void Enemy_Update()
 			{
 				if (Grid_getGrid(enemy[i].posX, enemy[i].posY - 1) != '#')
 				{
+					Grid_setGrid(enemy[i].posX, enemy[i].posY, ' ');
 					WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
 					printf("%c", ' ');
 					enemy[i].posY--;

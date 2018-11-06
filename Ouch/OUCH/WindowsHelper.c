@@ -23,8 +23,8 @@ void WindowsHelper_Init()
 	/* Set Console size */
 
 	SetConsoleScreenBufferSize(wHnd, bufferSize);
-	//SetConsoleWindowInfo(wHnd, TRUE, &windowSize);
-	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
+	SetConsoleWindowInfo(wHnd, TRUE, &windowSize);
+	//ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
 	
 	/* Hide blinking cursor */
 	GetConsoleCursorInfo(wHnd, &cursorInfo);
