@@ -6,7 +6,7 @@
 
 void MainMenu_Init()
 {
-
+	system("cls");
 }
 void MainMenu_Update()
 {

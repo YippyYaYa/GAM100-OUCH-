@@ -4,7 +4,7 @@
 
 void Credits_Init()
 {
-
+	system("cls");
 }
 
 void Credits_Update()

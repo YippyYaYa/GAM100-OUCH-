@@ -5,6 +5,7 @@ enum GameState {
 	MainMenu,
 	Playing,
 	Credits,
+	GameOver,
 	Quit
 };
 

@@ -6,7 +6,7 @@
 
 void Loading_Init()
 {
-
+	system("cls");
 }
 
 void Loading_Update()

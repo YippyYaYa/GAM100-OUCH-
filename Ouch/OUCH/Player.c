@@ -9,14 +9,8 @@ const int KEY_UP = 0x1;
 /* Private variables*/
 static int playerX, playerY, possessRange;
 static char player;
-static char direction;
-
-enum PlayerMode {
-	Monkey,
-	Rhino,
-	Bear
-};
-
+static enum PlayerMode currentMode;
+static enum Direction currentDirection;
 
 /*Initialise Player position*/
 void Player_InitPlayer()
@@ -25,7 +19,9 @@ void Player_InitPlayer()
 	playerY = 1;
 	possessRange = 5;
 	player = 'M';
-	direction = 'U';
+	currentMode = Monkey;
+	WindowsHelper_SetCursorPosition(playerX, playerY);
+	printf("%c", player);
 }
 
 /*Check for player input*/
@@ -82,7 +78,7 @@ void Player_Interact()
 		/*Possession Check*/
 		if (player == 'M')
 		{
-			switch (direction)
+			switch (0)
 			{
 				case 'U':
 					for (possessRange = 1; possessRange <= 5; possessRange++)
@@ -111,4 +107,13 @@ void Player_Interact()
 			return;
 		}
 	}
+}
+
+int Player_DeathCheck()
+{
+	if (Grid_getGrid(playerX, playerY) == 'R' || Grid_getGrid(playerX, playerY) == 'B')
+	{
+		return 1;
+	}
+	return 0;
 }

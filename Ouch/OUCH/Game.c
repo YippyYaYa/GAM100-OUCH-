@@ -13,6 +13,7 @@ static int currentStage;
 /*Init game and pass in game level file i/o*/
 void Game_Init()
 {
+	system("cls");
 	currentStage = 1;
 	/* Initialise level 1*/
 	Grid_initGrid(currentStage);
@@ -21,7 +22,7 @@ void Game_Init()
 	Grid_printGrid();
 	Player_InitPlayer();
 	
-	///* Color Coding here dont touch*/
+	///* Color Coding here for future use */
 
 	///* dont touch these just copy it */
 	//HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -46,4 +47,8 @@ void Game_Update()
 {
 	Player_Controls();
 	Enemy_Update();
+	if (Player_DeathCheck())
+	{
+		GameStateManager_SetGameState(GameOver);
+	}
 }

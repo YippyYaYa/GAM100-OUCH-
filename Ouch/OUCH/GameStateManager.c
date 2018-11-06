@@ -4,6 +4,8 @@
 #include "Loading.h"
 #include "MainMenu.h"
 #include "Credits.h"
+#include "GameOver.h"
+#include <Windows.h>
 
 static enum GameState currentState;
 
@@ -44,6 +46,8 @@ void GameStateManager_SetGameState(enum GameState newState)
 		break;
 	case Credits:
 		Credits_Init();
+	case GameOver:
+		GameOver_Init();
 		break;
 	}
 }

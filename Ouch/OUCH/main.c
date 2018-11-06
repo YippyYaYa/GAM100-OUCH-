@@ -11,7 +11,7 @@ int main(void)
 	/*Engine Initialise*/
 	/* Initialise Console grid*/
 	WindowsHelper_Init();
-
+	
 	/*Initialise Game*/
 	GameStateManager_Init();
 	while (GameStateManager_GetCurrentState() != Quit)
@@ -24,5 +24,6 @@ int main(void)
 			GameStateManager_Update();
 		}
 	}
+	getch();
 	return 0;
 }
