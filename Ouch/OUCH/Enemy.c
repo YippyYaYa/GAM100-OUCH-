@@ -5,9 +5,6 @@
 #include "WindowsHelper.h"
 #include <stdio.h>
 
-/*testing purposes*/
-int time1;
-
 struct Enemy enemy[3];
 static int i;
 

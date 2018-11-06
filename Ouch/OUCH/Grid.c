@@ -93,41 +93,6 @@ void Grid_printGrid()
 	}
 }
 
-/*Print initialised grid with player*/
-void Grid_printGridwAll(int level)
-{
-	switch (level)
-	{
-		case 1:
-			/*Push stuff into level 1 grid here*/
-			Enemy_init(0, 2, 2, 'D', 'R');
-			Enemy_init(1, 70, 7, 'R', 'B');
-			break;
-		case 2:
-			/*Push stuff into level 2 grid here*/
-			break;
-		case 3:
-			/*Push stuff into level 3 grid here*/
-			break;
-		case 4:
-			/*Push stuff into level 4 grid here*/
-			break;
-		case 5:
-			/*Push stuff into level 5 grid here*/
-			break;
-	}
-
-	/*prints the grid*/
-	for (i = 0; i < Y; i++)
-	{
-		for (j = 0; j < X; j++)
-		{
-			WindowsHelper_SetCursorPosition(j, i);
-			printf("%c", grid[j][i]);
-		}
-	}
-}
-
 /*Get grid element*/
 char Grid_getGrid(int x, int y)
 {
