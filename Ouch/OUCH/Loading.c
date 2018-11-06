@@ -1,6 +1,7 @@
 #pragma once
 #include "Loading.h"
 #include "GameStateManager.h"
+#include <Windows.h>
 
 /* variables here, must be static */
 

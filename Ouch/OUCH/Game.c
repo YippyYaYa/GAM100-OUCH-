@@ -50,7 +50,7 @@ void Game_Update(float dt)
 	Enemy_Update(dt);
 	if (Player_DeathCheck())
 	{
-		//GameStateManager_SetGameState(GameOver);
+		GameStateManager_SetGameState(GameOver);
 	}
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 #include "MainMenu.h"
 #include "GameStateManager.h"
+#include <Windows.h>
 
 /* variables here, must be static */
 

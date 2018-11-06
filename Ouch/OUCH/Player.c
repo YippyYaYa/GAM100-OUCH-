@@ -131,9 +131,9 @@ void Player_Monkey()
 					printf("%c", Grid_getGrid(playerX, playerY));
 					player = Grid_getGrid(playerX, playerY - possessRange);
 					
-					playerY -= possessRange;
-
 					Enemy_Kill(playerX, playerY - possessRange);
+
+					playerY -= possessRange;
 
 					WindowsHelper_SetCursorPosition(playerX, playerY);
 					printf("%c", player);

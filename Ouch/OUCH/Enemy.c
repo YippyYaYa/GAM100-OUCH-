@@ -20,13 +20,13 @@ void Enemy_Init(int array, float posX, float posY, char direction, char symbol, 
 	Grid_setGrid((int)posX, (int)posY, symbol);
 }
 
-void Enemy_Kill(float posX, float posY)
+void Enemy_Kill(int posX, int posY)
 {
 	for (i = 0; i < 3; i++)
 	{
-		if (enemy[i].posX == posX)
+		if ((int)enemy[i].posX == posX)
 		{
-			if (enemy[i].posY == posY)
+			if ((int)enemy[i].posY == posY)
 			{
 				enemy[i].activated = 'N';
 				Grid_setGrid((int)enemy[i].posX, (int)enemy[i].posY, enemy[i].oldGrid);

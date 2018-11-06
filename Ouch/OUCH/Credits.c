@@ -1,6 +1,7 @@
 #pragma once
 #include "Credits.h"
 #include "GameStateManager.h"
+#include <Windows.h>
 
 void Credits_Init()
 {
