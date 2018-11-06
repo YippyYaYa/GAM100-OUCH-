@@ -29,6 +29,7 @@ void Enemy_Kill(float posX, float posY)
 			if (enemy[i].posY == posY)
 			{
 				enemy[i].activated = 'N';
+				Grid_setGrid((int)enemy[i].posX, (int)enemy[i].posY, enemy[i].oldGrid);
 			}
 		}
 	}
