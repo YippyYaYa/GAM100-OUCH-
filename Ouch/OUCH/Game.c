@@ -49,6 +49,23 @@ void Game_Update()
 	Enemy_Update();
 	if (Player_DeathCheck())
 	{
-		GameStateManager_SetGameState(GameOver);
+		//GameStateManager_SetGameState(GameOver);
+	}
+}
+
+void Game_LoadLevel(int level)
+{
+	currentStage = level;
+	Grid_initGrid(currentStage);
+	switch (currentStage)
+	{
+		case 2:
+			/* init enemy/switch/obstacle/wutever non grid objects here */
+			Player_SetPosition(1, 1);
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
 	}
 }
