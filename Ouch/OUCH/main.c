@@ -18,10 +18,10 @@ int main(void)
 	{
 		ticksNow = clock();
 		timePassed = (ticksNow - ticksThen) / (float)CLOCKS_PER_SEC;
-		if (timePassed >= 0.04f)
+		if (timePassed >= 0.016f)
 		{
 			ticksThen = ticksNow;
-			GameStateManager_Update();
+			GameStateManager_Update(timePassed);
 		}
 	}
 	getch();

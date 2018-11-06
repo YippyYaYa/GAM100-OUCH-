@@ -17,8 +17,9 @@ void Game_Init()
 	currentStage = 1;
 	/* Initialise level 1*/
 	Grid_initGrid(currentStage);
-	Enemy_init(0, 2, 2, 'D', 'R');
-	Enemy_init(1, 70, 7, 'R', 'B');
+	Enemy_Init(0, 2, 2, 'D', 'R', 5);
+	Enemy_Init(1, 70, 8, 'R', 'B', 10);
+	Enemy_Init(2, 70, 7, 'R', 'B', 15);
 	Grid_printGrid();
 	Player_InitPlayer();
 	
@@ -43,10 +44,10 @@ void Game_Init()
 }
 
 /*Update game*/
-void Game_Update()
+void Game_Update(float dt)
 {
 	Player_Controls();
-	Enemy_Update();
+	Enemy_Update(dt);
 	if (Player_DeathCheck())
 	{
 		//GameStateManager_SetGameState(GameOver);
