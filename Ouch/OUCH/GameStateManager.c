@@ -46,6 +46,7 @@ void GameStateManager_SetGameState(enum GameState newState)
 		break;
 	case Credits:
 		Credits_Init();
+		break;
 	case GameOver:
 		GameOver_Init();
 		break;

@@ -10,7 +10,7 @@ void Credits_Init()
 
 void Credits_Update()
 {
-
+	printf("Game made by JAYG");
 }
 
 /* function declaration here */
