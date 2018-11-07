@@ -13,7 +13,7 @@ void Loading_Init()
 void Loading_Update()
 {
 	/* do stuff here */
-
+	printf("hi");
 	/* Change state*/
 	GameStateManager_SetGameState(MainMenu);
 }
