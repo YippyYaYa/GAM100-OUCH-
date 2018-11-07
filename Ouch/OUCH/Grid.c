@@ -43,7 +43,7 @@ void Grid_initGrid(int file)
 			break;
 		case 4:
 			/*open file for reading*/
-			fopen_s(&textart, "level3.txt", "r");
+			fopen_s(&textart, "bear map.txt", "r");
 			break;
 		case 5:
 			/*open file for reading*/
