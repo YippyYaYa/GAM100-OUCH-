@@ -17,15 +17,16 @@ void Game_Init()
 	currentStage = 4;
 	/* Initialise level 1*/
 	Grid_initGrid(currentStage);
-	Enemy_Init(0, 2, 2, 'D', 'R', 5);
-	Enemy_Init(1, 70, 8, 'R', 'B', 10);
-	Enemy_Init(2, 70, 7, 'R', 'B', 15);
+	Enemy_Init(0, 4, 3, 'R', 'B', 5);
+	Enemy_Init(1, 72, 18, 'R', 'B', 10);
+	Enemy_Init(2, 37, 7, 'R', 'B', 15);
+	Enemy_Init(3, 35, 5, 'L', 'B', 15);
 	Grid_printGrid();
 	Player_InitPlayer();
 	
 	///* Color Coding here for future use */
 
-	///* dont touch these just copy it */
+	//* dont touch these just copy it */
 	//HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	//CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
 	//WORD saved_attributes;

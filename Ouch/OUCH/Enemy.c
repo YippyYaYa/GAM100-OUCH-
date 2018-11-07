@@ -5,7 +5,7 @@
 #include "WindowsHelper.h"
 #include <stdio.h>
 
-struct Enemy enemy[3];
+struct Enemy enemy[50];
 static int i;
 
 void Enemy_Init(int array, float posX, float posY, char direction, char symbol, float velocity)
@@ -22,7 +22,7 @@ void Enemy_Init(int array, float posX, float posY, char direction, char symbol, 
 
 void Enemy_Kill(int posX, int posY)
 {
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 50; i++)
 	{
 		if ((int)enemy[i].posX == posX)
 		{
@@ -37,7 +37,7 @@ void Enemy_Kill(int posX, int posY)
 
 void Enemy_Update(float dt)
 {
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 50; i++)
 	{
 		if (enemy[i].activated == 'Y')
 		{
