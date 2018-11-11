@@ -2,6 +2,7 @@
 #include "Credits.h"
 #include "GameStateManager.h"
 #include <Windows.h>
+#include <stdio.h>
 
 void Credits_Init()
 {

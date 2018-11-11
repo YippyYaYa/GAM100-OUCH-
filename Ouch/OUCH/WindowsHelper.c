@@ -24,11 +24,11 @@ void WindowsHelper_Init()
 
 	SetConsoleScreenBufferSize(wHnd, bufferSize);
 	SetConsoleWindowInfo(wHnd, TRUE, &windowSize);
-	//ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
+	ShowWindow(GetConsoleWindow(), SW_SHOWNORMAL);
 	
 	/* Hide blinking cursor */
 	GetConsoleCursorInfo(wHnd, &cursorInfo);
-	cursorInfo.bVisible = 1;
+	cursorInfo.bVisible = 0;
 	SetConsoleCursorInfo(wHnd, &cursorInfo);
 
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
