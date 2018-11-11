@@ -4,11 +4,12 @@
 #include <windows.h>
 #include <stdio.h>
 #include "Enemy.h"
-/*Player controls file*/
+
 const int KEY_UP = 0x1;
 
 /* Private variables*/
-static int playerX, playerY, possessRange;
+static int playerX, playerY; /* Player Coordinates */
+static int possessRange; 
 static char player;
 static enum PlayerMode currentMode;
 static enum Direction currentDirection;
@@ -107,6 +108,17 @@ void Player_Interact()
 				break;
 		}
 	}
+	/* C Key Entered */
+	else if ((GetAsyncKeyState(0x43) &KEY_UP) == KEY_UP)
+	{
+		switch (currentMode)
+		{
+			case Rhino:
+			case Bear:
+				Player_Unpossess();
+				break;
+		}
+	}
 }
 
 int Player_DeathCheck()
@@ -125,7 +137,8 @@ void Player_Monkey()
 		case Up:
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
-				if (Grid_getGrid(playerX,playerY - possessRange) != ' ')
+				if (Grid_getGrid(playerX,playerY - possessRange) == 'B' || 
+					Grid_getGrid(playerX, playerY - possessRange) == 'R')
 				{
 					WindowsHelper_SetCursorPosition(playerX, playerY);
 					printf("%c", Grid_getGrid(playerX, playerY));
@@ -146,55 +159,94 @@ void Player_Monkey()
 					{
 						currentMode = Rhino;
 					}
-
-					//printf("HIT\n");
 					break;
-				}
-				else
-				{
-					//printf("NO HIT\n");
 				}
 			}
 			break;
 		case Down:
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
-				if (Grid_getGrid(playerX, playerY + possessRange) != ' ')
+				if (Grid_getGrid(playerX, playerY + possessRange) == 'B' ||
+					Grid_getGrid(playerX, playerY + possessRange) == 'R')
 				{
-					printf("HIT\n");
+					WindowsHelper_SetCursorPosition(playerX, playerY);
+					printf("%c", Grid_getGrid(playerX, playerY));
+					player = Grid_getGrid(playerX, playerY + possessRange);
+
+					Enemy_Kill(playerX, playerY + possessRange);
+
+					playerY += possessRange;
+
+					WindowsHelper_SetCursorPosition(playerX, playerY);
+					printf("%c", player);
+
+					if (player == 'B')
+					{
+						currentMode = Bear;
+					}
+					else
+					{
+						currentMode = Rhino;
+					}
 					break;
-				}
-				else
-				{
-					printf("NO HIT\n");
 				}
 			}
 			break;
 		case Left:
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
-				if (Grid_getGrid(playerX - possessRange, playerY) != ' ')
+				if (Grid_getGrid(playerX - possessRange, playerY) == 'B' ||
+					Grid_getGrid(playerX - possessRange, playerY) == 'R')
 				{
-					printf("HIT\n");
+					WindowsHelper_SetCursorPosition(playerX, playerY);
+					printf("%c", Grid_getGrid(playerX, playerY));
+					player = Grid_getGrid(playerX - possessRange, playerY);
+
+					Enemy_Kill(playerX - possessRange, playerY);
+
+					playerX -= possessRange;
+
+					WindowsHelper_SetCursorPosition(playerX, playerY);
+					printf("%c", player);
+
+					if (player == 'B')
+					{
+						currentMode = Bear;
+					}
+					else
+					{
+						currentMode = Rhino;
+					}
 					break;
-				}
-				else
-				{
-					printf("NO HIT\n");
 				}
 			}
 			break;
 		case Right:
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
-				if (Grid_getGrid(playerX + possessRange, playerY ) != ' ')
+				if (Grid_getGrid(playerX + possessRange, playerY) == 'B' ||
+					Grid_getGrid(playerX + possessRange, playerY) == 'R')
 				{
-					printf("HIT\n");
+					WindowsHelper_SetCursorPosition(playerX, playerY);
+					printf("%c", Grid_getGrid(playerX, playerY));
+					player = Grid_getGrid(playerX + possessRange, playerY);
+
+					Enemy_Kill(playerX + possessRange, playerY);
+
+					playerX += possessRange;
+
+					WindowsHelper_SetCursorPosition(playerX, playerY);
+					printf("%c", player);
+
+					if (player == 'B')
+					{
+						currentMode = Bear;
+					}
+					else
+					{
+						currentMode = Rhino;
+					}
 					break;
-				}
-				else
-				{
-					printf("NO HIT\n");
 				}
 			}
 			break;
@@ -234,6 +286,14 @@ void Player_SetPosition(int x, int y)
 {
 	playerX = x;
 	playerY = y;
+	WindowsHelper_SetCursorPosition(playerX, playerY);
+	printf("%c", player);
+}
+
+void Player_Unpossess()
+{
+	currentMode = Monkey;
+	player = 'M';
 	WindowsHelper_SetCursorPosition(playerX, playerY);
 	printf("%c", player);
 }

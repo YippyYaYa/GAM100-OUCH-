@@ -12,8 +12,8 @@ static short height = 25; /* height of console size*/
 /*Always call this function first before any other WindowsHelper functions*/
 void WindowsHelper_Init()
 {
-	COORD bufferSize = { width, height };
-	SMALL_RECT windowSize = { 0, 0, width-1 , height-1  };
+	COORD bufferSize = { width+1, height };
+	SMALL_RECT windowSize = { 0, 0, width , height  };
 	CONSOLE_CURSOR_INFO cursorInfo;
 
 	wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -24,11 +24,10 @@ void WindowsHelper_Init()
 
 	SetConsoleScreenBufferSize(wHnd, bufferSize);
 	SetConsoleWindowInfo(wHnd, TRUE, &windowSize);
-	ShowWindow(GetConsoleWindow(), SW_SHOWNORMAL);
 	
 	/* Hide blinking cursor */
 	GetConsoleCursorInfo(wHnd, &cursorInfo);
-	cursorInfo.bVisible = 0;
+	cursorInfo.bVisible = 1;
 	SetConsoleCursorInfo(wHnd, &cursorInfo);
 
 	CONSOLE_SCREEN_BUFFER_INFO csbi;

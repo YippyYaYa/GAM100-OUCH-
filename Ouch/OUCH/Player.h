@@ -22,3 +22,4 @@ void Player_Monkey();
 void Player_Rhino();
 void Player_Bear();
 void Player_SetPosition(int x, int y);
+void Player_Unpossess();
