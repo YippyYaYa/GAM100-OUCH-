@@ -38,6 +38,9 @@ void GameStateManager_SetGameState(enum GameState newState)
 	currentState = newState;
 	switch (currentState)
 	{
+	case Loading:
+		Loading_Init();
+		break;
 	case MainMenu:
 		MainMenu_Init();
 		break;
