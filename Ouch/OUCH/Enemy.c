@@ -56,7 +56,6 @@ void Enemy_Kill(int posX, int posY)
 			if ((int)enemy[i].posY == posY)
 			{
 				enemy[i].activated = 'N';
-				activatedEnemies -= 1;
 				Grid_setGrid((int)enemy[i].posX, (int)enemy[i].posY, enemy[i].oldGrid);
 			}
 		}
