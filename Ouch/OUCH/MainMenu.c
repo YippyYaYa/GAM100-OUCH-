@@ -2,6 +2,7 @@
 #include "MainMenu.h"
 #include "GameStateManager.h"
 #include <Windows.h>
+#include <stdio.h>
 
 /* variables here, must be static */
 
