@@ -8,11 +8,11 @@
 const int KEY_UP = 0x1;
 
 /* Private variables*/
-static int playerX, playerY; /* Player Coordinates */
-static int possessRange; 
-static char player;
-static enum PlayerMode currentMode;
-static enum Direction currentDirection;
+static int playerX, playerY;            /* Player Coordinates */
+static int possessRange;                /* Possession Range */
+static char player;                     /* Player Character */
+static enum PlayerMode currentMode;     /* Current Form of the Player*/
+static enum Direction currentDirection; /* Current direction that player is facing */
 
 /*Initialise Player position*/
 void Player_InitPlayer()
@@ -30,64 +30,76 @@ void Player_InitPlayer()
 /*Check for player input*/
 void Player_Controls()
 {
-	Player_move();
+	Player_Move();
 	Player_Interact();
 }
 
 /*Move player*/
-void Player_move()
+void Player_Move()
 {
 	/*Left Key Entered*/
-	if ((GetAsyncKeyState(VK_LEFT) &KEY_UP) == KEY_UP && Grid_getGrid(playerX-1, playerY) != '#')
+	if ((GetAsyncKeyState(VK_LEFT) &KEY_UP) == KEY_UP)
 	{
-		WindowsHelper_SetCursorPosition(playerX, playerY);
-		printf("%c", Grid_getGrid(playerX, playerY));
-
-		playerX--;
-
-		WindowsHelper_SetCursorPosition(playerX, playerY);
-		printf("%c", player);
-
 		currentDirection = Left;
-	} 
+		if (Grid_getGrid(playerX - 1, playerY) != '#' &&
+			Grid_getGrid(playerX - 1, playerY) != 'p')
+		{
+			WindowsHelper_SetCursorPosition(playerX, playerY);
+			printf("%c", Grid_getGrid(playerX, playerY));
+
+			playerX--;
+
+			WindowsHelper_SetCursorPosition(playerX, playerY);
+			printf("%c", player);
+		}
+	}
 	/*Right Key Entered*/
-	else if ((GetAsyncKeyState(VK_RIGHT) &KEY_UP) == KEY_UP && Grid_getGrid(playerX+1, playerY) != '#')
+	else if ((GetAsyncKeyState(VK_RIGHT) &KEY_UP) == KEY_UP)
 	{
-		WindowsHelper_SetCursorPosition(playerX, playerY);
-		printf("%c", Grid_getGrid(playerX, playerY));
-
-		playerX++;
-
-		WindowsHelper_SetCursorPosition(playerX, playerY);
-		printf("%c", player);
-
 		currentDirection = Right;
+		if (Grid_getGrid(playerX + 1, playerY) != '#' &&
+			Grid_getGrid(playerX + 1, playerY) != 'p')
+		{
+			WindowsHelper_SetCursorPosition(playerX, playerY);
+			printf("%c", Grid_getGrid(playerX, playerY));
+
+			playerX++;
+
+			WindowsHelper_SetCursorPosition(playerX, playerY);
+			printf("%c", player);
+		}
 	}
 	/*Up Key Entered*/
-	else if ((GetAsyncKeyState(VK_UP) &KEY_UP) == KEY_UP && Grid_getGrid(playerX, playerY-1) != '#')
+	else if ((GetAsyncKeyState(VK_UP) &KEY_UP) == KEY_UP)
 	{
-		WindowsHelper_SetCursorPosition(playerX, playerY);
-		printf("%c", Grid_getGrid(playerX, playerY));
-
-		playerY--;
-
-		WindowsHelper_SetCursorPosition(playerX, playerY);
-		printf("%c", player);
-
 		currentDirection = Up;
+		if (Grid_getGrid(playerX, playerY - 1) != '#' &&
+			Grid_getGrid(playerX, playerY - 1) != 'p')
+		{
+			WindowsHelper_SetCursorPosition(playerX, playerY);
+			printf("%c", Grid_getGrid(playerX, playerY));
+
+			playerY--;
+
+			WindowsHelper_SetCursorPosition(playerX, playerY);
+			printf("%c", player);
+		}
 	}
 	/*Down Key Entered*/
-	else if ((GetAsyncKeyState(VK_DOWN) &KEY_UP) == KEY_UP && Grid_getGrid(playerX, playerY+1) != '#')
+	else if ((GetAsyncKeyState(VK_DOWN) &KEY_UP) == KEY_UP)
 	{
-		WindowsHelper_SetCursorPosition(playerX, playerY);
-		printf("%c", Grid_getGrid(playerX, playerY));
-
-		playerY++;
-
-		WindowsHelper_SetCursorPosition(playerX, playerY);
-		printf("%c", player);
-
 		currentDirection = Down;
+		if (Grid_getGrid(playerX, playerY + 1) != '#' &&
+			Grid_getGrid(playerX, playerY + 1) != 'p')
+		{
+			WindowsHelper_SetCursorPosition(playerX, playerY);
+			printf("%c", Grid_getGrid(playerX, playerY));
+
+			playerY++;
+
+			WindowsHelper_SetCursorPosition(playerX, playerY);
+			printf("%c", player);
+		}
 	}
 }
 
@@ -103,6 +115,7 @@ void Player_Interact()
 				Player_Monkey();
 				break;
 			case Bear:
+				Player_Bear();
 				break;
 			case Rhino:
 				break;
@@ -121,6 +134,7 @@ void Player_Interact()
 	}
 }
 
+/* Check if player collided with any enemy */
 int Player_DeathCheck()
 {
 	if (Grid_getGrid(playerX, playerY) == 'R' || Grid_getGrid(playerX, playerY) == 'B')
@@ -130,11 +144,13 @@ int Player_DeathCheck()
 	return 0;
 }
 
+/* Monkey Possession */
 void Player_Monkey()
 {
 	switch (currentDirection)
 	{
 		case Up:
+			/* Check if there are any enemy in range */
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
 				if (Grid_getGrid(playerX,playerY - possessRange) == 'B' || 
@@ -272,12 +288,28 @@ void Player_Bear()
 	switch (currentDirection)
 	{
 	case Up:
+		if (Grid_getGrid(playerX, playerY - 1) == 'p' && Grid_getGrid(playerX, playerY - 2) == ' ')
+		{
+			Player_BearPush(playerX, playerY - 1, playerX, playerY - 2);
+		}
 		break;
 	case Down:
+		if (Grid_getGrid(playerX, playerY + 1) == 'p' && Grid_getGrid(playerX, playerY + 2) == ' ')
+		{
+			Player_BearPush(playerX, playerY + 1, playerX, playerY + 2);
+		}
 		break;
 	case Left:
+		if (Grid_getGrid(playerX - 1, playerY) == 'p' && Grid_getGrid(playerX - 2, playerY) == ' ')
+		{
+			Player_BearPush(playerX - 1, playerY, playerX - 2, playerY);
+		}
 		break;
 	case Right:
+		if (Grid_getGrid(playerX + 1, playerY) == 'p' && Grid_getGrid(playerX + 2, playerY) == ' ')
+		{
+			Player_BearPush(playerX + 1, playerY, playerX + 2, playerY);
+		}
 		break;
 	}
 }
@@ -296,4 +328,19 @@ void Player_Unpossess()
 	player = 'M';
 	WindowsHelper_SetCursorPosition(playerX, playerY);
 	printf("%c", player);
+}
+
+void Player_BearPush(int obstacleOldPosX, int obstacleOldPosY, int obstacleNewPosX, int obstacleNewPosY)
+{
+	Grid_setGrid(obstacleNewPosX, obstacleNewPosY, Grid_getGrid(obstacleOldPosX, obstacleOldPosY));
+	Grid_setGrid(obstacleOldPosX, obstacleOldPosY, ' ');
+	WindowsHelper_SetCursorPosition(obstacleNewPosX, obstacleNewPosY);
+	printf("%c", Grid_getGrid(obstacleNewPosX, obstacleNewPosY));
+	WindowsHelper_SetCursorPosition(obstacleOldPosX, obstacleOldPosY);
+	printf("%c", Grid_getGrid(obstacleOldPosX, obstacleOldPosY));
+}
+
+void Player_RhinoWallBreak(int wallPosX, int wallPosY)
+{
+
 }
