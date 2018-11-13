@@ -17,10 +17,32 @@ void Game_Init()
 	currentStage = 4;
 	/* Initialise level 1*/
 	Grid_initGrid(currentStage);
-	Enemy_Init(0, 4, 3, 'R', 'B', 5);
-	Enemy_Init(1, 72, 18, 'R', 'B', 10);
-	Enemy_Init(2, 37, 7, 'R', 'B', 15);
-	Enemy_Init(3, 35, 5, 'L', 'B', 15);
+	Enemy_Init(0, 9, 1, 'R', 'B', 4);
+	Enemy_Init(1, 1, 2, 'R', 'B', 5);
+	Enemy_Init(2, 2, 3, 'R', 'B', 5);
+	Enemy_Init(3, 3, 4, 'R', 'B', 5);
+	Enemy_Init(4, 4, 5, 'R', 'B', 5);
+	Enemy_Init(5, 5, 6, 'R', 'B', 5);
+	Enemy_Init(6, 6, 7, 'R', 'B', 5);
+	Enemy_Init(7, 7, 8, 'R', 'B', 5);
+	Enemy_Init(8, 8, 9, 'R', 'B', 5);
+	Enemy_Init(9, 9, 10, 'R', 'B', 5);
+	/*Enemy_Init(10, 1, 11, 'R', 'B', 5); cause bugs since walls are passable*/
+	Enemy_Init(11, 18, 15, 'R', 'B', 5);
+	Enemy_Init(12, 1, 16, 'R', 'B', 5);
+	Enemy_Init(13, 18, 17, 'R', 'B', 5);
+	Enemy_Init(14, 1, 18, 'R', 'B', 5);
+	Enemy_Init(15, 14, 10, 'U', 'B', 5);
+	Enemy_Init(16, 16, 10, 'D', 'B', 5);
+	Enemy_Init(17, 18, 10, 'D', 'B', 5);
+	Enemy_Init(18, 20, 6, 'D', 'B', 5);//
+	Enemy_Init(19, 21, 10, 'D', 'B', 5);
+	Enemy_Init(20, 22, 6, 'D', 'B', 5);//
+	Enemy_Init(21, 23, 10, 'D', 'B', 5);
+
+	Enemy_Init(88, 72, 18, 'R', 'B', 10);
+	Enemy_Init(89, 37, 7, 'R', 'B', 15);
+	Enemy_Init(90, 35, 5, 'L', 'B', 15);
 	Grid_printGrid();
 	Player_InitPlayer();
 	
