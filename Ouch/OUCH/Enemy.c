@@ -1,7 +1,6 @@
 #pragma once
 #include "Enemy.h"
 #include "Grid.h"
-#include "GameStateManager.h"
 #include "WindowsHelper.h"
 #include <stdio.h>
 
