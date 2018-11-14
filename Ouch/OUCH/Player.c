@@ -34,7 +34,7 @@ void Player_Controls()
 	Player_Interact();
 }
 
-/*Move player*/
+/* Player Movement */
 void Player_Move()
 {
 	/*Left Key Entered*/
@@ -153,6 +153,7 @@ void Player_Monkey()
 			/* Check if there are any enemy in range */
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
+				/* Possess if there is a bear or rhino in range */
 				if (Grid_getGrid(playerX, playerY - possessRange) == 'B' || 
 					Grid_getGrid(playerX, playerY - possessRange) == 'R')
 				{
@@ -184,8 +185,10 @@ void Player_Monkey()
 			}
 			break;
 		case Down:
+			/* Check if there are any enemy in range */
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
+				/* Possess if there is a bear or rhino in range */
 				if (Grid_getGrid(playerX, playerY + possessRange) == 'B' ||
 					Grid_getGrid(playerX, playerY + possessRange) == 'R')
 				{
@@ -217,8 +220,10 @@ void Player_Monkey()
 			}
 			break;
 		case Left:
+			/* Check if there are any enemy in range */
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
+				/* Possess if there is a bear or rhino in range */
 				if (Grid_getGrid(playerX - possessRange, playerY) == 'B' ||
 					Grid_getGrid(playerX - possessRange, playerY) == 'R')
 				{
@@ -250,8 +255,10 @@ void Player_Monkey()
 			}
 			break;
 		case Right:
+			/* Check if there are any enemy in range */
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
+				/* Possess if there is a bear or rhino in range */
 				if (Grid_getGrid(playerX + possessRange, playerY) == 'B' ||
 					Grid_getGrid(playerX + possessRange, playerY) == 'R')
 				{
@@ -299,8 +306,10 @@ void Player_Rhino()
 	}
 }
 
+/* Bear Pushing Obstacle*/
 void Player_Bear()
 {
+	/* Checks if there is space to push the block */
 	switch (currentDirection)
 	{
 	case Up:
@@ -338,6 +347,7 @@ void Player_SetPosition(int x, int y)
 	printf("%c", player);
 }
 
+/* Turn back to monkey */
 void Player_Unpossess()
 {
 	currentMode = Monkey;
@@ -346,6 +356,7 @@ void Player_Unpossess()
 	printf("%c", player);
 }
 
+/* Push obstacle */
 void Player_BearPush(int obstacleOldPosX, int obstacleOldPosY, int obstacleNewPosX, int obstacleNewPosY)
 {
 	Grid_setGrid(obstacleNewPosX, obstacleNewPosY, Grid_getGrid(obstacleOldPosX, obstacleOldPosY));

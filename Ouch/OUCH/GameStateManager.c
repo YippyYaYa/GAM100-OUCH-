@@ -9,11 +9,13 @@
 
 static enum GameState currentState;
 
+/* Initial state set to loading */
 void GameStateManager_Init()
 {
 	currentState = Loading;
 }
 
+/* Update current state */
 void GameStateManager_Update(float dt)
 {
 	switch(currentState)
@@ -33,6 +35,7 @@ void GameStateManager_Update(float dt)
 	}
 }
 
+/* Set new state and calls the init of the new state */
 void GameStateManager_SetGameState(enum GameState newState)
 {
 	currentState = newState;

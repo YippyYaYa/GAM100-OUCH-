@@ -1,4 +1,4 @@
-#include <windows.h>
+#include <Windows.h>
 #include <stdio.h>
 #include "WindowsHelper.h"
 
@@ -11,8 +11,9 @@ static short height = 25; /* height of console size*/
 void WindowsHelper_Init()
 {
 	COORD bufferSize = { width, height };
-	SMALL_RECT windowSize = { 0,0, width - 1, height - 1 };
+	SMALL_RECT windowSize = { 0,0, width - 1, height - 1};
 	CONSOLE_CURSOR_INFO cursorInfo;
+	DWORD consoleMode;
 
 	wHnd = GetStdHandle(STD_OUTPUT_HANDLE);
 	rHnd = GetStdHandle(STD_INPUT_HANDLE);
@@ -26,6 +27,12 @@ void WindowsHelper_Init()
 	GetConsoleCursorInfo(wHnd, &cursorInfo);
 	cursorInfo.bVisible = 0;
 	SetConsoleCursorInfo(wHnd, &cursorInfo);
+
+	consoleMode |= DISABLE_NEWLINE_AUTO_RETURN |
+		ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+	if (!(SetConsoleMode(wHnd, consoleMode)))
+		printf("Failed\n");
+	getch();
 }
 
 /*Sets the console cursor position. Note that (0,0) is the top left of the console*/
