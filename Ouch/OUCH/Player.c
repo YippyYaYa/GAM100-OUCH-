@@ -153,7 +153,7 @@ void Player_Monkey()
 			/* Check if there are any enemy in range */
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
-				if (Grid_getGrid(playerX,playerY - possessRange) == 'B' || 
+				if (Grid_getGrid(playerX, playerY - possessRange) == 'B' || 
 					Grid_getGrid(playerX, playerY - possessRange) == 'R')
 				{
 					WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -175,6 +175,10 @@ void Player_Monkey()
 					{
 						currentMode = Rhino;
 					}
+					break;
+				}
+				else if (Grid_getGrid(playerX, playerY - possessRange) != ' ')
+				{
 					break;
 				}
 			}
@@ -206,6 +210,10 @@ void Player_Monkey()
 					}
 					break;
 				}
+				else if (Grid_getGrid(playerX, playerY + possessRange) != ' ')
+				{
+					break;
+				}
 			}
 			break;
 		case Left:
@@ -235,6 +243,10 @@ void Player_Monkey()
 					}
 					break;
 				}
+				else if (Grid_getGrid(playerX - possessRange, playerY) != ' ')
+				{
+					break;
+				}
 			}
 			break;
 		case Right:
@@ -262,6 +274,10 @@ void Player_Monkey()
 					{
 						currentMode = Rhino;
 					}
+					break;
+				}
+				else if (Grid_getGrid(playerX + possessRange, playerY) != ' ')
+				{
 					break;
 				}
 			}
