@@ -28,11 +28,10 @@ void WindowsHelper_Init()
 	cursorInfo.bVisible = 0;
 	SetConsoleCursorInfo(wHnd, &cursorInfo);
 
-	consoleMode |= DISABLE_NEWLINE_AUTO_RETURN |
-		ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-	if (!(SetConsoleMode(wHnd, consoleMode)))
-		printf("Failed\n");
-	getch();
+	/* Disable extra row printing at the end of screen */
+	GetConsoleMode(wHnd, &consoleMode);
+	consoleMode |= DISABLE_NEWLINE_AUTO_RETURN | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+	SetConsoleMode(wHnd, consoleMode);
 }
 
 /*Sets the console cursor position. Note that (0,0) is the top left of the console*/
