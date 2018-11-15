@@ -5,16 +5,20 @@
 #include <stdio.h>
 
 /* variables here, must be static */
+static enum GameState currentState;
 
 void Loading_Init()
 {
 	system("cls");
+	currentState = 0;
+	Grid_initGrid(currentState);
+	currentState = 1;
+	
 }
 
 void Loading_Update()
 {
 	/* do stuff here */
-	printf("hi");
 	/* Change state*/
 	GameStateManager_SetGameState(MainMenu);
 }
