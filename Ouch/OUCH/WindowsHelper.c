@@ -10,8 +10,8 @@ static short height = 25; /* height of console size*/
 
 void WindowsHelper_Init()
 {
-	COORD bufferSize = { width , height };
-	SMALL_RECT windowSize = { 0,0, width - 1, height - 1};
+	COORD bufferSize = { width , height+1 };
+	SMALL_RECT windowSize = { 0,0, width - 1, height };
 	CONSOLE_CURSOR_INFO cursorInfo;
 	/*DWORD consoleMode;*/
 
