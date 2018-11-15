@@ -53,6 +53,14 @@ void Grid_initGrid(int file)
 			/*open file for reading*/
 			fopen_s(&textart, "level5.txt", "r");
 			break;
+		case 7:
+			/*open file for reading*/
+			fopen_s(&textart, "mainmenu.txt", "r");
+			break;
+		case 8:
+			/*open file for reading*/
+			fopen_s(&textart, "GameOver.txt", "r");
+			break;
 	}
 
 	/*Transverse 2D array*/
