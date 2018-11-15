@@ -116,6 +116,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ascii.c" />
     <ClCompile Include="Colours.c" />
     <ClCompile Include="Credits.c" />
     <ClCompile Include="Enemy.c" />

@@ -54,6 +54,9 @@
     <ClCompile Include="Colours.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Ascii.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WindowsHelper.h">

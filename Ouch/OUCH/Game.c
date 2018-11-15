@@ -18,7 +18,7 @@ void Game_Init()
 	Enemy_Init();
 
 	/*Spawn Enemies*/
-	Enemy_Spawn(11, 1, 'R', 'B', 5);
+	/*Enemy_Spawn(11, 1, 'R', 'B', 5);      too annoying when debuging*/
 	Enemy_Spawn(2, 3, 'R', 'B', 5);
 	Enemy_Spawn(3, 4, 'R', 'B', 5);
 	Enemy_Spawn(4, 5, 'R', 'B', 5);
@@ -27,7 +27,6 @@ void Game_Init()
 	Enemy_Spawn(7, 8, 'R', 'B', 5);
 	Enemy_Spawn(8, 9, 'R', 'B', 5);
 	Enemy_Spawn(9, 10, 'R', 'B', 5);
-	Enemy_Spawn(1, 11, 'R', 'B', 5);
 	Enemy_Spawn(18, 15, 'R', 'B', 5);
 	Enemy_Spawn(1, 16, 'R', 'B', 5);
 	Enemy_Spawn(18, 17, 'R', 'B', 5);
@@ -37,8 +36,6 @@ void Game_Init()
 	Enemy_Spawn(18, 10, 'D', 'B', 5);
 	Enemy_Spawn(20, 6, 'D', 'B', 5);
 	Enemy_Spawn(21, 10, 'D', 'B', 5);
-	Enemy_Spawn(22, 7, 'D', 'B', 1);
-	Enemy_Spawn(23, 10, 'D', 'B', 5);
 	Enemy_Spawn(72, 18, 'R', 'B', 5);
 	Enemy_Spawn(37, 7, 'R', 'B', 5);
 	Enemy_Spawn(35, 5, 'L', 'B', 5);
