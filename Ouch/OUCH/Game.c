@@ -46,25 +46,6 @@ void Game_Init()
 	/*Print Grid and Etc*/
 	Grid_printGrid();
 	Player_InitPlayer();
-	
-	///* Color Coding here for future use */
-
-	//* dont touch these just copy it */
-	//HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	//CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
-	//WORD saved_attributes;
-	///* Save current attributes */
-	//GetConsoleScreenBufferInfo(hConsole, &consoleInfo);
-	//saved_attributes = consoleInfo.wAttributes;
-	///* dont touch ends here */
-
-	///*edit foreground and background color here*/
-	//SetConsoleTextAttribute(hConsole, FOREGROUND_CYAN);
-	//printf("This is some nice COLORFUL text, isn't it?");
-
-	///* Restore original attributes */
-	//SetConsoleTextAttribute(hConsole, saved_attributes);
-	//printf("Back to normal");
 }
 
 /*Update game*/

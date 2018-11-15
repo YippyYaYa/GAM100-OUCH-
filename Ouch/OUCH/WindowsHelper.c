@@ -5,13 +5,13 @@
 HANDLE wHnd;    /* Handle to write to the console.*/
 HANDLE rHnd;    /* Handle to read from the console.*/
 
-static short width = 100; /* width of console size*/
-static short height = 25; /* height of console size*/
+static short width = 101; /* width of console size*/
+static short height = 26; /* height of console size*/
 
 void WindowsHelper_Init()
 {
-	COORD bufferSize = { width , height+1 };
-	SMALL_RECT windowSize = { 0,0, width - 1, height };
+	COORD bufferSize = { width , height };
+	SMALL_RECT windowSize = { 0,0, width , height };
 	CONSOLE_CURSOR_INFO cursorInfo;
 	DWORD consoleMode;
 

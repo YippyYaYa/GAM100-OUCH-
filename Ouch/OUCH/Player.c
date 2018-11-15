@@ -14,6 +14,7 @@ static int possessRange;                /* Possession Range */
 static char player;                     /* Player Character */
 static enum PlayerMode currentMode;     /* Current Form of the Player*/
 static enum Direction currentDirection; /* Current direction that player is facing */
+static int rhinoBreakCount;             /* Number of times rhino break can be used */
 
 /*Initialise Player position*/
 void Player_InitPlayer()
@@ -24,11 +25,8 @@ void Player_InitPlayer()
 	player = 'M';
 	currentMode = Monkey;
 	currentDirection = Up;
+	rhinoBreakCount = 0;
 	Player_PrintPlayer();
-
-	/*
-	WindowsHelper_SetCursorPosition(playerX, playerY);
-	printf("%c", player); */
 }
 
 /*Check for player input*/
@@ -46,7 +44,8 @@ void Player_Move()
 	{
 		currentDirection = Left;
 		if (Grid_getGrid(playerX - 1, playerY) != '#' &&
-			Grid_getGrid(playerX - 1, playerY) != 'p')
+			Grid_getGrid(playerX - 1, playerY) != 'p' &&
+			Grid_getGrid(playerX - 1, playerY) != 'X')
 		{
 			WindowsHelper_SetCursorPosition(playerX, playerY);
 			printf("%c", Grid_getGrid(playerX, playerY));
@@ -61,7 +60,8 @@ void Player_Move()
 	{
 		currentDirection = Right;
 		if (Grid_getGrid(playerX + 1, playerY) != '#' &&
-			Grid_getGrid(playerX + 1, playerY) != 'p')
+			Grid_getGrid(playerX + 1, playerY) != 'p' &&
+			Grid_getGrid(playerX + 1, playerY) != 'X')
 		{
 			WindowsHelper_SetCursorPosition(playerX, playerY);
 			printf("%c", Grid_getGrid(playerX, playerY));
@@ -76,7 +76,8 @@ void Player_Move()
 	{
 		currentDirection = Up;
 		if (Grid_getGrid(playerX, playerY - 1) != '#' &&
-			Grid_getGrid(playerX, playerY - 1) != 'p')
+			Grid_getGrid(playerX, playerY - 1) != 'p' &&
+			Grid_getGrid(playerX, playerY - 1) != 'X')
 		{
 			WindowsHelper_SetCursorPosition(playerX, playerY);
 			printf("%c", Grid_getGrid(playerX, playerY));
@@ -91,7 +92,8 @@ void Player_Move()
 	{
 		currentDirection = Down;
 		if (Grid_getGrid(playerX, playerY + 1) != '#' &&
-			Grid_getGrid(playerX, playerY + 1) != 'p')
+			Grid_getGrid(playerX, playerY + 1) != 'p' &&
+			Grid_getGrid(playerX, playerY + 1) != 'X')
 		{
 			WindowsHelper_SetCursorPosition(playerX, playerY);
 			printf("%c", Grid_getGrid(playerX, playerY));
@@ -118,6 +120,7 @@ void Player_Interact()
 				Player_Bear();
 				break;
 			case Rhino:
+				Player_Rhino();
 				break;
 		}
 	}
@@ -174,6 +177,7 @@ void Player_Monkey()
 					else
 					{
 						currentMode = Rhino;
+						rhinoBreakCount = 2;
 					}
 					break;
 				}
@@ -208,6 +212,7 @@ void Player_Monkey()
 					else
 					{
 						currentMode = Rhino;
+						rhinoBreakCount = 2;
 					}
 					break;
 				}
@@ -242,6 +247,7 @@ void Player_Monkey()
 					else
 					{
 						currentMode = Rhino;
+						rhinoBreakCount = 2;
 					}
 					break;
 				}
@@ -276,6 +282,7 @@ void Player_Monkey()
 					else
 					{
 						currentMode = Rhino;
+						rhinoBreakCount = 2;
 					}
 					break;
 				}
@@ -292,12 +299,28 @@ void Player_Rhino()
 	switch (currentDirection)
 	{
 	case Up:
+		if (Grid_getGrid(playerX, playerY - 1) == 'X')
+		{
+			Player_RhinoWallBreak(playerX, playerY - 1);
+		}
 		break;
 	case Down:
+		if (Grid_getGrid(playerX, playerY + 1) == 'X')
+		{
+			Player_RhinoWallBreak(playerX, playerY + 1);
+		}
 		break;
 	case Left:
+		if (Grid_getGrid(playerX - 1, playerY) == 'X')
+		{
+			Player_RhinoWallBreak(playerX - 1, playerY);
+		}
 		break;
 	case Right:
+		if (Grid_getGrid(playerX + 1, playerY) == 'X')
+		{
+			Player_RhinoWallBreak(playerX + 1, playerY);
+		}
 		break;
 	}
 }
@@ -335,6 +358,7 @@ void Player_Bear()
 	}
 }
 
+/* Set Position of player */
 void Player_SetPosition(int x, int y)
 {
 	playerX = x;
@@ -362,9 +386,16 @@ void Player_BearPush(int obstacleOldPosX, int obstacleOldPosY, int obstacleNewPo
 	printf("%c", Grid_getGrid(obstacleOldPosX, obstacleOldPosY));
 }
 
+/* Break Wall */
 void Player_RhinoWallBreak(int wallPosX, int wallPosY)
 {
-
+	Grid_setGrid(wallPosX, wallPosY, ' ');
+	WindowsHelper_SetCursorPosition(wallPosX, wallPosY);
+	printf("%c", Grid_getGrid(wallPosX, wallPosY));
+	if (--rhinoBreakCount == 0)
+	{
+		Player_Unpossess();
+	}
 }
 
 /* Print player with specified color */
