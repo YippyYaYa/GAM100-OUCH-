@@ -6,8 +6,6 @@
 #include "GameStateManager.h"
 #include <Windows.h>
 
-#define FOREGROUND_CYAN FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_BLUE
-
 static int currentStage;
 
 /*Init game and pass in game level file i/o*/

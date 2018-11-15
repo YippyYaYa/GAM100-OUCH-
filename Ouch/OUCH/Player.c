@@ -3,6 +3,7 @@
 #include "Grid.h"
 #include <windows.h>
 #include <stdio.h>
+#include "Colours.h"
 #include "Enemy.h"
 
 const int KEY_UP = 0x1;
@@ -23,8 +24,11 @@ void Player_InitPlayer()
 	player = 'M';
 	currentMode = Monkey;
 	currentDirection = Up;
+	Player_PrintPlayer();
+
+	/*
 	WindowsHelper_SetCursorPosition(playerX, playerY);
-	printf("%c", player);
+	printf("%c", player); */
 }
 
 /*Check for player input*/
@@ -49,8 +53,7 @@ void Player_Move()
 
 			playerX--;
 
-			WindowsHelper_SetCursorPosition(playerX, playerY);
-			printf("%c", player);
+			Player_PrintPlayer();
 		}
 	}
 	/*Right Key Entered*/
@@ -65,8 +68,7 @@ void Player_Move()
 
 			playerX++;
 
-			WindowsHelper_SetCursorPosition(playerX, playerY);
-			printf("%c", player);
+			Player_PrintPlayer();
 		}
 	}
 	/*Up Key Entered*/
@@ -81,8 +83,7 @@ void Player_Move()
 
 			playerY--;
 
-			WindowsHelper_SetCursorPosition(playerX, playerY);
-			printf("%c", player);
+			Player_PrintPlayer();
 		}
 	}
 	/*Down Key Entered*/
@@ -97,8 +98,7 @@ void Player_Move()
 
 			playerY++;
 
-			WindowsHelper_SetCursorPosition(playerX, playerY);
-			printf("%c", player);
+			Player_PrintPlayer();
 		}
 	}
 }
@@ -165,8 +165,7 @@ void Player_Monkey()
 
 					playerY -= possessRange;
 
-					WindowsHelper_SetCursorPosition(playerX, playerY);
-					printf("%c", player);
+					Player_PrintPlayer();
 					
 					if (player == 'B')
 					{
@@ -200,8 +199,7 @@ void Player_Monkey()
 
 					playerY += possessRange;
 
-					WindowsHelper_SetCursorPosition(playerX, playerY);
-					printf("%c", player);
+					Player_PrintPlayer();
 
 					if (player == 'B')
 					{
@@ -235,8 +233,7 @@ void Player_Monkey()
 
 					playerX -= possessRange;
 
-					WindowsHelper_SetCursorPosition(playerX, playerY);
-					printf("%c", player);
+					Player_PrintPlayer();
 
 					if (player == 'B')
 					{
@@ -270,8 +267,7 @@ void Player_Monkey()
 
 					playerX += possessRange;
 
-					WindowsHelper_SetCursorPosition(playerX, playerY);
-					printf("%c", player);
+					Player_PrintPlayer();
 
 					if (player == 'B')
 					{
@@ -352,8 +348,7 @@ void Player_Unpossess()
 {
 	currentMode = Monkey;
 	player = 'M';
-	WindowsHelper_SetCursorPosition(playerX, playerY);
-	printf("%c", player);
+	Player_PrintPlayer();
 }
 
 /* Push obstacle */
@@ -370,4 +365,14 @@ void Player_BearPush(int obstacleOldPosX, int obstacleOldPosY, int obstacleNewPo
 void Player_RhinoWallBreak(int wallPosX, int wallPosY)
 {
 
+}
+
+/* Print player with specified color */
+void Player_PrintPlayer()
+{
+	/* set Colour, set cursor, then print and reset color */
+	Colours_SetColor(PLAYER_COLOUR);
+	WindowsHelper_SetCursorPosition(playerX, playerY);
+	printf("%c", player);
+	Colours_ResetColor();
 }

@@ -116,6 +116,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Colours.c" />
     <ClCompile Include="Credits.c" />
     <ClCompile Include="Enemy.c" />
     <ClCompile Include="Game.c" />
@@ -130,6 +131,7 @@
     <ClCompile Include="WindowsHelper.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Colours.h" />
     <ClInclude Include="Credits.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />

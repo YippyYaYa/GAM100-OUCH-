@@ -3,6 +3,7 @@
 #include "GameStateManager.h"
 #include <Windows.h>
 #include <stdio.h>
+#include "Grid.h"
 
 /* variables here, must be static */
 static enum GameState currentState;

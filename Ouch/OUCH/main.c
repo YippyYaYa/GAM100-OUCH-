@@ -2,6 +2,7 @@
 #include "WindowsHelper.h"
 #include <time.h>
 #include "GameStateManager.h"
+#include "Colours.h"
 
 int main(void)
 {
@@ -11,6 +12,9 @@ int main(void)
 	/*Engine Initialise*/
 	/* Initialise Console grid*/
 	WindowsHelper_Init();
+
+	/* Initialise Color system */
+	Colours_Init();
 	
 	/*Initialise Game*/
 	GameStateManager_Init();
@@ -24,6 +28,5 @@ int main(void)
 			GameStateManager_Update(timePassed);
 		}
 	}
-	getch();
 	return 0;
 }

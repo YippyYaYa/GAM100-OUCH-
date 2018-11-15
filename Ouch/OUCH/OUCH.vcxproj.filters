@@ -48,6 +48,12 @@
     <ClCompile Include="GameOver.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Switch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Colours.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WindowsHelper.h">
@@ -78,6 +84,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameOver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Switch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Colours.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
