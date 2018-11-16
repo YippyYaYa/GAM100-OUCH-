@@ -13,11 +13,11 @@ static int currentStage;
 void Game_Init()
 {
 	system("cls");
-	currentStage = 4;
+	currentStage = 3;
 
 	Enemy_Init();
 
-	Game_LoadLevel(4);
+	Game_LoadLevel(3);
 }
 
 /*Update game*/
@@ -72,7 +72,7 @@ void Game_LoadLevel(int level)
 		Enemy_Spawn(16, 9, 'D', 'R', 0);
 		Enemy_Spawn(14, 6, 'L', 'B', 5);
 		Enemy_Spawn(22, 2, 'D', 'B', 2);
-
+		
 		Player_InitPlayer();
 		Player_SetPosition(13, 9);
 		break;
