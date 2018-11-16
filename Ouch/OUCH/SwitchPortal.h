@@ -23,5 +23,5 @@ struct Object
 	bool activated;
 };
 void SwitchPortal_Init();
-void SwitchPortal_Spawn(int posX, int posY, int PortalX, int PortalY);
+void SwitchPortal_Spawn(int SwitchPosX, int SwitchPosY, int StartPortalX, int StartPortalY, int EndPortalX, int EndPortalY);
 void Switch_Pressed(int posX, int posY);
