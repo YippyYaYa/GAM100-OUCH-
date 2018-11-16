@@ -1,8 +1,10 @@
 #pragma once
 #include "Enemy.h"
 #include "Grid.h"
+#include "Colours.h"
 #include "WindowsHelper.h"
 #include <stdio.h>
+
 #define ENEMY_ARRAY_SIZE 50
 
 struct Enemy enemy[ENEMY_ARRAY_SIZE];
@@ -64,6 +66,7 @@ void Enemy_Kill(int posX, int posY)
 
 void Enemy_Update(float dt)
 {
+	Colours_SetColor(ENEMY_COLOUR);
 	for (i = 0; i < activatedEnemies; i++)
 	{
 		if (enemy[i].activated == 'Y')
@@ -138,4 +141,5 @@ void Enemy_Update(float dt)
 			}
 		}
 	}
+		Colours_ResetColor();
 }

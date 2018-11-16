@@ -32,6 +32,9 @@ void GameStateManager_Update(float dt)
 	case Credits:
 		Credits_Update();
 		break;
+	case GameOver:
+		GameOver_Update();
+		break;
 	}
 }
 
