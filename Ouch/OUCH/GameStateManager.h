@@ -1,5 +1,6 @@
 #pragma once
 
+/* List of game states used */
 enum GameState {
 	Loading,
 	MainMenu,

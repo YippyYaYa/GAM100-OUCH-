@@ -10,6 +10,7 @@ void Colours_Init()
 {
 	outputConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	GetConsoleScreenBufferInfo(outputConsole, &consoleInfo);
+	/* Store original colours */
 	resetAttributes = consoleInfo.wAttributes;
 }
 

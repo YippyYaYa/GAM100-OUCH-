@@ -1,11 +1,13 @@
 #pragma once
 
+/* Forms that player can use */
 enum PlayerMode {
 	Monkey,
 	Rhino,
 	Bear
 };
 
+/* Direction that player is facing */
 enum Direction {
 	Up,
 	Down,

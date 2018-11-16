@@ -16,7 +16,7 @@ void GameStateManager_Init()
 	GameStateManager_SetGameState(Loading);
 }
 
-/* Update current state */
+/* Calls update loop of the current state */
 void GameStateManager_Update(float dt)
 {
 	switch(currentState)
