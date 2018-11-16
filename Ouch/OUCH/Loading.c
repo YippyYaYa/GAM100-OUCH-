@@ -4,15 +4,18 @@
 #include <Windows.h>
 #include <stdio.h>
 #include "Grid.h"
+#include "Colours.h"
 
 /* variables here, must be static */
 static float tPass;
 static int count = 0;
 void Loading_Init()
 {
+	Colours_SetColor(RED);
 	system("cls");
 	Grid_initGrid(6);
 	Grid_printGrid();
+	Colours_ResetColor();
 }
 
 void Loading_Update(float dt)
