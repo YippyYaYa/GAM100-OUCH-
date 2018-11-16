@@ -21,11 +21,12 @@ void GameOver_Init()
 
 void GameOver_Update() 
 {
-	int x=23 , y=39;
+	int x=38 , y=23;
+	WindowsHelper_SetCursorPosition(x, y);
+	printf("press enter to try again.");
 	/*pass in enter*/
 	getchar();
 	/* change state accordingly e.g. go to play or credits */
 	GameStateManager_SetGameState(Playing);
-	WindowsHelper_SetCursorPosition(x, y);
-	printf("press enter to try again.");
+	
 }
