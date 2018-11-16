@@ -4,19 +4,25 @@
 #include "GameStateManager.h"
 #include <stdio.h>
 #include <Windows.h>
+#include "Colours.h"
 
 static int currentStage;
 
 void GameOver_Init() 
 {
+	Colours_SetColor(RED);
 	system("cls");
 	currentStage = 8;
 	Grid_initGrid(currentStage);
 	/*Print Grid and Etc*/
 	Grid_printGrid();
+	Colours_ResetColor();
 }
 
 void GameOver_Update() 
 {
-
+	/*pass in enter*/
+	getchar();
+	/* change state accordingly e.g. go to play or credits */
+	GameStateManager_SetGameState(Playing);
 }

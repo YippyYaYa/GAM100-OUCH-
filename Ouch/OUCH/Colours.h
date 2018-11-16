@@ -3,6 +3,8 @@
 
 /* All colour definitions goes here */
 #define PLAYER_COLOUR 6  /* Brown */
+#define ENEMY_COLOUR 12 /*LIGHT RED*/
+#define RED   4
 
 /* Other Colours here if needed, can be added on top under a suitable name */
 /*
@@ -17,7 +19,7 @@ The numbers at the back of the colour named is the number to be used for that co
 #define BLUE  1
 #define GREEN 2
 #define CYAN  3
-#define RED   4
+
 #define MAGENTA 5
 #define BROWWN 6
 #define LIGHTGRAY 7

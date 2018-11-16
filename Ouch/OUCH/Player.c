@@ -137,7 +137,7 @@ void Player_Interact()
 /* Check if player collided with any enemy */
 int Player_DeathCheck()
 {
-	if (Grid_getGrid(playerX, playerY) == 'R' || Grid_getGrid(playerX, playerY) == 'B')
+	if (Grid_getGrid(playerX, playerY) == 'R' || Grid_getGrid(playerX, playerY) == 'B'|| Grid_getGrid(playerX, playerY) == 'E')
 	{
 		return 1;
 	}
