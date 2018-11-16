@@ -1,8 +1,10 @@
 #include "LevelLoader.h"
 #include "Grid.h"
 #include "Player.h"
+#include "Enemy.h"
+#include <Windows.h>
 
-static currentLevel;
+static int currentLevel;
 
 void LevelLoader_Init()
 {
@@ -12,12 +14,14 @@ void LevelLoader_Init()
 void LevelLoader_LoadLevel(int level)
 {
 	system("cls");
-	Grid_initGrid(level);
-
+	currentLevel = level;
+	Grid_initGrid(currentLevel);
+	
 	/* Object and Enemy Spawning */
 	switch (level)
 	{
 		case 4:
+			Grid_printGrid();
 			Enemy_Spawn(2, 3, 'R', 'B', 5);
 			Enemy_Spawn(3, 4, 'R', 'B', 5);
 			Enemy_Spawn(4, 5, 'R', 'B', 5);
@@ -38,10 +42,9 @@ void LevelLoader_LoadLevel(int level)
 			Enemy_Spawn(72, 18, 'R', 'B', 5);
 			Enemy_Spawn(37, 7, 'R', 'B', 5);
 			Enemy_Spawn(35, 5, 'L', 'B', 5);
+			
 			Player_InitPlayer();
 			Player_SetPosition(1, 1);
 			break;
 	}
-
-
 }

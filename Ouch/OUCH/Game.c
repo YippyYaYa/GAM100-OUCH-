@@ -5,6 +5,8 @@
 #include "Player.h"
 #include "GameStateManager.h"
 #include <Windows.h>
+#include <stdio.h>
+#include "LevelLoader.h"
 
 static int currentStage;
 
@@ -18,7 +20,7 @@ void Game_Init()
 	Enemy_Init();
 
 	/*Spawn Enemies*/
-	/*Enemy_Spawn(11, 1, 'R', 'B', 5);      too annoying when debuging*/
+	///*Enemy_Spawn(11, 1, 'R', 'B', 5);      too annoying when debuging*/
 	Enemy_Spawn(2, 3, 'R', 'B', 5);
 	Enemy_Spawn(3, 4, 'R', 'B', 5);
 	Enemy_Spawn(4, 5, 'R', 'B', 5);
@@ -39,6 +41,8 @@ void Game_Init()
 	Enemy_Spawn(72, 18, 'R', 'B', 5);
 	Enemy_Spawn(37, 7, 'R', 'B', 5);
 	Enemy_Spawn(35, 5, 'L', 'B', 5);
+
+	//LevelLoader_LoadLevel(currentStage);
 
 	/*Print Grid and Etc*/
 	Grid_printGrid();

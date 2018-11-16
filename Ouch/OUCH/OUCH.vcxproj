@@ -123,6 +123,7 @@
     <ClCompile Include="Game.c" />
     <ClCompile Include="GameOver.c" />
     <ClCompile Include="GameStateManager.c" />
+    <ClCompile Include="LevelLoader.c" />
     <ClCompile Include="Loading.c" />
     <ClCompile Include="MainMenu.c" />
     <ClCompile Include="Player.c" />
@@ -138,6 +139,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameStateManager.h" />
+    <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="Loading.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Player.h" />
