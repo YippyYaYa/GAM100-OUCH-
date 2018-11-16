@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "Colours.h"
 #include "Enemy.h"
+#include "CollisionManager.h"
 
 const int KEY_UP = 0x1;
 
@@ -41,9 +42,7 @@ void Player_Move()
 	{
 		currentDirection = Left;
 		/* Check if new position is valid */
-		if (Grid_getGrid(playerX - 1, playerY) != '#' &&
-			Grid_getGrid(playerX - 1, playerY) != 'p' &&
-			Grid_getGrid(playerX - 1, playerY) != 'X')
+		if (!Collision_Check(playerX - 1, playerY))
 		{
 			/* Print over the current position */
 			WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -59,9 +58,7 @@ void Player_Move()
 	{
 		currentDirection = Right;
 		/* Check if new position is valid */
-		if (Grid_getGrid(playerX + 1, playerY) != '#' &&
-			Grid_getGrid(playerX + 1, playerY) != 'p' &&
-			Grid_getGrid(playerX + 1, playerY) != 'X')
+		if (!Collision_Check(playerX + 1, playerY))
 		{
 			/* Print over the current position */
 			WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -77,9 +74,7 @@ void Player_Move()
 	{
 		currentDirection = Up;
 		/* Check if new position is valid */
-		if (Grid_getGrid(playerX, playerY - 1) != '#' &&
-			Grid_getGrid(playerX, playerY - 1) != 'p' &&
-			Grid_getGrid(playerX, playerY - 1) != 'X')
+		if (!Collision_Check(playerX, playerY - 1))
 		{
 			/* Print over the current position */
 			WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -95,9 +90,7 @@ void Player_Move()
 	{
 		currentDirection = Down;
 		/* Check if new position is valid */
-		if (Grid_getGrid(playerX, playerY + 1) != '#' &&
-			Grid_getGrid(playerX, playerY + 1) != 'p' &&
-			Grid_getGrid(playerX, playerY + 1) != 'X')
+		if (!Collision_Check(playerX, playerY + 1))
 		{
 			/* Print over the current position */
 			WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -399,12 +392,6 @@ void Player_BearPush(int obstacleOldPosX, int obstacleOldPosY, int obstacleNewPo
 	Grid_setGrid(obstacleNewPosX, obstacleNewPosY, Grid_getGrid(obstacleOldPosX, obstacleOldPosY));
 	/* Set old position to ' ' */
 	Grid_setGrid(obstacleOldPosX, obstacleOldPosY, ' ');
-
-	/* Print the old and new position */
-	WindowsHelper_SetCursorPosition(obstacleNewPosX, obstacleNewPosY);
-	printf("%c", Grid_getGrid(obstacleNewPosX, obstacleNewPosY));
-	WindowsHelper_SetCursorPosition(obstacleOldPosX, obstacleOldPosY);
-	printf("%c", Grid_getGrid(obstacleOldPosX, obstacleOldPosY));
 }
 
 /* Break Wall */
@@ -412,9 +399,6 @@ void Player_RhinoWallBreak(int wallPosX, int wallPosY)
 {
 	/* Set the wall in grid to ' ' */
 	Grid_setGrid(wallPosX, wallPosY, ' ');
-	/* Print over the wall */
-	WindowsHelper_SetCursorPosition(wallPosX, wallPosY);
-	printf("%c", Grid_getGrid(wallPosX, wallPosY));
 	/* Reduce break count and unpossess if no more break counts */
 	if (--rhinoBreakCount == 0)
 	{
