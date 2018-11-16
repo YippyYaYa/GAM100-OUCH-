@@ -19,14 +19,11 @@ static int rhinoBreakCount;             /* Number of times rhino break can be us
 /*Initialise Player position*/
 void Player_InitPlayer()
 {
-	playerX = 1;
-	playerY = 1;
 	possessRange = 5;
 	player = 'M';
 	currentMode = Monkey;
 	currentDirection = Up;
 	rhinoBreakCount = 0;
-	Player_PrintPlayer();
 }
 
 /*Check for player input*/
@@ -363,8 +360,7 @@ void Player_SetPosition(int x, int y)
 {
 	playerX = x;
 	playerY = y;
-	WindowsHelper_SetCursorPosition(playerX, playerY);
-	printf("%c", player);
+	Player_PrintPlayer();
 }
 
 /* Turn back to monkey */
