@@ -11,7 +11,7 @@ static int count = 0;
 void Loading_Init()
 {
 	system("cls");
-	Grid_initGrid(0);
+	Grid_initGrid(6);
 	Grid_printGrid();
 }
 
@@ -24,7 +24,7 @@ void Loading_Update(float dt)
 	if (tPass > 4.0f)
 	{
 		count++;
-		Grid_initGrid(1);
+		Grid_initGrid(7);
 		Grid_printGrid();
 	}
 	if(tPass > 7.0f)

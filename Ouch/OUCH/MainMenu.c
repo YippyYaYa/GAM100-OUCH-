@@ -11,7 +11,7 @@
 void MainMenu_Init()
 {
 	system("cls");
-	Grid_initGrid(7);
+	Grid_initGrid(0);
 	Grid_printGrid();
 
 }
