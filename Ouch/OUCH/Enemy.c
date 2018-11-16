@@ -10,18 +10,7 @@
 struct Enemy enemy[ENEMY_ARRAY_SIZE]; /*Maximum array size of enemy*/
 static int i; /*Variable to transverse array*/
 static int activatedEnemies; /*Size of array of enemies spawned*/
-static float move = 0; /*Variable to convert float to int*/
-
-/*Check if velocity*dt exceeded 1 grid - prevents enemy from moving more than 1 grid per update*/
-static int moveChecker(float velocity, float dt)
-{
-	move = move + velocity * dt;
-	if (move >= 1)
-	{
-		move = 0;
-		return 1;
-	}
-}
+static float move = 0.0f; /*Checks whether to update or not*/
 
 /*Initialise enemy*/
 void Enemy_Init()
@@ -34,7 +23,7 @@ void Enemy_Init()
 }
 
 /*Spawns enemy - takes in position, direction, symbol, and velocity*/
-void Enemy_Spawn(float posX, float posY, char direction, char symbol, float velocity)
+void Enemy_Spawn(int posX, int posY, char direction, char symbol, float velocity)
 {
 	for (i = 0; i < ENEMY_ARRAY_SIZE; i++)
 	{
@@ -80,73 +69,78 @@ void Enemy_Update(float dt)
 	{
 		if (enemy[i].activated == 'Y')
 		{
-			if (enemy[i].direction == 'U')
+			move = move + enemy[i].velocity * dt;
+			if(move > 1)
 			{
-				if (Grid_getGrid(enemy[i].posX, enemy[i].posY - 1) != '#' &&
-					Grid_getGrid(enemy[i].posX, enemy[i].posY - 1) != 'p')
+				move = 0;
+				if (enemy[i].direction == 'U')
 				{
-					Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
-					WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
-					printf("%c", Grid_getGrid(enemy[i].posX, enemy[i].posY));
-					enemy[i].posY -= moveChecker(enemy[i].velocity, dt);
-					enemy[i].oldGrid = Grid_getGrid(enemy[i].posX, enemy[i].posY);
-					Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].symbol);
-					WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
-					printf("%c", enemy[i].symbol);
+					if (Grid_getGrid(enemy[i].posX, enemy[i].posY - 1) != '#' &&
+						Grid_getGrid(enemy[i].posX, enemy[i].posY - 1) != 'p')
+					{
+						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
+						WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
+						printf("%c", Grid_getGrid(enemy[i].posX, enemy[i].posY));
+						enemy[i].posY -= 1;
+						enemy[i].oldGrid = Grid_getGrid(enemy[i].posX, enemy[i].posY);
+						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].symbol);
+						WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
+						printf("%c", enemy[i].symbol);
+					}
+					else
+						enemy[i].direction = 'D';
 				}
-				else
-					enemy[i].direction = 'D';
-			}
-			else if (enemy[i].direction == 'D')
-			{
-				if (Grid_getGrid(enemy[i].posX, enemy[i].posY + 1) != '#'&&
-					Grid_getGrid(enemy[i].posX, enemy[i].posY + 1) != 'p')
+				else if (enemy[i].direction == 'D')
 				{
-					Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
-					WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
-					printf("%c", Grid_getGrid(enemy[i].posX, enemy[i].posY));
-					enemy[i].posY += moveChecker(enemy[i].velocity, dt);
-					enemy[i].oldGrid = Grid_getGrid(enemy[i].posX, enemy[i].posY);
-					Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].symbol);
-					WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
-					printf("%c", enemy[i].symbol);
+					if (Grid_getGrid(enemy[i].posX, enemy[i].posY + 1) != '#'&&
+						Grid_getGrid(enemy[i].posX, enemy[i].posY + 1) != 'p')
+					{
+						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
+						WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
+						printf("%c", Grid_getGrid(enemy[i].posX, enemy[i].posY));
+						enemy[i].posY += 1;
+						enemy[i].oldGrid = Grid_getGrid(enemy[i].posX, enemy[i].posY);
+						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].symbol);
+						WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
+						printf("%c", enemy[i].symbol);
+					}
+					else
+						enemy[i].direction = 'U';
 				}
-				else
-					enemy[i].direction = 'U';
-			}
-			else if (enemy[i].direction == 'L')
-			{
-				if (Grid_getGrid(enemy[i].posX - 1, enemy[i].posY) != '#' &&
-					Grid_getGrid(enemy[i].posX - 1, enemy[i].posY) != 'p')
+				else if (enemy[i].direction == 'L')
 				{
-					Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
-					WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
-					printf("%c", Grid_getGrid(enemy[i].posX, enemy[i].posY));
-					enemy[i].posX -= moveChecker(enemy[i].velocity, dt);
-					enemy[i].oldGrid = Grid_getGrid(enemy[i].posX, enemy[i].posY);
-					Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].symbol);
-					WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
-					printf("%c", enemy[i].symbol);
+					if (Grid_getGrid(enemy[i].posX - 1, enemy[i].posY) != '#' &&
+						Grid_getGrid(enemy[i].posX - 1, enemy[i].posY) != 'p')
+					{
+						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
+						WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
+						printf("%c", Grid_getGrid(enemy[i].posX, enemy[i].posY));
+						enemy[i].posX -= 1;
+						enemy[i].oldGrid = Grid_getGrid(enemy[i].posX, enemy[i].posY);
+						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].symbol);
+						WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
+						printf("%c", enemy[i].symbol);
+					}
+					else
+						enemy[i].direction = 'R';
 				}
-				else
-					enemy[i].direction = 'R';
-			}
-			else if (enemy[i].direction == 'R')
-			{
-				if (Grid_getGrid(enemy[i].posX + 1, enemy[i].posY) != '#' &&
-					Grid_getGrid(enemy[i].posX + 1, enemy[i].posY) != 'p')
+				else if (enemy[i].direction == 'R')
 				{
-					Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
-					WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
-					printf("%c", Grid_getGrid(enemy[i].posX, enemy[i].posY));
-					enemy[i].posX += moveChecker(enemy[i].velocity, dt);
-					enemy[i].oldGrid = Grid_getGrid(enemy[i].posX, enemy[i].posY);
-					Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].symbol);
-					WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
-					printf("%c", enemy[i].symbol);
+					if (Grid_getGrid(enemy[i].posX + 1, enemy[i].posY) != '#' &&
+						Grid_getGrid(enemy[i].posX + 1, enemy[i].posY) != 'p')
+					{
+						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
+						WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
+						printf("%c", Grid_getGrid(enemy[i].posX, enemy[i].posY));
+						enemy[i].posX += 1;
+						enemy[i].oldGrid = Grid_getGrid(enemy[i].posX, enemy[i].posY);
+						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].symbol);
+						WindowsHelper_SetCursorPosition(enemy[i].posX, enemy[i].posY);
+						printf("%c", enemy[i].symbol);
+					}
+					else
+						enemy[i].direction = 'L';
 				}
-				else
-					enemy[i].direction = 'L';
 			}
 		}
 	}
