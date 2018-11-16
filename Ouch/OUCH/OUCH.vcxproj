@@ -117,6 +117,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Ascii.c" />
+    <ClCompile Include="CollisionManager.c" />
     <ClCompile Include="Colours.c" />
     <ClCompile Include="Credits.c" />
     <ClCompile Include="Enemy.c" />
@@ -132,6 +133,7 @@
     <ClCompile Include="WindowsHelper.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Colours.h" />
     <ClInclude Include="Credits.h" />
     <ClInclude Include="Enemy.h" />

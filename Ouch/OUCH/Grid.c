@@ -130,4 +130,6 @@ char Grid_getGrid(int x, int y)
 void Grid_setGrid(int x, int y, char z)
 {
 	grid[x][y] = z;
+	WindowsHelper_SetCursorPosition(x, y);
+	printf("%c", grid[x][y]);
 }
