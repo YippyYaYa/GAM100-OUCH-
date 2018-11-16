@@ -1,5 +1,9 @@
 #pragma once
 #include <stdbool.h>
+#include "WindowsHelper.h"
+#include "Grid.h"
+#define OBJECT_ARRAY_SIZE 50
+
 /*Enemy class initial and final position*/
 struct Object
 {

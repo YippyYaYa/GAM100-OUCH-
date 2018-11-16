@@ -1,7 +1,5 @@
+#pragma once
 #include "SwitchPortal.h"
-#include "WindowsHelper.h"
-#include "Grid.h"
-#define OBJECT_ARRAY_SIZE 50
 
 static struct Object objects[OBJECT_ARRAY_SIZE];
 static int i;
@@ -33,6 +31,7 @@ void SwitchPortal_Spawn(int SwitchPosX, int SwitchPosY, int StartPortalX, int St
 			objects[i].EndPortalX = EndPortalX;
 			objects[i].EndPortalY = EndPortalY;
 			Grid_setGrid(objects[i].EndPortalX, objects[i].EndPortalY, objects[i].PortalUnpressedSymbol);
+			/*Set portal to activated*/
 			objects[i].activated = 1;
 		}
 	}
@@ -44,11 +43,7 @@ void Switch_Pressed(int posX, int posY) {
 			if (objects[i].posY == posY) {
 				objects[i].Pressed = 1;
 				Grid_setGrid(objects[i].StartPortalX, objects[i].StartPortalY, objects[i].PortalPressedSymbol);
-				WindowsHelper_SetCursorPosition(objects[i].StartPortalX, objects[i].StartPortalY);
-				printf("%c", objects[i].PortalPressedSymbol);
 				Grid_setGrid(objects[i].EndPortalX, objects[i].EndPortalY, objects[i].PortalPressedSymbol);
-				WindowsHelper_SetCursorPosition(objects[i].EndPortalX, objects[i].EndPortalY);
-				printf("%c", objects[i].PortalPressedSymbol);
 			}
 		}
 	}
