@@ -1,5 +1,5 @@
 #pragma once
-//Set the Desired Console title here
+//Console Title
 #define CONSOLE_TITLE "OUCH!"
 
 void WindowsHelper_Init();
