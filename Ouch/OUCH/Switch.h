@@ -11,6 +11,6 @@ struct Button
 	bool Pressed;
 	bool activated;
 };
-
-void Button_Init(int posX, int posY, int PortalX, int PortalY);
+void Button_Init();
+void Button_Spawn(int posX, int posY, int PortalX, int PortalY);
 void Button_Pressed(int posX, int posY);
