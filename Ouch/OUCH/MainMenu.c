@@ -6,13 +6,12 @@
 #include <stdio.h>
 
 /* variables here, must be static */
-static enum GameState currentState;
+
 
 void MainMenu_Init()
 {
 	system("cls");
-	currentState = 7;
-	Grid_initGrid(currentState);
+	Grid_initGrid(7);
 	Grid_printGrid();
 
 }
