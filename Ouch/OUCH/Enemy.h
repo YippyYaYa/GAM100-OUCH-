@@ -1,4 +1,11 @@
 #pragma once
+#include "Grid.h"
+#include "Colours.h"
+#include "WindowsHelper.h"
+#include "CollisionManager.h"
+#include <stdio.h>
+#define ENEMY_ARRAY_SIZE 50
+
 /*Enemy class initial and final position*/
 struct Enemy
 {
@@ -7,6 +14,7 @@ struct Enemy
 	char direction;
 	char symbol;
 	float velocity;
+	float move;
 	char activated;
 	char oldGrid;
 };
