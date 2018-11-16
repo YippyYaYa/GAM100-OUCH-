@@ -291,6 +291,8 @@ void Player_Monkey()
 			break;
 	}
 }
+
+/* Check whether wall can be broken */
 void Player_Rhino()
 {
 	switch (currentDirection)

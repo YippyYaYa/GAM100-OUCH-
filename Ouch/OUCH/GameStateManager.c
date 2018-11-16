@@ -7,7 +7,7 @@
 #include "GameOver.h"
 #include <Windows.h>
 
-static enum GameState currentState;
+static enum GameState currentState; /* Store current game stage */
 
 /* Initial state set to loading */
 void GameStateManager_Init()
