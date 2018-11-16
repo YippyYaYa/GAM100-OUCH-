@@ -13,7 +13,7 @@ static int currentStage;
 void Game_Init()
 {
 	system("cls");
-	currentStage = 3;
+	currentStage = 4;
 
 	Enemy_Init();
 
