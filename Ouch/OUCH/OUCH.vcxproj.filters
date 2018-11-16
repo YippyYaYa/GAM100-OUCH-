@@ -48,13 +48,13 @@
     <ClCompile Include="GameOver.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Switch.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Colours.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Ascii.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchPortal.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,10 +89,10 @@
     <ClInclude Include="GameOver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Switch.h">
+    <ClInclude Include="Colours.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Colours.h">
+    <ClInclude Include="SwitchPortal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

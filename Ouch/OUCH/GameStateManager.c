@@ -13,6 +13,7 @@ static enum GameState currentState;
 void GameStateManager_Init()
 {
 	currentState = Loading;
+	GameStateManager_SetGameState(Loading);
 }
 
 /* Update current state */
@@ -21,7 +22,7 @@ void GameStateManager_Update(float dt)
 	switch(currentState)
 	{
 	case Loading:
-		Loading_Update();
+		Loading_Update(dt);
 		break;
 	case MainMenu:
 		MainMenu_Update();

@@ -7,19 +7,20 @@
 
 #define ENEMY_ARRAY_SIZE 50
 
-struct Enemy enemy[ENEMY_ARRAY_SIZE];
-static int i;
-static int activatedEnemies;
+struct Enemy enemy[ENEMY_ARRAY_SIZE]; /*Maximum array size of enemy*/
+static int i; /*Variable to transverse array*/
+static int activatedEnemies; /*Size of array of enemies spawned*/
 
+/*Check if velocity*dt exceeded 1 grid - prevents enemy from moving more than 1 grid per update*/
 static float moveChecker(float velocity, float dt)
 {
-	velocity * dt;
 	if (velocity * dt >= 1)
 		return 1;
 	else
 		return velocity * dt;
 }
 
+/*Initialise enemy*/
 void Enemy_Init()
 {
 	for (i = 0; i < ENEMY_ARRAY_SIZE; i++)
@@ -29,6 +30,7 @@ void Enemy_Init()
 	activatedEnemies = 0;
 }
 
+/*Spawns enemy - takes in position, direction, symbol, and velocity*/
 void Enemy_Spawn(float posX, float posY, char direction, char symbol, float velocity)
 {
 	for (i = 0; i < ENEMY_ARRAY_SIZE; i++)
@@ -49,6 +51,7 @@ void Enemy_Spawn(float posX, float posY, char direction, char symbol, float velo
 	}
 }
 
+/*Kills the enemy*/
 void Enemy_Kill(int posX, int posY)
 {
 	for (i = 0; i < activatedEnemies; i++)
@@ -64,6 +67,9 @@ void Enemy_Kill(int posX, int posY)
 	}
 }
 
+/*Update enemy movement
+ 
+ 2*/
 void Enemy_Update(float dt)
 {
 	Colours_SetColor(ENEMY_COLOUR);
