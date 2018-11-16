@@ -59,7 +59,7 @@ void Grid_initGrid(int file)
 			break;
 		case 8:
 			/*open file for reading*/
-			fopen_s(&textart, "GameOver.txt", "r");
+			fopen_s(&textart, "Game0ver.txt", "r");
 			break;
 	}
 
@@ -86,6 +86,17 @@ void Grid_initGrid(int file)
 	}
 	/*close file*/
 	fclose(textart);
+
+	if (file == 8)
+	{
+		for (i = 0; i < Y; i++)
+		{
+			for (j = 0; j < X; j++)
+			{
+				grid[j][i] = Ascii(grid[j][i]);
+			}
+		}
+	}
 }
 
 /*Prints the initialised grid - probably for printing logos etc*/
