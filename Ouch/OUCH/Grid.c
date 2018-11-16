@@ -61,6 +61,10 @@ void Grid_initGrid(int file)
 		/*open file for reading*/
 		fopen_s(&textart, "Game0ver.txt", "r");
 		break;
+	case 9:
+		/*open file for reading*/
+		fopen_s(&textart, "TutorialB.txt", "r");
+		break;
 	}
 
 	/*Transverse 2D array*/
