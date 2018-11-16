@@ -29,14 +29,13 @@ void WindowsHelper_Init()
 	SetConsoleCursorInfo(wHnd, &cursorInfo);
 
 	/* Disable extra row printing at the end of screen */
-	
 	GetConsoleMode(wHnd, &consoleMode);
 	consoleMode |= DISABLE_NEWLINE_AUTO_RETURN | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
 	if (!SetConsoleMode(wHnd, consoleMode))
 		ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
 }
 
-/*Sets the console cursor position. Note that (0,0) is the top left of the console*/
+/*Sets the console cursor position. */
 void WindowsHelper_SetCursorPosition(int x, int y)
 {
 	COORD pos = { (short)x, (short)y };

@@ -15,7 +15,7 @@ The numbers at the back of the colour named is the number to be used for that co
  
  There are more colours that can be used but gotta search online, but quite limited types
 
-#define BLACK 0 < pls dont go and use this, ur gonna print black text on black background
+#define BLACK 0
 #define BLUE  1
 #define GREEN 2
 #define CYAN  3

@@ -17,7 +17,7 @@ void Game_Init()
 
 	Enemy_Init();
 
-	Game_LoadLevel(3);
+	Game_LoadLevel(currentStage);
 }
 
 /*Update game*/
@@ -25,6 +25,7 @@ void Game_Update(float dt)
 {
 	Player_Controls();
 	Enemy_Update(dt);
+	/* Check if player collided with enemy */
 	if (Player_DeathCheck())
 	{
 		GameStateManager_SetGameState(GameOver);

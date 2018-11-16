@@ -40,15 +40,17 @@ void Player_Move()
 	if ((GetAsyncKeyState(VK_LEFT) &KEY_UP) == KEY_UP)
 	{
 		currentDirection = Left;
+		/* Check if new position is valid */
 		if (Grid_getGrid(playerX - 1, playerY) != '#' &&
 			Grid_getGrid(playerX - 1, playerY) != 'p' &&
 			Grid_getGrid(playerX - 1, playerY) != 'X')
 		{
+			/* Print over the current position */
 			WindowsHelper_SetCursorPosition(playerX, playerY);
 			printf("%c", Grid_getGrid(playerX, playerY));
-
+			/* Change position */
 			playerX--;
-
+			/* Print player on new position */
 			Player_PrintPlayer();
 		}
 	}
@@ -56,15 +58,17 @@ void Player_Move()
 	else if ((GetAsyncKeyState(VK_RIGHT) &KEY_UP) == KEY_UP)
 	{
 		currentDirection = Right;
+		/* Check if new position is valid */
 		if (Grid_getGrid(playerX + 1, playerY) != '#' &&
 			Grid_getGrid(playerX + 1, playerY) != 'p' &&
 			Grid_getGrid(playerX + 1, playerY) != 'X')
 		{
+			/* Print over the current position */
 			WindowsHelper_SetCursorPosition(playerX, playerY);
 			printf("%c", Grid_getGrid(playerX, playerY));
-
+			/* Change position */
 			playerX++;
-
+			/* Print player on new position */
 			Player_PrintPlayer();
 		}
 	}
@@ -72,15 +76,17 @@ void Player_Move()
 	else if ((GetAsyncKeyState(VK_UP) &KEY_UP) == KEY_UP)
 	{
 		currentDirection = Up;
+		/* Check if new position is valid */
 		if (Grid_getGrid(playerX, playerY - 1) != '#' &&
 			Grid_getGrid(playerX, playerY - 1) != 'p' &&
 			Grid_getGrid(playerX, playerY - 1) != 'X')
 		{
+			/* Print over the current position */
 			WindowsHelper_SetCursorPosition(playerX, playerY);
 			printf("%c", Grid_getGrid(playerX, playerY));
-
+			/* Change position */
 			playerY--;
-
+			/* Print player on new position */
 			Player_PrintPlayer();
 		}
 	}
@@ -88,15 +94,17 @@ void Player_Move()
 	else if ((GetAsyncKeyState(VK_DOWN) &KEY_UP) == KEY_UP)
 	{
 		currentDirection = Down;
+		/* Check if new position is valid */
 		if (Grid_getGrid(playerX, playerY + 1) != '#' &&
 			Grid_getGrid(playerX, playerY + 1) != 'p' &&
 			Grid_getGrid(playerX, playerY + 1) != 'X')
 		{
+			/* Print over the current position */
 			WindowsHelper_SetCursorPosition(playerX, playerY);
 			printf("%c", Grid_getGrid(playerX, playerY));
-
+			/* Change position */
 			playerY++;
-
+			/* Print player on new position */
 			Player_PrintPlayer();
 		}
 	}
@@ -124,6 +132,7 @@ void Player_Interact()
 	/* C Key Entered */
 	else if ((GetAsyncKeyState(0x43) &KEY_UP) == KEY_UP)
 	{
+		/* Unpossess if current form is rhino or bear */
 		switch (currentMode)
 		{
 			case Rhino:
@@ -137,7 +146,9 @@ void Player_Interact()
 /* Check if player collided with any enemy */
 int Player_DeathCheck()
 {
-	if (Grid_getGrid(playerX, playerY) == 'R' || Grid_getGrid(playerX, playerY) == 'B'|| Grid_getGrid(playerX, playerY) == 'E')
+	if (Grid_getGrid(playerX, playerY) == 'R' || 
+		Grid_getGrid(playerX, playerY) == 'B'|| 
+		Grid_getGrid(playerX, playerY) == 'E')
 	{
 		return 1;
 	}
@@ -157,14 +168,16 @@ void Player_Monkey()
 				if (Grid_getGrid(playerX, playerY - possessRange) == 'B' || 
 					Grid_getGrid(playerX, playerY - possessRange) == 'R')
 				{
+					/* Print over current position */
 					WindowsHelper_SetCursorPosition(playerX, playerY);
 					printf("%c", Grid_getGrid(playerX, playerY));
+					/* Set new player char */
 					player = Grid_getGrid(playerX, playerY - possessRange);
-					
+					/* Set the possessed enemy to inactive */
 					Enemy_Kill(playerX, playerY - possessRange);
-
+					/* Update player position*/
 					playerY -= possessRange;
-
+					/* Print player on possessed enemy's position */
 					Player_PrintPlayer();
 					
 					if (player == 'B')
@@ -192,14 +205,16 @@ void Player_Monkey()
 				if (Grid_getGrid(playerX, playerY + possessRange) == 'B' ||
 					Grid_getGrid(playerX, playerY + possessRange) == 'R')
 				{
+					/* Print over current position */
 					WindowsHelper_SetCursorPosition(playerX, playerY);
 					printf("%c", Grid_getGrid(playerX, playerY));
+					/* Set new player char */
 					player = Grid_getGrid(playerX, playerY + possessRange);
-
+					/* Set the possessed enemy to inactive */
 					Enemy_Kill(playerX, playerY + possessRange);
-
+					/* Update player position*/
 					playerY += possessRange;
-
+					/* Print player on possessed enemy's position */
 					Player_PrintPlayer();
 
 					if (player == 'B')
@@ -227,14 +242,16 @@ void Player_Monkey()
 				if (Grid_getGrid(playerX - possessRange, playerY) == 'B' ||
 					Grid_getGrid(playerX - possessRange, playerY) == 'R')
 				{
+					/* Print over current position */
 					WindowsHelper_SetCursorPosition(playerX, playerY);
 					printf("%c", Grid_getGrid(playerX, playerY));
+					/* Set new player char */
 					player = Grid_getGrid(playerX - possessRange, playerY);
-
+					/* Set the possessed enemy to inactive */
 					Enemy_Kill(playerX - possessRange, playerY);
-
+					/* Update player position*/
 					playerX -= possessRange;
-
+					/* Print player on possessed enemy's position */
 					Player_PrintPlayer();
 
 					if (player == 'B')
@@ -262,14 +279,16 @@ void Player_Monkey()
 				if (Grid_getGrid(playerX + possessRange, playerY) == 'B' ||
 					Grid_getGrid(playerX + possessRange, playerY) == 'R')
 				{
+					/* Print over current position */
 					WindowsHelper_SetCursorPosition(playerX, playerY);
 					printf("%c", Grid_getGrid(playerX, playerY));
+					/* Set new player char */
 					player = Grid_getGrid(playerX + possessRange, playerY);
-
+					/* Set the possessed enemy to inactive */
 					Enemy_Kill(playerX + possessRange, playerY);
-
+					/* Update player position*/
 					playerX += possessRange;
-
+					/* Print player on possessed enemy's position */
 					Player_PrintPlayer();
 
 					if (player == 'B')
@@ -376,8 +395,12 @@ void Player_Unpossess()
 /* Push obstacle */
 void Player_BearPush(int obstacleOldPosX, int obstacleOldPosY, int obstacleNewPosX, int obstacleNewPosY)
 {
+	/* Set new position of obstacle */
 	Grid_setGrid(obstacleNewPosX, obstacleNewPosY, Grid_getGrid(obstacleOldPosX, obstacleOldPosY));
+	/* Set old position to ' ' */
 	Grid_setGrid(obstacleOldPosX, obstacleOldPosY, ' ');
+
+	/* Print the old and new position */
 	WindowsHelper_SetCursorPosition(obstacleNewPosX, obstacleNewPosY);
 	printf("%c", Grid_getGrid(obstacleNewPosX, obstacleNewPosY));
 	WindowsHelper_SetCursorPosition(obstacleOldPosX, obstacleOldPosY);
@@ -387,9 +410,12 @@ void Player_BearPush(int obstacleOldPosX, int obstacleOldPosY, int obstacleNewPo
 /* Break Wall */
 void Player_RhinoWallBreak(int wallPosX, int wallPosY)
 {
+	/* Set the wall in grid to ' ' */
 	Grid_setGrid(wallPosX, wallPosY, ' ');
+	/* Print over the wall */
 	WindowsHelper_SetCursorPosition(wallPosX, wallPosY);
 	printf("%c", Grid_getGrid(wallPosX, wallPosY));
+	/* Reduce break count and unpossess if no more break counts */
 	if (--rhinoBreakCount == 0)
 	{
 		Player_Unpossess();
