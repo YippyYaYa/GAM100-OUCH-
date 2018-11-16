@@ -27,7 +27,7 @@ void Loading_Update(float dt)
 		Grid_initGrid(1);
 		Grid_printGrid();
 	}
-	//if(tPass > 7.0f)
+	if(tPass > 7.0f)
 	GameStateManager_SetGameState(MainMenu);
 	
 }
