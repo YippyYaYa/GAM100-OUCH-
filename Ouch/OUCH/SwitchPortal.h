@@ -11,15 +11,15 @@ struct Object
 	/*Switch position and symbol, and if the switch is pressed - default is not pressed 0*/
 	int SwitchPosX;
 	int SwitchPosY;
-	char SwitchSymbol;
+	unsigned char SwitchSymbol;
 	bool Pressed;
 	/*Portal Starting position and ending position and symbol*/
 	int StartPortalX;
 	int StartPortalY;
 	int EndPortalX;
 	int EndPortalY;
-	char PortalPressedSymbol;
-	char PortalUnpressedSymbol;
+	unsigned char PortalPressedSymbol;
+	unsigned char PortalUnpressedSymbol;
 	/*is the object spawned*/
 	bool activated;
 };

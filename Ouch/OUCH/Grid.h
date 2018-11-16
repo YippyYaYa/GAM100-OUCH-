@@ -2,6 +2,6 @@
 
 void Grid_initGrid(int file);
 void Grid_printGrid();
-char Grid_getGrid(int posX, int posY);
-void Grid_setGrid(int posX, int posY, char symbol);
-char Ascii(char i);
+unsigned char Grid_getGrid(int posX, int posY);
+void Grid_setGrid(int posX, int posY, unsigned char symbol);
+unsigned char Ascii(unsigned char i);

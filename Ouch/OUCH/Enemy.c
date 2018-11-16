@@ -58,7 +58,6 @@ void Enemy_Kill(int posX, int posY)
 /*Update enemy movement*/
 void Enemy_Update(float dt)
 {
-	Colours_SetColor(ENEMY_COLOUR);
 	for (i = 0; i < activatedEnemies; i++)
 	{
 		enemy[i].move = enemy[i].move + enemy[i].velocity * dt;
@@ -69,7 +68,7 @@ void Enemy_Update(float dt)
 			{
 				if (enemy[i].direction == 'U') /*if direction is 'U'*/
 				{
-					if (Collision_Check(enemy[i].posX, enemy[i].posY - 1) == 0)
+					if (Collision_Check(enemy[i].posX, enemy[i].posY - 1) == 0 && Collision_Enemy(enemy[i].posX, enemy[i].posY - 1) == 0)
 					{
 						/*Set current position to old grid before moving - same for other directions*/
 						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
@@ -84,7 +83,7 @@ void Enemy_Update(float dt)
 				}
 				else if (enemy[i].direction == 'D') /*if direction is 'D'*/
 				{
-					if (Collision_Check(enemy[i].posX, enemy[i].posY + 1) == 0)
+					if (Collision_Check(enemy[i].posX, enemy[i].posY + 1) == 0 && Collision_Enemy(enemy[i].posX, enemy[i].posY + 1) == 0)
 					{
 						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
 						enemy[i].posY += 1;
@@ -96,7 +95,7 @@ void Enemy_Update(float dt)
 				}
 				else if (enemy[i].direction == 'L')
 				{
-					if (Collision_Check(enemy[i].posX - 1, enemy[i].posY) == 0)
+					if (Collision_Check(enemy[i].posX - 1, enemy[i].posY) == 0 && Collision_Enemy(enemy[i].posX - 1, enemy[i].posY) == 0)
 					{
 						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
 						enemy[i].posX -= 1;
@@ -108,7 +107,7 @@ void Enemy_Update(float dt)
 				}
 				else if (enemy[i].direction == 'R')
 				{
-					if (Collision_Check(enemy[i].posX + 1, enemy[i].posY) == 0)
+					if (Collision_Check(enemy[i].posX + 1, enemy[i].posY) == 0 && Collision_Check(enemy[i].posX + 1, enemy[i].posY) == 0)
 					{
 						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
 						enemy[i].posX += 1;
@@ -121,5 +120,4 @@ void Enemy_Update(float dt)
 			}
 		}
 	}
-		Colours_ResetColor();
 }

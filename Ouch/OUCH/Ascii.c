@@ -1,9 +1,9 @@
 #include "Grid.h"
 
-char Ascii(char i)
+unsigned char Ascii(unsigned char i)
 {
 	switch (i) {
-		char c;
+		unsigned char c;
 	case '0':
 		c = ' ';
 		return  c;

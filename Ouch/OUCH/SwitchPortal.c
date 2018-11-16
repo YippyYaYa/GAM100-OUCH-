@@ -1,5 +1,6 @@
 #pragma once
 #include "SwitchPortal.h"
+#include "Colours.h"
 
 static struct Object objects[OBJECT_ARRAY_SIZE];
 static int i;

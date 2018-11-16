@@ -19,7 +19,7 @@ This manager is in charge of processing player controls and actions
 /*Private variabes*/
 static int i, j;					/*private variables for transversing 2D arrays*/
 static FILE*textart;				/*create a private variable to store file*/
-static char grid[X][Y] = { ' ' };	/*define a 2D array by size NxN - all map size must be the same as this, axis is X and Y*/
+static unsigned char grid[X][Y] = { ' ' };	/*define a 2D array by size NxN - all map size must be the same as this, axis is X and Y*/
 
 /*Stores grid from file*/
 void Grid_initGrid(int file)
@@ -73,7 +73,7 @@ void Grid_initGrid(int file)
 		for (j = 0; j < X;)
 		{
 			/*stores char in file to grid array and checks if char in file is newline, if true, re-scan to grid array as we don't want the newline*/
-			if ((grid[j][i] = (char)getc(textart)) == '\n')
+			if ((grid[j][i] = (unsigned char)getc(textart)) == '\n')
 			{
 				if (j == 0)
 					j--;
@@ -121,15 +121,22 @@ void Grid_printGrid()
 }
 
 /*Get grid element*/
-char Grid_getGrid(int x, int y)
+unsigned char Grid_getGrid(int x, int y)
 {
 	return grid[x][y];
 }
 
-/*Set grid element - will be constantly updating grid for collision detection, use this to push enemies, buttons etc into grid*/
-void Grid_setGrid(int x, int y, char z)
+/*Set grid element - changes colour if it is portal/switch/enemies,*/
+void Grid_setGrid(int x, int y, unsigned char z)
 {
 	grid[x][y] = z;
 	WindowsHelper_SetCursorPosition(x, y);
+	if (z == 178 || z == 233 || z == 176)
+		/*colour code for portal and switch here*/
+		Colours_SetColor(RED);
+	else if (z == 'R' || z == 'B')
+		/*colour code for enemies here*/
+		Colours_SetColor(ENEMY_COLOUR);
 	printf("%c", grid[x][y]);
+	Colours_ResetColor();
 }
