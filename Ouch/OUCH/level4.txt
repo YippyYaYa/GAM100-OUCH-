@@ -18,8 +18,8 @@
 #         #   # #  #              #X     XX X     X     #         #                                #
 #         #   # #  #              # ### ####### ### ### #         #                                #
 ####################################################################################################
-# bear level                                                                                       #
-# b is bear(moving) possess to gain pushing ability           E is exit                            #
-# p is pushable object                                                                             #
-# Not a friendly level                                                                             #
+# Player is orange in colour , Do Not touch anything that is red                                   #
+# press space to possess and use abilities of possessed target.   press c to unpossess             #
+# b is bear possess to gain ability to push obstacle p            your objective is E              #
+# R is rhino possess to gain ability to destroy X ( 2 limited use)                                 #
 ####################################################################################################

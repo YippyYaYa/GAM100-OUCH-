@@ -141,7 +141,7 @@ int Player_DeathCheck()
 {
 	if (Grid_getGrid(playerX, playerY) == 'R' || 
 		Grid_getGrid(playerX, playerY) == 'B'|| 
-		Grid_getGrid(playerX, playerY) == 'E')
+		Grid_getGrid(playerX, playerY) == 'E') /*E should bring player to next level*/
 	{
 		return 1;
 	}
