@@ -3,9 +3,7 @@
 #include "GameStateManager.h"
 #include <Windows.h>
 #include "Grid.h"
-#include <stdio.h>
 
-static const int KEY_UP = 0x1;
 static enum Selected currentSelected;
 
 void MainMenu_Init()
@@ -16,9 +14,10 @@ void MainMenu_Init()
 	Grid_printGrid();
 
 }
+
 void MainMenu_Update()
 {
-	if ((GetAsyncKeyState(VK_LEFT) &KEY_UP) == KEY_UP && currentSelected != MenuPlay)
+	if(GetKeyState(VK_LEFT) & 0x8000 && currentSelected != MenuPlay)
 	{
 		if (currentSelected == MenuQuit)
 		{
@@ -33,7 +32,7 @@ void MainMenu_Update()
 			currentSelected = MenuQuit;
 		}
 	}
-	else if ((GetAsyncKeyState(VK_RIGHT) &KEY_UP) == KEY_UP && currentSelected != MenuCredits)
+	else if ((GetKeyState(VK_RIGHT) & 0x8000) && currentSelected != MenuCredits)
 	{
 		if (currentSelected == MenuPlay)
 		{
@@ -48,7 +47,7 @@ void MainMenu_Update()
 			currentSelected = MenuCredits;
 		}
 	}
-	else if ((GetAsyncKeyState(VK_RETURN) &KEY_UP) == KEY_UP)
+	else if (GetKeyState(VK_RETURN) & 0x8000)
 	{
 		if (currentSelected == MenuPlay)
 		{

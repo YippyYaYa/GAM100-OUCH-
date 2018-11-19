@@ -4,8 +4,8 @@
 #include "GameStateManager.h"
 #include <stdio.h>
 #include <Windows.h>
-#include "Game.h"
 #include "Colours.h"
+#include "WindowsHelper.h"
 
 static int currentStage;
 

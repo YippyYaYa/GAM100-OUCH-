@@ -8,11 +8,11 @@
 #include "CollisionManager.h"
 #include "GameStateManager.h"
 
-static const int KEY_UP = 0x1;          /* Input Checker */
-
 /* Private variables*/
 static int playerX, playerY;            /* Player Coordinates */
 static int possessRange;                /* Possession Range */
+static float moveCheck;                 /* Movement checking */
+static float velocity;                  /* Movement speed */
 static char player;                     /* Player Character */
 static enum PlayerMode currentMode;     /* Current Form of the Player*/
 static enum Direction currentDirection; /* Current direction that player is facing */
@@ -21,6 +21,8 @@ static int rhinoBreakCount;             /* Number of times rhino break can be us
 /*Initialise Player position*/
 void Player_InitPlayer()
 {
+	velocity = 15.0f;
+	moveCheck = 0.0f;
 	possessRange = 5;
 	player = 'M';
 	currentMode = Monkey;
@@ -29,77 +31,97 @@ void Player_InitPlayer()
 }
 
 /*Check for player input*/
-void Player_Controls()
+void Player_Controls(float dt)
 {
-	Player_Move();
+	Player_Move(dt);
 	Player_Interact();
 }
 
 /* Player Movement */
-void Player_Move()
+void Player_Move(float dt)
 {
 	/*Left Key Entered*/
-	if ((GetAsyncKeyState(VK_LEFT) &KEY_UP) == KEY_UP)
+	if (GetKeyState(VK_LEFT) & 0x8000)
 	{
-		currentDirection = Left;
-		/* Check if new position is valid */
-		if (!Collision_Check(playerX - 1, playerY))
+		moveCheck += (velocity * dt);
+		if (moveCheck >= 1.0f)
 		{
-			/* Print over the current position */
-			WindowsHelper_SetCursorPosition(playerX, playerY);
-			printf("%c", Grid_getGrid(playerX, playerY));
-			/* Change position */
-			playerX--;
-			/* Print player on new position */
-			Player_PrintPlayer();
+			moveCheck = 0.0f;
+			currentDirection = Left;
+			/* Check if new position is valid */
+			if (!Collision_Check(playerX - 1, playerY))
+			{
+				/* Print over the current position */
+				WindowsHelper_SetCursorPosition(playerX, playerY);
+				printf("%c", Grid_getGrid(playerX, playerY));
+				/* Change position */
+				playerX--;
+				/* Print player on new position */
+				Player_PrintPlayer();
+			}
 		}
 	}
 	/*Right Key Entered*/
-	else if ((GetAsyncKeyState(VK_RIGHT) &KEY_UP) == KEY_UP)
+	else if (GetKeyState(VK_RIGHT) & 0x8000)
 	{
-		currentDirection = Right;
-		/* Check if new position is valid */
-		if (!Collision_Check(playerX + 1, playerY))
+		moveCheck += (velocity * dt);
+		if (moveCheck >= 1.0f)
 		{
-			/* Print over the current position */
-			WindowsHelper_SetCursorPosition(playerX, playerY);
-			printf("%c", Grid_getGrid(playerX, playerY));
-			/* Change position */
-			playerX++;
-			/* Print player on new position */
-			Player_PrintPlayer();
+			moveCheck = 0.0f;
+			currentDirection = Right;
+			/* Check if new position is valid */
+			if (!Collision_Check(playerX + 1, playerY))
+			{
+				/* Print over the current position */
+				WindowsHelper_SetCursorPosition(playerX, playerY);
+				printf("%c", Grid_getGrid(playerX, playerY));
+				/* Change position */
+				playerX++;
+				/* Print player on new position */
+				Player_PrintPlayer();
+			}
 		}
 	}
 	/*Up Key Entered*/
-	else if ((GetAsyncKeyState(VK_UP) &KEY_UP) == KEY_UP)
+	else if (GetKeyState(VK_UP) & 0x8000)
 	{
-		currentDirection = Up;
-		/* Check if new position is valid */
-		if (!Collision_Check(playerX, playerY - 1))
+		moveCheck += (velocity * dt);
+		if (moveCheck >= 1.0f)
 		{
-			/* Print over the current position */
-			WindowsHelper_SetCursorPosition(playerX, playerY);
-			printf("%c", Grid_getGrid(playerX, playerY));
-			/* Change position */
-			playerY--;
-			/* Print player on new position */
-			Player_PrintPlayer();
+			moveCheck = 0.0f;
+			currentDirection = Up;
+			/* Check if new position is valid */
+			if (!Collision_Check(playerX, playerY - 1))
+			{
+				/* Print over the current position */
+				WindowsHelper_SetCursorPosition(playerX, playerY);
+				printf("%c", Grid_getGrid(playerX, playerY));
+				/* Change position */
+				playerY--;
+				/* Print player on new position */
+				Player_PrintPlayer();
+			}
 		}
 	}
 	/*Down Key Entered*/
-	else if ((GetAsyncKeyState(VK_DOWN) &KEY_UP) == KEY_UP)
+	else if (GetKeyState(VK_DOWN) & 0x8000)
 	{
-		currentDirection = Down;
-		/* Check if new position is valid */
-		if (!Collision_Check(playerX, playerY + 1))
+		moveCheck += (velocity * dt);
+		if (moveCheck >= 1.0f)
 		{
-			/* Print over the current position */
-			WindowsHelper_SetCursorPosition(playerX, playerY);
-			printf("%c", Grid_getGrid(playerX, playerY));
-			/* Change position */
-			playerY++;
-			/* Print player on new position */
-			Player_PrintPlayer();
+			moveCheck = 0.0f;
+			currentDirection = Down;
+			/* Check if new position is valid */
+			if (!Collision_Check(playerX, playerY + 1))
+			{
+				/* Print over the current position */
+				WindowsHelper_SetCursorPosition(playerX, playerY);
+				printf("%c", Grid_getGrid(playerX, playerY));
+				/* Change position */
+				playerY++;
+				/* Print player on new position */
+				Player_PrintPlayer();
+			}
 		}
 	}
 }
@@ -108,7 +130,7 @@ void Player_Move()
 void Player_Interact()
 {
 	/*Spacebar Entered*/
-	if ((GetAsyncKeyState(VK_SPACE) &KEY_UP) == KEY_UP)
+	if (GetKeyState(VK_SPACE) & 0x8000)
 	{
 		switch (currentMode)
 		{
@@ -124,7 +146,7 @@ void Player_Interact()
 		}
 	}
 	/* C Key Entered */
-	else if ((GetAsyncKeyState(0x43) &KEY_UP) == KEY_UP)
+	else if (GetKeyState(0x43) & 0x8000)
 	{
 		/* Unpossess if current form is rhino or bear */
 		switch (currentMode)
@@ -136,11 +158,11 @@ void Player_Interact()
 		}
 	}
 	/* R Key Entered */
-	else if ((GetAsyncKeyState(0x52) &KEY_UP) == KEY_UP)
+	else if (GetKeyState(0x52) & 0x8000)
 	{
 		GameStateManager_RestartLevel();
 	}
-	else if ((GetAsyncKeyState(VK_ESCAPE) &KEY_UP) == KEY_UP)
+	else if (GetKeyState(VK_ESCAPE) & 0x8000)
 	{
 		GameStateManager_SetGameState(MainMenu);
 	}

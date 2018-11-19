@@ -2,7 +2,6 @@
 #include "Loading.h"
 #include "GameStateManager.h"
 #include <Windows.h>
-#include <stdio.h>
 #include "Grid.h"
 #include "Colours.h"
 

@@ -5,7 +5,6 @@
 #include "MainMenu.h"
 #include "Credits.h"
 #include "GameOver.h"
-#include <Windows.h>
 
 static enum GameState currentState; /* Store current game stage */
 

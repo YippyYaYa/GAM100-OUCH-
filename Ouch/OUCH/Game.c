@@ -4,8 +4,6 @@
 #include "Enemy.h"
 #include "Player.h"
 #include "GameStateManager.h"
-#include <Windows.h>
-#include <stdio.h>
 
 static int currentStage;
 
@@ -20,7 +18,7 @@ void Game_Init()
 /*Update game*/
 void Game_Update(float dt)
 {
-	Player_Controls();
+	Player_Controls(dt);
 	Enemy_Update(dt);
 	/* Check if player collided with enemy */
 	if (Player_DeathCheck())
