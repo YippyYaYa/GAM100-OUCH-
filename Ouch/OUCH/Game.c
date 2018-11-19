@@ -70,18 +70,17 @@ void Game_LoadLevel(int level)
 		Player_SetPosition(1, 1);
 		break;
 	case 4:
-		Enemy_Spawn(17, 9, 'D', 'R', 1); /*Invisible enemy*/
+		Enemy_Spawn(17, 9, 'D', 'R', 1);
 		Enemy_Spawn(14, 6, 'L', 'B', 5);
-		Enemy_Spawn(22, 2, 'D', 'B', 2); /*Line 3, Column 23 is notepad++*/
+		Enemy_Spawn(22, 2, 'D', 'B', 2);
 		Enemy_Spawn(32, 3, 'U', 'R', 2);
 		Enemy_Spawn(16, 12, 'R', 'R', 2);
 		Enemy_Spawn(30, 12, 'R', 'R', 2);
 		Enemy_Spawn(61, 7, 'U', 'R', 2);
 		Enemy_Spawn(30, 12, 'U', 'R', 2);
 		Enemy_Spawn(37, 9, 'R', 'R', 2);
-		Enemy_Spawn(60, 9, 'R', 'B', 2);
-		Enemy_Spawn(11, 17, 'U', 'R', 2);
-		Enemy_Spawn(60, 9, 'U', 'B', 2);
+		Enemy_Spawn(62, 9, 'R', 'B', 1);
+		//Enemy_Spawn(11, 17, 'U', 'R', 2);
 		Enemy_Spawn(23, 15, 'R', 'B', 2);
 		Enemy_Spawn(46, 17, 'R', 'B', 2);
 		Enemy_Spawn(62, 14, 'R', 'R', 5);
