@@ -73,7 +73,7 @@ void Grid_initGrid(int file)
 		fopen_s(&textart, "mainmenucredits.txt", "r");
 		break;
 	case 12:
-		fopen_s(&textart, "TutorialB.txt", "r");
+		fopen_s(&textart, "credits.txt", "r");
 	}
 
 	/*Transverse 2D array*/
