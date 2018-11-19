@@ -22,7 +22,7 @@ static int rhinoBreakCount;             /* Number of times rhino break can be us
 /*Initialise Player position*/
 void Player_InitPlayer()
 {
-	velocity = 10.0f;
+	velocity = 8.0f;
 	moveCheck = 0.0f;
 	possessRange = 5;
 	player = 'M';

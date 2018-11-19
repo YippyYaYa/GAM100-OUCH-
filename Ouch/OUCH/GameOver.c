@@ -11,8 +11,8 @@ static int currentStage;
 
 void GameOver_Init() 
 {
-	Colours_SetColor(RED);
 	system("cls");
+	Colours_SetColor(RED);
 	currentStage = 8;
 	Grid_initGrid(currentStage);
 	/*Print Grid and Etc*/
