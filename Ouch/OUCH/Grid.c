@@ -110,13 +110,11 @@ void Grid_printGrid()
 	WindowsHelper_SetCursorPosition(0, 0);
 	for (i = 0; i < Y; i++)
 	{
-		/*WindowsHelper_SetCursorPosition(0, i);*/
 		for (j = 0; j < X; j++)
 		{
 			WindowsHelper_SetCursorPosition(j, i);
 			printf("%c", grid[j][i]);
 		}
-		//printf("\n");
 	}
 }
 

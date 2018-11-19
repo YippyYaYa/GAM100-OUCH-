@@ -13,10 +13,7 @@ static int currentStage;
 void Game_Init()
 {
 	system("cls");
-	currentStage = 4;
-
-	Enemy_Init();
-
+	currentStage = 4;	   
 	Game_LoadLevel(currentStage);
 }
 
@@ -34,7 +31,11 @@ void Game_Update(float dt)
 
 void Game_LoadLevel(int level)
 {
-	currentStage = level;
+	if (level != 0)
+	{
+		currentStage = level;
+	}
+	Enemy_Init();
 	Grid_initGrid(currentStage);
 	Grid_printGrid();
 	switch (currentStage)
@@ -74,13 +75,12 @@ void Game_LoadLevel(int level)
 		Enemy_Spawn(14, 6, 'L', 'B', 5);
 		Enemy_Spawn(22, 2, 'D', 'B', 2);
 		Enemy_Spawn(32, 3, 'U', 'R', 2);
-		Enemy_Spawn(16, 12, 'R', 'R', 2);
+		Enemy_Spawn(12, 3, 'U', 'R', 2);
 		Enemy_Spawn(30, 12, 'R', 'R', 2);
 		Enemy_Spawn(61, 7, 'U', 'R', 2);
 		Enemy_Spawn(30, 12, 'U', 'R', 2);
 		Enemy_Spawn(37, 9, 'R', 'R', 2);
 		Enemy_Spawn(62, 9, 'R', 'B', 1);
-		//Enemy_Spawn(11, 17, 'U', 'R', 2);
 		Enemy_Spawn(23, 15, 'R', 'B', 2);
 		Enemy_Spawn(46, 17, 'R', 'B', 2);
 		Enemy_Spawn(62, 14, 'R', 'R', 5);

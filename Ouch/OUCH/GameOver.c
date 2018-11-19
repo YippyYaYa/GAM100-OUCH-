@@ -4,6 +4,7 @@
 #include "GameStateManager.h"
 #include <stdio.h>
 #include <Windows.h>
+#include "Game.h"
 #include "Colours.h"
 
 static int currentStage;
@@ -27,6 +28,5 @@ void GameOver_Update()
 	/*pass in enter*/
 	getchar();
 	/* change state accordingly e.g. go to play or credits */
-	GameStateManager_SetGameState(Playing);
-	
+	GameStateManager_RestartLevel();
 }

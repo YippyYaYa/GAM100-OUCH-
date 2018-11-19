@@ -6,8 +6,9 @@
 #include "Colours.h"
 #include "Enemy.h"
 #include "CollisionManager.h"
+#include "GameStateManager.h"
 
-const int KEY_UP = 0x1;
+static const int KEY_UP = 0x1;          /* Input Checker */
 
 /* Private variables*/
 static int playerX, playerY;            /* Player Coordinates */
@@ -103,7 +104,7 @@ void Player_Move()
 	}
 }
 
-/*Interaction with objects*/
+/* Interaction */
 void Player_Interact()
 {
 	/*Spacebar Entered*/
@@ -133,6 +134,10 @@ void Player_Interact()
 				Player_Unpossess();
 				break;
 		}
+	}
+	else if ((GetAsyncKeyState(0x52) &KEY_UP) == KEY_UP)
+	{
+		GameStateManager_RestartLevel();
 	}
 }
 

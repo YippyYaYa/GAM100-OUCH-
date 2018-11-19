@@ -67,3 +67,9 @@ enum GameState GameStateManager_GetCurrentState()
 {
 	return currentState;
 }
+
+void GameStateManager_RestartLevel()
+{
+	currentState = Playing;
+	Game_LoadLevel(0);
+}
