@@ -113,6 +113,16 @@ void Grid_printGrid()
 		for (j = 0; j < X; j++)
 		{
 			WindowsHelper_SetCursorPosition(j, i);
+			if (i < 20)
+			{
+				if (grid[j][i] == 'X')
+					/*Colour code for Breakable Wall here*/
+					Colours_SetColor(PLAYER_COLOUR);
+				else if (grid[j][i] == '#')
+					/*Colour code for Wall here*/;
+				else if (grid[j][i] == 'p')
+					/*Colour code for pushable object here*/;
+			}
 			printf("%c", grid[j][i]);
 		}
 	}
