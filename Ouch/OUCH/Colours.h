@@ -4,7 +4,7 @@
 /* All colour definitions goes here */
 #define PLAYER_COLOUR 6  /* Brown */
 #define ENEMY_COLOUR 12 /*LIGHT RED*/
-#define RED   4
+#define RED 4
 #define PUSHABLE 8
 #define BREAKABLE (FOREGROUND_RED | FOREGROUND_GREEN)
 #define END 2

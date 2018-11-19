@@ -13,6 +13,7 @@ This manager is in charge of processing player controls and actions
 #include "Enemy.h"
 #include <stdio.h>
 #include "WindowsHelper.h"
+#include "GameStateManager.h"
 #define X 100
 #define Y 25
 
@@ -131,7 +132,8 @@ void Grid_printGrid()
 					Colours_SetColor(END);
 			}
 			printf("%c", grid[j][i]);
-			Colours_ResetColor();
+			if(GameStateManager_GetCurrentState()==Playing)
+				Colours_ResetColor();
 		}
 	}
 }
@@ -153,6 +155,8 @@ void Grid_setGrid(int x, int y, unsigned char z)
 	else if (z == 'R' || z == 'B')
 		/*colour code for enemies here*/
 		Colours_SetColor(ENEMY_COLOUR);
+	else if (z == 'p')
+		Colours_SetColor(PUSHABLE);
 	printf("%c", grid[x][y]);
 	Colours_ResetColor();
 }

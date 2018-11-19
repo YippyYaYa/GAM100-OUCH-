@@ -64,5 +64,3 @@ void MainMenu_Update()
 		}
 	}
 }
-
-/* function definitions here */
