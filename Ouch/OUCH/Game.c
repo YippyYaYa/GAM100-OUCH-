@@ -68,7 +68,7 @@ void Game_LoadLevel(int level)
 		Enemy_Spawn(35, 5, 'L', 'B', 5);
 		Enemy_Spawn(81, 7, 'R', 'B', 5);
 		Enemy_Spawn(91, 5, 'D', 'B', 5);
-		Enemy_Spawn(95, 13, 'D', 'B', 5);
+		Enemy_Spawn(94, 13, 'D', 'B', 5);
 
 		Player_InitPlayer();
 		Player_SetPosition(1, 1);
