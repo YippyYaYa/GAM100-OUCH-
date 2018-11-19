@@ -1,0 +1,25 @@
+####################################################################################################
+#                                                                                                  #
+#                                                                                                  #
+#                                            Credits                                               #
+#                                           Group JayG                                             #
+#                                                                                                  #
+#                                                                                                  #
+#                                            Members                                               #
+#                     Name      Role                        Email                                  #
+#                     Alex      Programmer                  w.chew@digipen.edu                     #
+#                     Yi Fang   Programmer/Level Design                                            #
+#                     Gabriel   Producer                                                           #
+#                     Jun Hong  Level Designer                                                     #
+#                                                                                                  #
+#                                                                                                  #
+#                     Instructors                                                                  #
+#                     Cheng Ding Xiang                                                             #
+#                     Logam Andy                                                                   #
+#                                                                                                  #
+#                                                                                                  #
+#                                                                                                  #
+#                                                                                                  #
+#                                 Press ESC to return to Main Menu                                 #
+#                                                                                                  #
+####################################################################################################
