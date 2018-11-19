@@ -11,7 +11,7 @@ static short height = 27; /* height of console size*/
 void WindowsHelper_Init()
 {
 	COORD bufferSize = { width , height };
-	SMALL_RECT windowSize = { 0,0, width-1 , height-1 };
+	SMALL_RECT windowSize = { 0, 0, width-1 , height-1 };
 	CONSOLE_CURSOR_INFO cursorInfo;
 	DWORD consoleMode;
 
@@ -31,8 +31,7 @@ void WindowsHelper_Init()
 	/* Disable extra row printing at the end of screen */
 	GetConsoleMode(wHnd, &consoleMode);
 	consoleMode |= DISABLE_NEWLINE_AUTO_RETURN | ENABLE_VIRTUAL_TERMINAL_PROCESSING;
-	if (!SetConsoleMode(wHnd, consoleMode))
-		ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
+	SetConsoleMode(wHnd, consoleMode);
 }
 
 /*Sets the console cursor position. */
