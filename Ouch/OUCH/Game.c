@@ -12,8 +12,8 @@ static int totalStages;
 void Game_Init()
 {
 	system("cls");
-	currentStage = 3;	   
-	totalStages = 2;
+	currentStage = 2;	   
+	totalStages = 3;
 	Game_LoadLevel(currentStage);
 }
 
@@ -43,6 +43,15 @@ void Game_LoadLevel(int level)
 	case 1:
 		break;
 	case 2:
+		Enemy_Spawn(9, 12, 'U', 'R', 15);
+		Enemy_Spawn(19, 15, 'R', 'R', 15);
+		Enemy_Spawn(45, 1, 'R', 'R', 15);
+		Enemy_Spawn(40, 3, 'R', 'R', 15);
+		Enemy_Spawn(12, 17, 'R', 'R', 15);
+		Enemy_Spawn(85, 2, 'R', 'R', 15);
+
+		Player_InitPlayer();
+		Player_SetPosition(1, 1);
 		break;
 	case 3:
 		/* init enemy/switch/obstacle/wutever non grid objects here */
