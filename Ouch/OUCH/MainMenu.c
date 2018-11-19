@@ -3,11 +3,13 @@
 #include "GameStateManager.h"
 #include <Windows.h>
 #include "Grid.h"
+#include "Colours.h"
 
 static enum Selected currentSelected;
 
 void MainMenu_Init()
 {
+	Colours_ResetColor();
 	system("cls");
 	currentSelected = MenuPlay;
 	Grid_initGrid(0);

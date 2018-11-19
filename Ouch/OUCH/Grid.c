@@ -72,6 +72,8 @@ void Grid_initGrid(int file)
 	case 11:
 		fopen_s(&textart, "mainmenucredits.txt", "r");
 		break;
+	case 12:
+		fopen_s(&textart, "TutorialB.txt", "r");
 	}
 
 	/*Transverse 2D array*/
@@ -120,7 +122,7 @@ void Grid_printGrid()
 		for (j = 0; j < X; j++)
 		{
 			WindowsHelper_SetCursorPosition(j, i);
-			if (i < 20)
+			if (i < 20 && GameStateManager_GetCurrentState() == Playing)
 			{
 				if (grid[j][i] == 'X')
 					/*Colour code for Breakable Wall here*/
@@ -132,8 +134,7 @@ void Grid_printGrid()
 					Colours_SetColor(END);
 			}
 			printf("%c", grid[j][i]);
-			if(GameStateManager_GetCurrentState()==Playing)
-				Colours_ResetColor();
+			Colours_ResetColor();
 		}
 	}
 }
