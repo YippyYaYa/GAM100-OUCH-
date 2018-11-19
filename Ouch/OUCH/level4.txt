@@ -16,7 +16,7 @@
 #         #   # #                   ### ### ### ### ### #                      #                   #
 #         #   # X  ################ ### ### ### ### ### #         ##############                   #
 #         #   # #  #              #X     XX X     X     #         #                                #
-#         #   # #  #              # ### ####### ### ### #         #                                #
+#         #   # #  #              # ### ####### ### ### #         X                                #
 ####################################################################################################
 # Player is orange in colour , Do Not touch anything that is red                                   #
 # press space to possess and use abilities of possessed target.   press c to unpossess             #

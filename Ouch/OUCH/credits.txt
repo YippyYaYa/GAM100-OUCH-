@@ -8,9 +8,9 @@
 #                                            Members                                               #
 #                     Name      Role                        Email                                  #
 #                     Alex      Programmer                  w.chew@digipen.edu                     #
-#                     Yi Fang   Programmer/Level Design                                            #
+#                     Yi Fang   Programmer/Level Design     c.yifang@digipen.edu                   #
 #                     Gabriel   Producer                                                           #
-#                     Jun Hong  Level Designer                                                     #
+#                     Jun Hong  Level Designer              junhao.h@digipen.edu                   #
 #                                                                                                  #
 #                                                                                                  #
 #                     Instructors                                                                  #
