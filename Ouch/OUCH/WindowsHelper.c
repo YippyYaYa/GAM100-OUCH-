@@ -5,8 +5,8 @@
 HANDLE wHnd;    /* Handle to write to the console.*/
 HANDLE rHnd;    /* Handle to read from the console.*/
 
-static short width = 100; /* width of console size*/
-static short height = 25; /* height of console size*/
+static short width = 102; /* width of console size*/
+static short height = 27; /* height of console size*/
 
 void WindowsHelper_Init()
 {
@@ -20,8 +20,8 @@ void WindowsHelper_Init()
 	SetConsoleTitle(TEXT(CONSOLE_TITLE));
 
 	/* Set Console size */
-	SetConsoleWindowInfo(wHnd, 1, &windowSize);
 	SetConsoleScreenBufferSize(wHnd, bufferSize);
+	SetConsoleWindowInfo(wHnd, 1, &windowSize);
 	
 	/* Hide blinking cursor */
 	GetConsoleCursorInfo(wHnd, &cursorInfo);
@@ -38,6 +38,6 @@ void WindowsHelper_Init()
 /*Sets the console cursor position. */
 void WindowsHelper_SetCursorPosition(int x, int y)
 {
-	COORD pos = { (short)x, (short)y };
+	COORD pos = { (short)x+1, (short)y+1 };
 	SetConsoleCursorPosition(wHnd, pos);
 }
