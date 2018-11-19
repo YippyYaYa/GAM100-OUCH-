@@ -6,12 +6,14 @@
 #include "GameStateManager.h"
 
 static int currentStage;
+static int totalStages;
 
 /*Init game and pass in game level file i/o*/
 void Game_Init()
 {
 	system("cls");
-	currentStage = 4;	   
+	currentStage = 3;	   
+	totalStages = 2;
 	Game_LoadLevel(currentStage);
 }
 
@@ -81,8 +83,9 @@ void Game_LoadLevel(int level)
 		Enemy_Spawn(62, 9, 'R', 'B', 1);
 		Enemy_Spawn(23, 15, 'R', 'B', 2);
 		Enemy_Spawn(46, 17, 'R', 'B', 2);
+		Enemy_Spawn(62, 13, 'L', 'R', 5);
 		Enemy_Spawn(62, 14, 'R', 'R', 5);
-		Enemy_Spawn(62, 15, 'R', 'R', 5);
+		Enemy_Spawn(62, 15, 'L', 'R', 5);
 
 		Player_InitPlayer();
 		Player_SetPosition(13, 9);
@@ -90,5 +93,18 @@ void Game_LoadLevel(int level)
 		break;
 	case 5:
 		break;
+	}
+}
+
+void Game_LevelComplete()
+{
+	if (currentStage + 1 > (currentStage + totalStages - 1))
+	{
+		GameStateManager_SetGameState(MainMenu);
+	}
+	else
+	{
+		currentStage++;
+		Game_LoadLevel(currentStage);
 	}
 }

@@ -6,6 +6,7 @@
 #include "Colours.h"
 #include "Enemy.h"
 #include "CollisionManager.h"
+#include "Game.h"
 #include "GameStateManager.h"
 
 /* Private variables*/
@@ -21,7 +22,7 @@ static int rhinoBreakCount;             /* Number of times rhino break can be us
 /*Initialise Player position*/
 void Player_InitPlayer()
 {
-	velocity = 15.0f;
+	velocity = 10.0f;
 	moveCheck = 0.0f;
 	possessRange = 5;
 	player = 'M';
@@ -130,7 +131,7 @@ void Player_Move(float dt)
 void Player_Interact()
 {
 	/*Spacebar Entered*/
-	if (GetKeyState(VK_SPACE) & 0x8000)
+	if (GetAsyncKeyState(VK_SPACE) & 0x1)
 	{
 		switch (currentMode)
 		{
@@ -146,7 +147,7 @@ void Player_Interact()
 		}
 	}
 	/* C Key Entered */
-	else if (GetKeyState(0x43) & 0x8000)
+	else if (GetAsyncKeyState(0x43) & 0x1)
 	{
 		/* Unpossess if current form is rhino or bear */
 		switch (currentMode)
@@ -158,7 +159,7 @@ void Player_Interact()
 		}
 	}
 	/* R Key Entered */
-	else if (GetKeyState(0x52) & 0x8000)
+	else if ((GetAsyncKeyState(0x52) & 0x1) == 0x1)
 	{
 		GameStateManager_RestartLevel();
 	}
@@ -171,11 +172,13 @@ void Player_Interact()
 /* Check if player collided with any enemy */
 int Player_DeathCheck()
 {
-	if (Grid_getGrid(playerX, playerY) == 'R' || 
-		Grid_getGrid(playerX, playerY) == 'B'|| 
-		Grid_getGrid(playerX, playerY) == 'E') /*E should bring player to next level*/
+	if (Collision_Enemy(playerX, playerY))
 	{
 		return 1;
+	}
+	else if (Grid_getGrid(playerX, playerY) == 'E')
+	{
+		Game_LevelComplete();
 	}
 	return 0;
 }
