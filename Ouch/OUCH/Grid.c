@@ -117,9 +117,12 @@ void Grid_printGrid()
 			{
 				if (grid[j][i] == 'X')
 					/*Colour code for Breakable Wall here*/
-					Colours_SetColor(PLAYER_COLOUR);
+					Colours_SetColor(BREAKABLE);
 				else if (grid[j][i] == 'p')
-					/*Colour code for pushable object here*/;
+					/*Colour code for pushable object here*/
+					Colours_SetColor(PUSHABLE);
+				else if (grid[j][i] == 'E')
+					Colours_SetColor(END);
 			}
 			printf("%c", grid[j][i]);
 			Colours_ResetColor();
