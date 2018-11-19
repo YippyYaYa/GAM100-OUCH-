@@ -18,15 +18,22 @@ void GameOver_Init()
 	/*Print Grid and Etc*/
 	Grid_printGrid();
 	Colours_ResetColor();
+	WindowsHelper_SetCursorPosition(38, 23);
+	printf("Press enter to try again\n");
+	WindowsHelper_SetCursorPosition(35, 24);
+	printf("Or ESC to return to main menu");
 }
 
 void GameOver_Update() 
 {
-	int x=38 , y=23;
-	WindowsHelper_SetCursorPosition(x, y);
-	printf("press enter to try again.");
 	/*pass in enter*/
-	getchar();
-	/* change state accordingly e.g. go to play or credits */
-	GameStateManager_RestartLevel();
+	if (GetKeyState(VK_RETURN) & 0x8000)
+	{
+		/* change state accordingly */
+		GameStateManager_RestartLevel();
+	}
+	else if (GetKeyState(VK_ESCAPE) & 0x8000)
+	{
+		GameStateManager_SetGameState(MainMenu);
+	}
 }
