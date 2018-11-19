@@ -193,8 +193,7 @@ void Player_Monkey()
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
 				/* Possess if there is a bear or rhino in range */
-				if (Grid_getGrid(playerX, playerY - possessRange) == 'B' || 
-					Grid_getGrid(playerX, playerY - possessRange) == 'R')
+				if (Collision_Enemy(playerX, playerY - possessRange) == 1)
 				{
 					/* Print over current position */
 					WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -230,8 +229,7 @@ void Player_Monkey()
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
 				/* Possess if there is a bear or rhino in range */
-				if (Grid_getGrid(playerX, playerY + possessRange) == 'B' ||
-					Grid_getGrid(playerX, playerY + possessRange) == 'R')
+				if (Collision_Enemy(playerX, playerY + possessRange) == 1)
 				{
 					/* Print over current position */
 					WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -267,8 +265,7 @@ void Player_Monkey()
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
 				/* Possess if there is a bear or rhino in range */
-				if (Grid_getGrid(playerX - possessRange, playerY) == 'B' ||
-					Grid_getGrid(playerX - possessRange, playerY) == 'R')
+				if (Collision_Enemy(playerX - possessRange, playerY) == 1)
 				{
 					/* Print over current position */
 					WindowsHelper_SetCursorPosition(playerX, playerY);
@@ -304,8 +301,7 @@ void Player_Monkey()
 			for (possessRange = 1; possessRange <= 5; possessRange++)
 			{
 				/* Possess if there is a bear or rhino in range */
-				if (Grid_getGrid(playerX + possessRange, playerY) == 'B' ||
-					Grid_getGrid(playerX + possessRange, playerY) == 'R')
+				if (Collision_Enemy(playerX + possessRange, playerY) == 1)
 				{
 					/* Print over current position */
 					WindowsHelper_SetCursorPosition(playerX, playerY);

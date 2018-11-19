@@ -1,7 +1,7 @@
 #pragma once
 #include "Enemy.h"
 
-struct Enemy enemy[ENEMY_ARRAY_SIZE]; /*Maximum array size of enemy*/
+static struct Enemy enemy[ENEMY_ARRAY_SIZE]; /*Maximum array size of enemy*/
 static int i; /*Variable to transverse array*/
 static int activatedEnemies; /*Size of array of enemies spawned*/
 static float move = 0.0f; /*Checks whether to update or not*/
@@ -68,7 +68,8 @@ void Enemy_Update(float dt)
 			{
 				if (enemy[i].direction == 'U') /*if direction is 'U'*/
 				{
-					if (Collision_Check(enemy[i].posX, enemy[i].posY - 1) == 0 && Collision_Enemy(enemy[i].posX, enemy[i].posY - 1) == 0)
+					if (Collision_Check(enemy[i].posX, enemy[i].posY - 1) == 0 &&
+						Collision_Enemy(enemy[i].posX, enemy[i].posY - 1) == 0)
 					{
 						/*Set current position to old grid before moving - same for other directions*/
 						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
@@ -83,7 +84,8 @@ void Enemy_Update(float dt)
 				}
 				else if (enemy[i].direction == 'D') /*if direction is 'D'*/
 				{
-					if (Collision_Check(enemy[i].posX, enemy[i].posY + 1) == 0 && Collision_Enemy(enemy[i].posX, enemy[i].posY + 1) == 0)
+					if (Collision_Check(enemy[i].posX, enemy[i].posY + 1) == 0 &&
+						Collision_Enemy(enemy[i].posX, enemy[i].posY + 1) == 0)
 					{
 						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
 						enemy[i].posY += 1;
@@ -95,7 +97,8 @@ void Enemy_Update(float dt)
 				}
 				else if (enemy[i].direction == 'L')
 				{
-					if (Collision_Check(enemy[i].posX - 1, enemy[i].posY) == 0 && Collision_Enemy(enemy[i].posX - 1, enemy[i].posY) == 0)
+					if (Collision_Check(enemy[i].posX - 1, enemy[i].posY) == 0 &&
+						Collision_Enemy(enemy[i].posX - 1, enemy[i].posY) == 0)
 					{
 						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
 						enemy[i].posX -= 1;
@@ -107,7 +110,8 @@ void Enemy_Update(float dt)
 				}
 				else if (enemy[i].direction == 'R')
 				{
-					if (Collision_Check(enemy[i].posX + 1, enemy[i].posY) == 0 && Collision_Check(enemy[i].posX + 1, enemy[i].posY) == 0)
+					if (Collision_Check(enemy[i].posX + 1, enemy[i].posY) == 0 &&
+						Collision_Check(enemy[i].posX + 1, enemy[i].posY) == 0)
 					{
 						Grid_setGrid(enemy[i].posX, enemy[i].posY, enemy[i].oldGrid);
 						enemy[i].posX += 1;

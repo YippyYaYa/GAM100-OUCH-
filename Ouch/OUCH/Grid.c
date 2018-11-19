@@ -10,10 +10,6 @@ This manager is in charge of processing player controls and actions
 /******************************************************************************/
 #pragma once
 #include "Grid.h"
-#include "Enemy.h"
-#include <stdio.h>
-#include "WindowsHelper.h"
-#include "GameStateManager.h"
 #define X 100
 #define Y 25
 
@@ -122,7 +118,7 @@ void Grid_printGrid()
 		for (j = 0; j < X; j++)
 		{
 			WindowsHelper_SetCursorPosition(j, i);
-			if (i < 20 && GameStateManager_GetCurrentState() == Playing)
+			if (GameStateManager_GetCurrentState() == Playing && i < 20)
 			{
 				if (grid[j][i] == 'X')
 					/*Colour code for Breakable Wall here*/
@@ -131,7 +127,17 @@ void Grid_printGrid()
 					/*Colour code for pushable object here*/
 					Colours_SetColor(PUSHABLE);
 				else if (grid[j][i] == 'E')
+					/*Colour code for exit*/
 					Colours_SetColor(END);
+			}
+			else if (GameStateManager_GetCurrentState() == Loading)
+			{
+				/*Colour code here*/
+				Colours_SetColor(RED);
+			}
+			else if (GameStateManager_GetCurrentState() == GameOver)
+			{
+				Colours_SetColor(RED);
 			}
 			printf("%c", grid[j][i]);
 			Colours_ResetColor();
@@ -157,6 +163,7 @@ void Grid_setGrid(int x, int y, unsigned char z)
 		/*colour code for enemies here*/
 		Colours_SetColor(ENEMY_COLOUR);
 	else if (z == 'p')
+		/*Colour code for pushable object*/
 		Colours_SetColor(PUSHABLE);
 	printf("%c", grid[x][y]);
 	Colours_ResetColor();

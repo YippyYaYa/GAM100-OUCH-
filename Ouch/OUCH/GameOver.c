@@ -11,13 +11,11 @@ static int currentStage;
 
 void GameOver_Init() 
 {
-	Colours_SetColor(RED);
 	system("cls");
 	currentStage = 8;
 	Grid_initGrid(currentStage);
 	/*Print Grid and Etc*/
 	Grid_printGrid();
-	Colours_ResetColor();
 	WindowsHelper_SetCursorPosition(38, 23);
 	printf("Press enter to try again\n");
 	WindowsHelper_SetCursorPosition(35, 24);

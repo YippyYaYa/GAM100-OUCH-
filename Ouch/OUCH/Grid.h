@@ -1,4 +1,8 @@
 #pragma once
+#include <stdio.h>
+#include "Enemy.h"
+#include "WindowsHelper.h"
+#include "GameStateManager.h"
 
 void Grid_initGrid(int file);
 void Grid_printGrid();
