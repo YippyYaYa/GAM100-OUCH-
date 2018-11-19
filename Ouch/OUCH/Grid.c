@@ -28,7 +28,7 @@ void Grid_initGrid(int file)
 	{	
 	case 0:
 		/*open file for reading*/
-		fopen_s(&textart, "mainmenu.txt", "r");
+		fopen_s(&textart, "mainmenuplay.txt", "r");
 		break;
 	case 1:
 		/*open file for reading*/
@@ -64,6 +64,12 @@ void Grid_initGrid(int file)
 	case 9:
 		/*open file for reading*/
 		fopen_s(&textart, "TutorialB.txt", "r");
+		break;
+	case 10:
+		fopen_s(&textart, "mainmenuquit.txt", "r");
+		break;
+	case 11:
+		fopen_s(&textart, "mainmenucredits.txt", "r");
 		break;
 	}
 

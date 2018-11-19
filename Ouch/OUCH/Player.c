@@ -135,9 +135,14 @@ void Player_Interact()
 				break;
 		}
 	}
+	/* R Key Entered */
 	else if ((GetAsyncKeyState(0x52) &KEY_UP) == KEY_UP)
 	{
 		GameStateManager_RestartLevel();
+	}
+	else if ((GetAsyncKeyState(VK_ESCAPE) &KEY_UP) == KEY_UP)
+	{
+		GameStateManager_SetGameState(MainMenu);
 	}
 }
 
