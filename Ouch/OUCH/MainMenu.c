@@ -14,12 +14,12 @@ void MainMenu_Init()
 	currentSelected = MenuPlay;
 	Grid_initGrid(0);
 	Grid_printGrid();
-
+	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 
 void MainMenu_Update()
 {
-	if(GetKeyState(VK_LEFT) & 0x8000 && currentSelected != MenuPlay)
+	if (GetAsyncKeyState(VK_LEFT) &0x8000 && currentSelected != MenuPlay)
 	{
 		if (currentSelected == MenuQuit)
 		{
@@ -34,7 +34,7 @@ void MainMenu_Update()
 			currentSelected = MenuQuit;
 		}
 	}
-	else if ((GetKeyState(VK_RIGHT) & 0x8000) && currentSelected != MenuCredits)
+	else if (GetAsyncKeyState(VK_RIGHT) &0x8000 && currentSelected != MenuCredits)
 	{
 		if (currentSelected == MenuPlay)
 		{
@@ -49,7 +49,7 @@ void MainMenu_Update()
 			currentSelected = MenuCredits;
 		}
 	}
-	else if (GetKeyState(VK_RETURN) & 0x8000)
+	else if (GetAsyncKeyState(VK_RETURN) &0x8000)
 	{
 		if (currentSelected == MenuPlay)
 		{
