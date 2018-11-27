@@ -12,11 +12,12 @@ void Credits_Init()
 	system("cls");
 	Grid_initGrid(12);
 	Grid_printGrid();
+	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 
 void Credits_Update()
 {
-	if (GetKeyState(VK_ESCAPE) & 0x8000)
+	if (GetAsyncKeyState(VK_ESCAPE) & 0x8000)
 	{
 		GameStateManager_SetGameState(MainMenu);
 	}

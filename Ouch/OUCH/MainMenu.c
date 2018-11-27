@@ -21,7 +21,7 @@ void MainMenu_Init()
 
 void MainMenu_Update()
 {
-	if (GetAsyncKeyState(VK_LEFT) &0x8000 && currentSelected != MenuPlay)
+	if (GetAsyncKeyState(VK_LEFT) & 0x8000 && currentSelected != MenuPlay)
 	{
 		if (currentSelected == MenuQuit)
 		{
@@ -36,7 +36,7 @@ void MainMenu_Update()
 			currentSelected = MenuQuit;
 		}
 	}
-	else if (GetAsyncKeyState(VK_RIGHT) &0x8000 && currentSelected != MenuCredits)
+	else if (GetAsyncKeyState(VK_RIGHT) & 0x8000 && currentSelected != MenuCredits)
 	{
 		if (currentSelected == MenuPlay)
 		{
@@ -51,7 +51,7 @@ void MainMenu_Update()
 			currentSelected = MenuCredits;
 		}
 	}
-	else if (GetAsyncKeyState(VK_RETURN) &0x8000)
+	else if (GetAsyncKeyState(VK_RETURN) & 0x8000)
 	{
 		if (currentSelected == MenuPlay)
 		{
