@@ -107,7 +107,7 @@ void Player_Move()
 void Player_Interact()
 {
 	/*Spacebar Entered*/
-	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+	if (GetAsyncKeyState(VK_SPACE) & 0x1)
 	{
 		switch (currentMode)
 		{
@@ -123,7 +123,7 @@ void Player_Interact()
 		}
 	}
 	/* C Key Entered */
-	else if (GetAsyncKeyState(0x43) & 0x8000)
+	else if (GetAsyncKeyState(0x43) & 0x1)
 	{
 		/* Unpossess if current form is rhino or bear */
 		switch (currentMode)
@@ -135,7 +135,7 @@ void Player_Interact()
 		}
 	}
 	/* R Key Entered */
-	else if (GetAsyncKeyState(0x52) &0x8000)
+	else if (GetAsyncKeyState(0x52) & 0x1)
 	{
 		GameStateManager_RestartLevel();
 	}
