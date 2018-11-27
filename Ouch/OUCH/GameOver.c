@@ -20,17 +20,18 @@ void GameOver_Init()
 	printf("Press enter to try again\n");
 	WindowsHelper_SetCursorPosition(35, 24);
 	printf("Or ESC to return to main menu");
+	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 
 void GameOver_Update() 
 {
 	/*pass in enter*/
-	if (GetKeyState(VK_RETURN) & 0x8000)
+	if (GetAsyncKeyState(VK_RETURN) & 0x8000)
 	{
 		/* change state accordingly */
 		GameStateManager_RestartLevel();
 	}
-	else if (GetKeyState(VK_ESCAPE) & 0x8000)
+	else if (GetAsyncKeyState(VK_ESCAPE) & 0x8000)
 	{
 		GameStateManager_SetGameState(MainMenu);
 	}

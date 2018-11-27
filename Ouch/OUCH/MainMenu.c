@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include "Grid.h"
 #include "Colours.h"
+#include "Enemy.h"
 
 static enum Selected currentSelected;
 
@@ -14,6 +15,7 @@ void MainMenu_Init()
 	currentSelected = MenuPlay;
 	Grid_initGrid(0);
 	Grid_printGrid();
+	Enemy_Init();
 	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 

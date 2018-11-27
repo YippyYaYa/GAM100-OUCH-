@@ -15,12 +15,13 @@ void Game_Init()
 	currentStage = 2;	   
 	totalStages = 3;
 	Game_LoadLevel(currentStage);
+	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 
 /*Update game*/
 void Game_Update(float dt)
 {
-	Player_Controls(dt);
+	Player_Controls();
 	Enemy_Update(dt);
 	/* Check if player collided with enemy */
 	if (Player_DeathCheck())

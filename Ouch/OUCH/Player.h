@@ -16,8 +16,8 @@ enum Direction {
 };
 
 void Player_InitPlayer();
-void Player_Controls(float dt);
-void Player_Move(float dt);
+void Player_Controls();
+void Player_Move();
 void Player_Interact();
 int Player_DeathCheck();
 void Player_Monkey();
