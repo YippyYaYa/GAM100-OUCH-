@@ -3,6 +3,7 @@
 #include "Grid.h"
 #include "Enemy.h"
 #include "Player.h"
+#include "SwitchPortal.h"
 #include "GameStateManager.h"
 
 static int currentStage;
@@ -12,8 +13,8 @@ static int totalStages;
 void Game_Init()
 {
 	system("cls");
-	currentStage = 2;	   
-	totalStages = 3;
+	currentStage = 1;	   
+	totalStages = 5;
 	Game_LoadLevel(currentStage);
 	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
@@ -36,14 +37,28 @@ void Game_LoadLevel(int level)
 	{
 		currentStage = level;
 	}
+	SwitchPortal_Init();
 	Enemy_Init();
 	Grid_initGrid(currentStage);
 	Grid_printGrid();
 	switch (currentStage)
 	{
 	case 1:
+		
+		//SwitchPortal_Spawn(33, 1,31, 8, 66, 10);
+		//SwitchPortal_Spawn(98, 10, 66, 1, 31,18);
+		SwitchPortal_Spawn(1, 18, 64, 8, 33, 10);
+
+		Enemy_Spawn(1, 8, 'L', 'B', 3);
+		Enemy_Spawn(98, 1, 'L', 'B', 3);
+
+		Player_InitPlayer();
+		Player_SetPosition(47, 2);
 		break;
 	case 2:
+
+		break;
+	case 3:
 		Enemy_Spawn(9, 12, 'U', 'R', 15);
 		Enemy_Spawn(19, 15, 'R', 'R', 15);
 		Enemy_Spawn(45, 1, 'R', 'R', 15);
@@ -53,8 +68,9 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(1, 1);
+	
 		break;
-	case 3:
+	case 4:
 		/* init enemy/switch/obstacle/wutever non grid objects here */
 		Enemy_Spawn(2, 3, 'R', 'B', 5);
 		Enemy_Spawn(3, 4, 'R', 'B', 5);
@@ -82,8 +98,9 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(1, 1);
+
 		break;
-	case 4:
+	case 5:
 		Enemy_Spawn(17, 9, 'D', 'R', 1);
 		Enemy_Spawn(14, 6, 'L', 'B', 5);
 		Enemy_Spawn(22, 2, 'D', 'B', 2);
@@ -102,9 +119,6 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(13, 9);
-
-		break;
-	case 5:
 		break;
 	}
 }

@@ -122,10 +122,10 @@ void Grid_printGrid()
 			{
 				if (grid[j][i] == 'X')
 					/*Colour code for Breakable Wall here*/
-					Colours_SetColor(BREAKABLE);
+					Colours_SetColor(OBSTACLES);
 				else if (grid[j][i] == 'p')
 					/*Colour code for pushable object here*/
-					Colours_SetColor(PUSHABLE);
+					Colours_SetColor(OBSTACLES);
 				else if (grid[j][i] == 'E')
 					/*Colour code for exit*/
 					Colours_SetColor(END);
@@ -164,7 +164,7 @@ void Grid_setGrid(int x, int y, unsigned char z)
 		Colours_SetColor(ENEMY_COLOUR);
 	else if (z == 'p')
 		/*Colour code for pushable object*/
-		Colours_SetColor(PUSHABLE);
+		Colours_SetColor(OBSTACLES);
 	printf("%c", grid[x][y]);
 	Colours_ResetColor();
 }
