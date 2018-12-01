@@ -120,12 +120,12 @@ void Grid_printGrid()
 			WindowsHelper_SetCursorPosition(j, i);
 			if (GameStateManager_GetCurrentState() == Playing && i < 20)
 			{
-				if (grid[j][i] == 'X')
+				if (grid[j][i] == 'd')
 					/*Colour code for Breakable Wall here*/
-					Colours_SetColor(OBSTACLES);
+					Colours_SetColor(DESTROYABLE);
 				else if (grid[j][i] == 'p')
 					/*Colour code for pushable object here*/
-					Colours_SetColor(OBSTACLES);
+					Colours_SetColor(PUSHABLE);
 				else if (grid[j][i] == 'E')
 					/*Colour code for exit*/
 					Colours_SetColor(END);
@@ -164,7 +164,7 @@ void Grid_setGrid(int x, int y, unsigned char z)
 		Colours_SetColor(ENEMY_COLOUR);
 	else if (z == 'p')
 		/*Colour code for pushable object*/
-		Colours_SetColor(OBSTACLES);
+		Colours_SetColor(PUSHABLE);
 	printf("%c", grid[x][y]);
 	Colours_ResetColor();
 }

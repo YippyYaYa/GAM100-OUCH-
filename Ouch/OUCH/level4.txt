@@ -7,9 +7,9 @@
 #            # # # # ###  ##p#########    #    #  # p# p### p #  #  p p #  # ########  #  #  #  #  #
 #            #   # #      #              #   #  #  #        #    #ppp # #  # p      #  #  #  #  #  #
 #            # # # #      #  ############     #  #  #     # p #  p  p p #   p p#    #  #  #  #  #  #
-#            #   #    pppp#                    #     ##########   p p #  ######  #  #  #  #  #  ##E#
-#            # # #    pppp#####pp###########    #    p          #pp #            #  #  #  #  #  #  #
-#            p   # #      #   #  #          #    # #############  # ##############  #  #  #  #  #  #
+#            #   #    pppp#                    #     ##########   p p # #######  #  #  #  #  #  ##E#
+#            # # #    pppp#####pp###########    #    p          #pp # p         ##  #  #  #  #  #  #
+#            p   # #      #   #  #          #    # #############  # #############   #  #  #  #  #  #
 #            # # #pp      #   #  #        #  #    #       # #    p#                 #  #  #  #  #  #
 #            #     #####  #   #  #        #   #         #    #     ################## ##  #  # p#  #
 #            ####  #      #      #        #    #################     #       #      #  #  #  #  #  #
@@ -18,8 +18,8 @@
 #                  #        #    #        #    #  #      #  #  ######################p #           #
 #                  #       #              #   #     #        #                  p      #           #
 ####################################################################################################
-# bear level                                                                                       #
-# b is bear(moving) possess to gain pushing ability           E is exit                            #
-# p is pushable object                                                                             #
-# Not a friendly level                                                                             #
+# Believe also begins with the letter B, patiences with the letter p.                              #
+# Obstacles (Blue)   'p' is a pushable obstacle that can only be pushed by (B)ear.                 #
+# To push obstacle 'p', press "Spacebar" while facing obstacle 'p'.                                #
+# (B)ear can only push one obstacle 'p' at a time, make sure there is nothing else behind 'p'.     #
 ####################################################################################################

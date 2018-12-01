@@ -44,27 +44,30 @@ void Game_LoadLevel(int level)
 	switch (currentStage)
 	{
 	case 1:
-		
-		//SwitchPortal_Spawn(33, 1,31, 8, 66, 10);
+		Player_InitPlayer();
+		Player_SetPosition(17, 5);
+		Enemy_Spawn(35, 10, 'L', 'B', 10);
+		break;
+	case 2:
+        //SwitchPortal_Spawn(33, 1,31, 8, 66, 10);
 		//SwitchPortal_Spawn(98, 10, 66, 1, 31,18);
-		SwitchPortal_Spawn(1, 18, 64, 8, 33, 10);
+		//SwitchPortal_Spawn(1, 18, 64, 8, 33, 10);
 
-		Enemy_Spawn(1, 8, 'L', 'B', 3);
-		Enemy_Spawn(98, 1, 'L', 'B', 3);
+		Enemy_Spawn(1, 1, 'L', 'R', 10);
+		Enemy_Spawn(1, 8, 'U', 'B', 7);
+		Enemy_Spawn(1, 18, 'L', 'R', 10);
+		Enemy_Spawn(98, 9, 'L', 'B', 3);
 
 		Player_InitPlayer();
 		Player_SetPosition(47, 2);
 		break;
-	case 2:
-
-		break;
 	case 3:
-		Enemy_Spawn(9, 12, 'U', 'R', 15);
-		Enemy_Spawn(19, 15, 'R', 'R', 15);
-		Enemy_Spawn(45, 1, 'R', 'R', 15);
-		Enemy_Spawn(40, 3, 'R', 'R', 15);
-		Enemy_Spawn(12, 17, 'R', 'R', 15);
-		Enemy_Spawn(85, 2, 'R', 'R', 15);
+		Enemy_Spawn(9, 12, 'U', 'R', 13);
+		Enemy_Spawn(19, 15, 'R', 'R', 13);
+		Enemy_Spawn(45, 1, 'R', 'R', 13);
+		Enemy_Spawn(40, 3, 'R', 'R', 13);
+		Enemy_Spawn(12, 17, 'R', 'R', 13);
+		Enemy_Spawn(85, 2, 'R', 'R', 13);
 
 		Player_InitPlayer();
 		Player_SetPosition(1, 1);

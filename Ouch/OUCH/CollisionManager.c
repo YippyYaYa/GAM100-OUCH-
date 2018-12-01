@@ -6,7 +6,7 @@ bool Collision_Check(int posX, int posY)
 {
 	if (Grid_getGrid(posX, posY) != '#' && /*wall*/
 		Grid_getGrid(posX, posY) != 'p' && /*pushable object*/
-		Grid_getGrid(posX, posY) != 'X')   /*breakable wall*/
+		Grid_getGrid(posX, posY) != 'd')   /*breakable wall*/
 	{
 		return 0;
 	}

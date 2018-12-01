@@ -317,25 +317,25 @@ void Player_Rhino()
 	switch (currentDirection)
 	{
 	case Up:
-		if (Grid_getGrid(playerX, playerY - 1) == 'X')
+		if (Grid_getGrid(playerX, playerY - 1) == 'd')
 		{
 			Player_RhinoWallBreak(playerX, playerY - 1);
 		}
 		break;
 	case Down:
-		if (Grid_getGrid(playerX, playerY + 1) == 'X')
+		if (Grid_getGrid(playerX, playerY + 1) == 'd')
 		{
 			Player_RhinoWallBreak(playerX, playerY + 1);
 		}
 		break;
 	case Left:
-		if (Grid_getGrid(playerX - 1, playerY) == 'X')
+		if (Grid_getGrid(playerX - 1, playerY) == 'd')
 		{
 			Player_RhinoWallBreak(playerX - 1, playerY);
 		}
 		break;
 	case Right:
-		if (Grid_getGrid(playerX + 1, playerY) == 'X')
+		if (Grid_getGrid(playerX + 1, playerY) == 'd')
 		{
 			Player_RhinoWallBreak(playerX + 1, playerY);
 		}
