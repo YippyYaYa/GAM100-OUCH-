@@ -128,7 +128,7 @@ void Game_LoadLevel(int level)
 
 void Game_LevelComplete()
 {
-	if (currentStage + 1 > (currentStage + totalStages - 1))
+	if (currentStage + 1 > totalStages)
 	{
 		GameStateManager_SetGameState(MainMenu);
 	}
