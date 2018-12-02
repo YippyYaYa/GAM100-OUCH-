@@ -44,15 +44,12 @@ void Game_LoadLevel(int level)
 	switch (currentStage)
 	{
 	case 1:
+		Enemy_Spawn(35, 10, 'L', 'B', 10);
+
 		Player_InitPlayer();
 		Player_SetPosition(17, 5);
-		Enemy_Spawn(35, 10, 'L', 'B', 10);
 		break;
 	case 2:
-        //SwitchPortal_Spawn(33, 1,31, 8, 66, 10);
-		//SwitchPortal_Spawn(98, 10, 66, 1, 31,18);
-		//SwitchPortal_Spawn(1, 18, 64, 8, 33, 10);
-
 		Enemy_Spawn(1, 1, 'L', 'R', 10);
 		Enemy_Spawn(1, 8, 'U', 'B', 7);
 		Enemy_Spawn(1, 18, 'L', 'R', 10);
@@ -130,7 +127,7 @@ void Game_LevelComplete()
 {
 	if (currentStage + 1 > totalStages)
 	{
-		GameStateManager_SetGameState(MainMenu);
+		GameStateManager_SetGameState(Credits);
 	}
 	else
 	{
