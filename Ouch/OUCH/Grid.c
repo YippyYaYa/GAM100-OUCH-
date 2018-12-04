@@ -137,7 +137,7 @@ void Grid_printGrid()
 			}
 			else if (GameStateManager_GetCurrentState() == GameOver)
 			{
-				Colours_SetColor(RED);
+				Colours_SetColor(5);
 			}
 			printf("%c", grid[j][i]);
 			Colours_ResetColor();
