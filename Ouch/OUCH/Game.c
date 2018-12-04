@@ -22,13 +22,13 @@ void Game_Init()
 /*Update game*/
 void Game_Update(float dt)
 {
+	Player_Controls();
+	Enemy_Update(dt);
 	/* Check if player collided with enemy */
 	if (Player_DeathCheck())
 	{
 		GameStateManager_SetGameState(GameOver);
 	}
-	Player_Controls();
-	Enemy_Update(dt);
 }
 
 void Game_LoadLevel(int level)
