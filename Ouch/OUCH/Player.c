@@ -53,7 +53,6 @@ void Player_Move()
 			/* Print player on new position */
 			Player_PrintPlayer();
 		}	
-		Player_PrintInfo();
 	}
 	/*Right Key Entered*/
 	else if (GetAsyncKeyState(VK_RIGHT) & 0x1)
@@ -70,7 +69,6 @@ void Player_Move()
 			/* Print player on new position */
 			Player_PrintPlayer();
 		}
-		Player_PrintInfo();
 	}
 	/*Up Key Entered*/
 	else if (GetAsyncKeyState(VK_UP) & 0x1)
@@ -87,7 +85,6 @@ void Player_Move()
 			/* Print player on new position */
 			Player_PrintPlayer();
 		}
-		Player_PrintInfo();
 	}
 	/*Down Key Entered*/
 	else if (GetAsyncKeyState(VK_DOWN) & 0x1)
@@ -104,7 +101,6 @@ void Player_Move()
 			/* Print player on new position */
 			Player_PrintPlayer();
 		}
-		Player_PrintInfo();
 	}
 }
 
@@ -144,9 +140,14 @@ void Player_Interact()
 	{
 		GameStateManager_RestartLevel();
 	}
+	/* ESC Key Entered */
 	else if (GetAsyncKeyState(VK_ESCAPE) & 0x8000)
 	{	
 		GameStateManager_SetGameState(MainMenu);
+	}
+	else if (GetAsyncKeyState(0x31) & 0x1)
+	{
+
 	}
 }
 
