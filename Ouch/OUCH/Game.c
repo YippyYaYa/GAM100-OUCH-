@@ -22,13 +22,13 @@ void Game_Init()
 /*Update game*/
 void Game_Update(float dt)
 {
-	Player_Controls();
-	Enemy_Update(dt);
 	/* Check if player collided with enemy */
 	if (Player_DeathCheck())
 	{
 		GameStateManager_SetGameState(GameOver);
 	}
+	Player_Controls();
+	Enemy_Update(dt);
 }
 
 void Game_LoadLevel(int level)
@@ -48,6 +48,7 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(17, 5);
+		Player_PrintInfo();
 		break;
 	case 2:
 		Enemy_Spawn(1, 1, 'L', 'R', 10);
@@ -57,6 +58,7 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(47, 2);
+		Player_PrintInfo();
 		break;
 	case 3:
 		Enemy_Spawn(9, 12, 'U', 'R', 13);
@@ -68,7 +70,7 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(1, 1);
-	
+		Player_PrintInfo();
 		break;
 	case 4:
 		/* init enemy/switch/obstacle/wutever non grid objects here */
@@ -98,7 +100,7 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(1, 1);
-
+		Player_PrintInfo();
 		break;
 	case 5:
 		Enemy_Spawn(17, 9, 'D', 'R', 1);
@@ -119,6 +121,7 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(13, 9);
+		Player_PrintInfo();
 		break;
 	}
 }

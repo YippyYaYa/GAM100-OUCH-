@@ -30,6 +30,7 @@ void Player_InitPlayer()
 /*Check for player input*/
 void Player_Controls()
 {
+	Player_PrintInfo();
 	Player_Move();
 	Player_Interact();
 }
@@ -51,7 +52,8 @@ void Player_Move()
 			playerX--;
 			/* Print player on new position */
 			Player_PrintPlayer();
-		}		
+		}	
+		Player_PrintInfo();
 	}
 	/*Right Key Entered*/
 	else if (GetAsyncKeyState(VK_RIGHT) & 0x1)
@@ -68,6 +70,7 @@ void Player_Move()
 			/* Print player on new position */
 			Player_PrintPlayer();
 		}
+		Player_PrintInfo();
 	}
 	/*Up Key Entered*/
 	else if (GetAsyncKeyState(VK_UP) & 0x1)
@@ -84,6 +87,7 @@ void Player_Move()
 			/* Print player on new position */
 			Player_PrintPlayer();
 		}
+		Player_PrintInfo();
 	}
 	/*Down Key Entered*/
 	else if (GetAsyncKeyState(VK_DOWN) & 0x1)
@@ -100,6 +104,7 @@ void Player_Move()
 			/* Print player on new position */
 			Player_PrintPlayer();
 		}
+		Player_PrintInfo();
 	}
 }
 
@@ -421,4 +426,27 @@ void Player_PrintPlayer()
 	WindowsHelper_SetCursorPosition(playerX, playerY);
 	printf("%c", player);
 	Colours_ResetColor();
+}
+
+void Player_PrintInfo()
+{
+	WindowsHelper_SetCursorPosition(0, -1);
+	if (currentDirection == Up)
+	{
+		printf("Direction: %5s", "Up");
+	}
+	else if (currentDirection == Down)
+	{
+		printf("Direction: %5s", "Down");
+	}
+	else if (currentDirection == Left)
+	{
+		printf("Direction: %5s", "Left");
+	}
+	else if (currentDirection == Right)
+	{
+		printf("Direction: %5s", "Right");
+	}
+
+	printf(" X: %3d  Y: %3d", playerX, playerY);
 }
