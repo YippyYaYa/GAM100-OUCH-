@@ -20,6 +20,7 @@ void GameOver_Init()
 	printf("Press enter to try again\n");
 	WindowsHelper_SetCursorPosition(35, 24);
 	printf("Or ESC to return to main menu");
+	Enemy_Init();
 	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 

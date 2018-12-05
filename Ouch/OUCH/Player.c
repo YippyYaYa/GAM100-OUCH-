@@ -16,10 +16,12 @@ static char player;                     /* Player Character */
 static enum PlayerMode currentMode;     /* Current Form of the Player*/
 static enum Direction currentDirection; /* Current direction that player is facing */
 static int rhinoBreakCount;             /* Number of times rhino break can be used */
+static int debug;
 
 /*Initialise Player position*/
 void Player_InitPlayer()
 {
+	debug = 0;
 	possessRange = 5;
 	player = 'M';
 	currentMode = Monkey;
@@ -145,9 +147,36 @@ void Player_Interact()
 	{	
 		GameStateManager_SetGameState(MainMenu);
 	}
+	/* Below keys are for cheats/debugging purposes */
+	/* Number 1 Entered */
 	else if (GetAsyncKeyState(0x31) & 0x1)
 	{
-
+		player = 'R';
+		currentMode = Rhino;
+		rhinoBreakCount = 2;
+		Player_PrintPlayer();
+	}
+	/* Number 2 entered */
+	else if (GetAsyncKeyState(0x32) & 0x1)
+	{
+		player = 'B';
+		currentMode = Bear;
+		Player_PrintPlayer();
+	}
+	/* Number 3 entered */
+	else if (GetAsyncKeyState(0x33) & 0x1)
+	{
+		Game_LevelComplete();
+	}
+	/* Number 4 entered */
+	else if (GetAsyncKeyState(0x34) & 0x1)
+	{
+		debug = !debug;
+		if (!debug)
+		{
+			WindowsHelper_SetCursorPosition(17, -1);
+			printf("              ");
+		}
 	}
 }
 
@@ -449,5 +478,9 @@ void Player_PrintInfo()
 		printf("Direction: %5s", "Right");
 	}
 
-	printf(" X: %3d  Y: %3d", playerX, playerY);
+	/* Debug Info */
+	if (debug)
+	{
+		printf(" X: %3d  Y: %3d", playerX, playerY);
+	}
 }

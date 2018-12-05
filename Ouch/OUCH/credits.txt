@@ -1,7 +1,7 @@
 ####################################################################################################
 #                                                                                                  #
 #                                            Credits                                               #
-#       All content (C) 2017 Digipen Institute of Technology Singapore, all rights reserved        #
+#       All content (C) 2018 Digipen Institute of Technology Singapore, all rights reserved        #
 #                                                                                                  #
 #                                           President                                              #
 #                                         Claude Comair                                            #
