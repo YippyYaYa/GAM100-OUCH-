@@ -49,6 +49,8 @@ void Timer_DisplayTotalTimeTaken(int x, int y)
 {
 	WindowsHelper_SetCursorPosition(x, y);
 	printf("You cleared the stage in %4.1f seconds!", time);
-	WindowsHelper_SetCursorPosition(x, y+1); /*print below */
-	printf("You have used %4.1f seconds since level 1.", totalTime);
+	WindowsHelper_SetCursorPosition(x+2, y+1); /*print below */
+	printf("%4.1f seconds passed since level 1.", totalTime);
+	WindowsHelper_SetCursorPosition(x+5, y + 5); /*print below */
+	printf("Press ENTER to continue.");
 }
