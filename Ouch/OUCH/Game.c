@@ -68,7 +68,6 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(1, 1);
-	
 		break;
 	case 4:
 		/* init enemy/switch/obstacle/wutever non grid objects here */
@@ -98,7 +97,6 @@ void Game_LoadLevel(int level)
 
 		Player_InitPlayer();
 		Player_SetPosition(1, 1);
-
 		break;
 	case 5:
 		Enemy_Spawn(17, 9, 'D', 'R', 1);

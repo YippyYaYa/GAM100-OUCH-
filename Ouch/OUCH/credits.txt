@@ -1,7 +1,10 @@
 ####################################################################################################
 #                                                                                                  #
 #                                            Credits                                               #
-#       All content (C) 2017 Digipen Institute of Technology Singapore, all rights reserved        #
+#       All content (C) 2018 Digipen Institute of Technology Singapore, all rights reserved        #
+#                                                                                                  #
+#                                           President                                              #
+#                                         Claude Comair                                            #
 #                                                                                                  #
 #                                           Group JayG                                             #
 #                                                                                                  #
@@ -12,12 +15,9 @@
 #                     Gabriel   Producer                    gimhsiang.toh@digipen.edu              #
 #                     Jun Hao   Level Designer              junhao.h@digipen.edu                   #
 #                                                                                                  #
-#                                                                                                  #
 #                     Instructors                                                                  #
 #                     Cheng Ding Xiang                                                             #
 #                     Logam Andy                                                                   #
-#                                                                                                  #
-#                                                                                                  #
 #                                                                                                  #
 #                                                                                                  #
 #                                 Press ESC to return to Main Menu                                 #

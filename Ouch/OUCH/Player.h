@@ -28,3 +28,4 @@ void Player_Unpossess();
 void Player_BearPush(int obstacleOldPosX, int obstacleOldPosY, int obstacleNewPosX, int obstacleNewPosY);
 void Player_RhinoWallBreak(int wallPosX, int wallPosY);
 void Player_PrintPlayer();
+void Player_PrintInfo();
