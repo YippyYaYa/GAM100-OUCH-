@@ -6,6 +6,9 @@
 #                                           President                                              #
 #                                         Claude Comair                                            #
 #                                                                                                  #
+#                     Instructors                                                                  #
+#                     Cheng Ding Xiang                                                             #
+#                     Logam Andy                                                                   #
 #                                           Group JayG                                             #
 #                                                                                                  #
 #                                            Members                                               #
@@ -15,9 +18,6 @@
 #                     Gabriel   Producer                    gimhsiang.toh@digipen.edu              #
 #                     Jun Hao   Level Designer              junhao.h@digipen.edu                   #
 #                                                                                                  #
-#                     Instructors                                                                  #
-#                     Cheng Ding Xiang                                                             #
-#                     Logam Andy                                                                   #
 #                                                                                                  #
 #                                                                                                  #
 #                                 Press ESC to return to Main Menu                                 #
