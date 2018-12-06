@@ -4,6 +4,7 @@
 #include "Loading.h"
 #include "MainMenu.h"
 #include "Credits.h"
+#include "Score.h"
 #include "GameOver.h"
 
 static enum GameState currentState; /* Store current game stage */
@@ -35,6 +36,9 @@ void GameStateManager_Update(float dt)
 	case GameOver:
 		GameOver_Update();
 		break;
+	case Score:
+		Score_Update();
+		break;
 	}
 }
 
@@ -59,6 +63,9 @@ void GameStateManager_SetGameState(enum GameState newState)
 	case GameOver:
 		GameOver_Init();
 		break;
+	case Score:
+		Score_Init();
+		break;
 	}
 }
 
@@ -71,4 +78,10 @@ void GameStateManager_RestartLevel()
 {
 	currentState = Playing;
 	Game_LoadLevel(0);
+}
+
+void GameStateManager_NextLevel()
+{
+	currentState = Playing;
+	Game_LevelComplete();
 }

@@ -129,6 +129,7 @@
     <ClCompile Include="Player.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="Grid.c" />
+    <ClCompile Include="Score.c" />
     <ClCompile Include="SwitchPortal.c" />
     <ClCompile Include="Timer.c" />
     <ClCompile Include="WindowsHelper.c" />
@@ -145,6 +146,7 @@
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="SwitchPortal.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="WindowsHelper.h" />

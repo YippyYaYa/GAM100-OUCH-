@@ -166,7 +166,7 @@ void Player_Interact()
 	/* Number 3 entered */
 	else if (GetAsyncKeyState(0x33) & 0x1)
 	{
-		Game_LevelComplete();
+		GameStateManager_SetGameState(Score);
 	}
 	/* Number 4 entered */
 	else if (GetAsyncKeyState(0x34) & 0x1)
