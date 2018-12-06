@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+\file   Grid.h
+\author Chew Wei Fa Alex
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the function declarations for Grid.c
+*/
+/******************************************************************************/
 #pragma once
 #include <stdio.h>
 #include "Enemy.h"

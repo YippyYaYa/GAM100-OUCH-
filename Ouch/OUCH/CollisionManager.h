@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+\file   CollisionManager.h
+\author Chew Wei Fa Alex
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the function declarations for CollisionManager.c
+*/
+/******************************************************************************/
 #pragma once
 #include "Grid.h"
 #include <stdbool.h>
