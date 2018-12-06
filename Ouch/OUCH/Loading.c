@@ -21,8 +21,8 @@ void Loading_Update(float dt)
 	/* do stuff here */
 	tPass = tPass + dt;
 	/* Change state*/
-	if(count == 0)                //this shit is annoying when debugging
-	if (tPass > 4.0f)             //your code is perfect but just keep it off
+	if(count == 0)               
+	if (tPass > 4.0f)            
 	{
 		count++;
 		Grid_initGrid(7);
