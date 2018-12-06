@@ -175,7 +175,7 @@ void Player_Interact()
 		if (!debug)
 		{
 			WindowsHelper_SetCursorPosition(17, -1);
-			printf("              ");
+			printf("                                   ");
 		}
 	}
 }
@@ -481,6 +481,6 @@ void Player_PrintInfo()
 	/* Debug Info */
 	if (debug)
 	{
-		printf(" X: %3d  Y: %3d", playerX, playerY);
+		printf(" X: %3d  Y: %3d Rhino Break Count: %d", playerX, playerY, rhinoBreakCount);
 	}
 }

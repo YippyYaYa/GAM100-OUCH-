@@ -10,8 +10,14 @@ static short height = 27; /* height of console size*/
 
 void WindowsHelper_Init()
 {
-	COORD bufferSize = { width , height };
-	SMALL_RECT windowSize = { 0, 0, width-1 , height-1 };
+	COORD bufferSize;
+	bufferSize.X = width;
+	bufferSize.Y = height;
+	SMALL_RECT windowSize;
+	windowSize.Left = 0;
+	windowSize.Top = 0;
+	windowSize.Right = width - 1;
+	windowSize.Bottom = height - 1;
 	CONSOLE_CURSOR_INFO cursorInfo;
 	DWORD consoleMode;
 
@@ -37,6 +43,8 @@ void WindowsHelper_Init()
 /*Sets the console cursor position. */
 void WindowsHelper_SetCursorPosition(int x, int y)
 {
-	COORD pos = { (short)x+1, (short)y+1 };
+	COORD pos;
+	pos.X = (short)x + 1;
+	pos.Y = (short)y + 1;
 	SetConsoleCursorPosition(wHnd, pos);
 }

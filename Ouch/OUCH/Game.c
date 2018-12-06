@@ -9,17 +9,17 @@
 static int currentStage;
 static int totalStages;
 
-/*Init game and pass in game level file i/o*/
+/*Init game and load first stage */
 void Game_Init()
 {
 	system("cls");
-	currentStage = 1;	   
+	currentStage = 1;
 	totalStages = 5;
 	Game_LoadLevel(currentStage);
 	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 
-/*Update game*/
+/*Update game, player input, enemy movement*/
 void Game_Update(float dt)
 {
 	Player_Controls();
@@ -31,22 +31,29 @@ void Game_Update(float dt)
 	}
 }
 
+/* Load specified game level */
 void Game_LoadLevel(int level)
 {
 	if (level != 0)
 	{
 		currentStage = level;
 	}
+
+	system("cls");
+
+	/* Initialise all objects used in the game */
 	SwitchPortal_Init();
 	Enemy_Init();
 	Grid_initGrid(currentStage);
 	Grid_printGrid();
+	Player_InitPlayer();
+
+	/* Spawning of enemies and player according to which level is being loaded */
 	switch (currentStage)
 	{
 	case 1:
 		Enemy_Spawn(35, 10, 'L', 'B', 10);
 
-		Player_InitPlayer();
 		Player_SetPosition(17, 5);
 		break;
 	case 2:
@@ -55,7 +62,7 @@ void Game_LoadLevel(int level)
 		Enemy_Spawn(1, 18, 'L', 'R', 10);
 		Enemy_Spawn(98, 9, 'L', 'B', 3);
 
-		Player_InitPlayer();
+		//Player_InitPlayer();
 		Player_SetPosition(47, 2);
 		break;
 	case 3:
@@ -66,11 +73,10 @@ void Game_LoadLevel(int level)
 		Enemy_Spawn(12, 17, 'R', 'R', 13);
 		Enemy_Spawn(85, 2, 'R', 'R', 13);
 
-		Player_InitPlayer();
+		//Player_InitPlayer();
 		Player_SetPosition(1, 1);
 		break;
 	case 4:
-		/* init enemy/switch/obstacle/wutever non grid objects here */
 		Enemy_Spawn(2, 3, 'R', 'B', 5);
 		Enemy_Spawn(3, 4, 'R', 'B', 5);
 		Enemy_Spawn(4, 5, 'R', 'B', 5);
@@ -95,7 +101,7 @@ void Game_LoadLevel(int level)
 		Enemy_Spawn(91, 5, 'D', 'B', 5);
 		Enemy_Spawn(94, 13, 'D', 'B', 5);
 
-		Player_InitPlayer();
+	//	Player_InitPlayer();
 		Player_SetPosition(1, 1);
 		break;
 	case 5:
@@ -115,14 +121,16 @@ void Game_LoadLevel(int level)
 		Enemy_Spawn(62, 14, 'R', 'R', 5);
 		Enemy_Spawn(72, 17, 'L', 'R', 5);
 
-		Player_InitPlayer();
+	//	Player_InitPlayer();
 		Player_SetPosition(13, 9);
 		break;
 	}
 }
 
+/* Loads the next level if available */
 void Game_LevelComplete()
 {
+	/* Go to credits screen if last level completed */
 	if (currentStage + 1 > totalStages)
 	{
 		GameStateManager_SetGameState(Credits);
