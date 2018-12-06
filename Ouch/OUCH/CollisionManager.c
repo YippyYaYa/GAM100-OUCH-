@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+\file   CollisionManager.c
+\author Chew Wei Fa Alex
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This manager is in charge of checking for collisions with game objects
+*/
+/******************************************************************************/
 #pragma once
 #include "CollisionManager.h"
 

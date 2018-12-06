@@ -5,7 +5,8 @@
 \par    Course: GAM100
 \par    Copyright © 2018 DigiPen (Singapore) Corporation.
 \brief
-This manager is in charge of processing player controls and actions
+Gric.c is in charge of printing the screen and game objects, and changing of
+game object colours
 */
 /******************************************************************************/
 #pragma once

@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+\file   SwitchPortal.h
+\author Chew Wei Fa Alex
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the function declarations for SwitchPortal.c which was scrapped
+*/
+/******************************************************************************/
 #pragma once
 #include <stdbool.h>
 #include "WindowsHelper.h"

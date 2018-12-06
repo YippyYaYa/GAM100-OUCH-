@@ -1,3 +1,13 @@
+/******************************************************************************/
+/*!
+\file   Enemy.c
+\author Chew Wei Fa Alex
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+Enemy.c is in charge of managing the enemies spawned in the game.
+*/
+/******************************************************************************/
 #pragma once
 #include "Enemy.h"
 

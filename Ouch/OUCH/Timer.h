@@ -1,6 +1,15 @@
+/******************************************************************************/
+/*!
+\file   Timer.h
+\author Chew Wei Fa Alex
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the function declarations for Timer.c
+*/
+/******************************************************************************/
 #pragma once
 #include "WindowsHelper.h"
-#define STAGES 5
 
 void Timer_Init_StageTimer();
 void Timer_InitTotalTime();
