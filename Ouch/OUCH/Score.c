@@ -8,8 +8,8 @@
 void Score_Init()
 {
 	Enemy_Init();
-	Timer_InitTotalTime();
 	system("cls");
+	Timer_SaveStageTimer();
 	Timer_DisplayTotalTimeTaken(10, 40);
 }
 

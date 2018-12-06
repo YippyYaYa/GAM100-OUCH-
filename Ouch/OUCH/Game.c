@@ -15,7 +15,7 @@ static int totalStages;
 void Game_Init()
 {
 	system("cls");
-	Score_Init();
+	Timer_InitTotalTime();
 	currentStage = 1;
 	totalStages = 5;
 	Game_LoadLevel(currentStage);
