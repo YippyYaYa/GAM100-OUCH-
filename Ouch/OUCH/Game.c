@@ -1,10 +1,20 @@
+/******************************************************************************/
+/*!
+\file   Game.c
+\author Chong Yi Fang
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the initialisation and updating of the game
+*/
+/******************************************************************************/
+
 #pragma once
-#include "Game.h"
-#include "Grid.h"
-#include "Enemy.h"
-#include "Player.h"
-#include "SwitchPortal.h"
-#include "GameStateManager.h"
+#include "Game.h"               /* Function Declarations */
+#include "Grid.h"               /* For loading of levels */
+#include "Enemy.h"              /* For spawning of enemies */
+#include "Player.h"             /* Player controls/input */
+#include "GameStateManager.h"   /* For changing of game states */
 
 static int currentStage;
 static int totalStages;
@@ -19,7 +29,7 @@ void Game_Init()
 	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 
-/*Update game, player input, enemy movement*/
+/* Update game, player input, enemy movement */
 void Game_Update(float dt)
 {
 	Player_Controls();
@@ -42,7 +52,6 @@ void Game_LoadLevel(int level)
 	system("cls");
 
 	/* Initialise all objects used in the game */
-	SwitchPortal_Init();
 	Enemy_Init();
 	Grid_initGrid(currentStage);
 	Grid_printGrid();

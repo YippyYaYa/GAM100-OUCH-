@@ -1,15 +1,24 @@
-#pragma once
-#include "Credits.h"
-#include "GameStateManager.h"
-#include <Windows.h>
-#include "Grid.h"
-#include <stdio.h>
-#include "Colours.h"
-#include "Enemy.h"
+/******************************************************************************/
+/*!
+\file   Credits.c
+\author Chong Yi Fang
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the initiatisation and update for credits screen
+*/
+/******************************************************************************/
 
+#pragma once
+#include "Credits.h"          /* Function Declarations */
+#include "GameStateManager.h" /* To Return to main menu */
+#include <Windows.h>          /* For Key Input */
+#include "Grid.h"             /* To initialise and print credits screen */   
+#include "Enemy.h"            /* To Reset Enemies */
+
+/* Initialise credits screen */
 void Credits_Init()
 {
-	Colours_ResetColor();
 	system("cls");
 	Grid_initGrid(12);
 	Grid_printGrid();
@@ -17,6 +26,7 @@ void Credits_Init()
 	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 
+/* Credits Screen update loop */
 void Credits_Update()
 {
 	/* ESC Key Entered */

@@ -1,15 +1,28 @@
+/******************************************************************************/
+/*!
+\file   main.c
+\author Chong Yi Fang
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the main loop of the whole game
+*/
+/******************************************************************************/
+
 #pragma once
-#include "WindowsHelper.h"
-#include <time.h>
-#include "GameStateManager.h"
-#include "Colours.h"
+#include "WindowsHelper.h"    /* To set initial console size */
+#include <time.h>             /* For clock() */
+#include "GameStateManager.h" /* Game state control */
+#include "Colours.h"          /* For initialising colours system */
 
 int main(void)
 {
-	clock_t ticksThen, ticksNow;
-	float timePassed;
+	clock_t ticksThen, ticksNow; /* For loop time */
+	float timePassed;            /* Time between each update */
+
 	ticksThen = clock();
-	/*Engine Initialise*/
+
+	/*** Engine Initialise ***/
 	/* Initialise Console grid*/
 	WindowsHelper_Init();
 
@@ -18,6 +31,8 @@ int main(void)
 	
 	/*Initialise Game*/
 	GameStateManager_Init();
+
+	/* Game Loop */
 	while (GameStateManager_GetCurrentState() != Quit)
 	{
 		ticksNow = clock();
@@ -28,5 +43,6 @@ int main(void)
 			GameStateManager_Update(timePassed);
 		}
 	}
+
 	return 0;
 }
