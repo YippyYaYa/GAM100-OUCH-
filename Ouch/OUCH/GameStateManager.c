@@ -37,7 +37,7 @@ void GameStateManager_Update(float dt)
 		GameOver_Update();
 		break;
 	case Score:
-		Score_Update();
+		Score_Update(dt);
 		break;
 	}
 }

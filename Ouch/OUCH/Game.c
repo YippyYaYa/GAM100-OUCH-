@@ -15,6 +15,8 @@ This file contains the initialisation and updating of the game
 #include "Enemy.h"              /* For spawning of enemies */
 #include "Player.h"             /* Player controls/input */
 #include "GameStateManager.h"   /* For changing of game states */
+#include "Timer.h"
+#include "Score.h"
 
 static int currentStage;
 static int totalStages;
@@ -23,6 +25,7 @@ static int totalStages;
 void Game_Init()
 {
 	system("cls");
+	Timer_InitTotalTime();
 	currentStage = 1;
 	totalStages = 5;
 	Game_LoadLevel(currentStage);
@@ -33,6 +36,8 @@ void Game_Init()
 void Game_Update(float dt)
 {
 	Player_Controls();
+	Timer_UpdateTimer(dt);
+	Timer_DisplayStageTime(80, -1);
 	Enemy_Update(dt);
 	/* Check if player collided with enemy */
 	if (Player_DeathCheck())
@@ -53,6 +58,8 @@ void Game_LoadLevel(int level)
 
 	/* Initialise all objects used in the game */
 	Enemy_Init();
+	Timer_Init_StageTimer();
+	Timer_SaveStageTimer();
 	Grid_initGrid(currentStage);
 	Grid_printGrid();
 	Player_InitPlayer();
