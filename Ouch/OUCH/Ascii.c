@@ -1,5 +1,15 @@
+/******************************************************************************/
+/*!
+\file   Ascii.c
+\author Ho Jun Hao
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the function for printing some extended ascii characters
+*/
+/******************************************************************************/
 #include "Grid.h"
-
+/*Takes in text file and promotes it to extended ascii characters*/
 unsigned char Ascii(unsigned char i)
 {
 	switch (i) {
