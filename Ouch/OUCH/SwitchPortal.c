@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+\file   SwitchPortal.c
+\author Chew Wei Fa Alex
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+SwitchPortal.c is suppose to be incharge of the switch and portals spawned in
+the game. However there is no time to implement this feature and is scrapped.
+*/
+/******************************************************************************/
 #pragma once
 #include "SwitchPortal.h"
 #include "Colours.h"

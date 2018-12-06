@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+\file   Timer.c
+\author Chew Wei Fa Alex
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+Timer.c is in charge of the time taken by the player to clear each stage and
+the total time the player took to clear all the stage.
+*/
+/******************************************************************************/
 #include "Timer.h"
 #include <stdio.h>
 
@@ -10,6 +21,7 @@ void Timer_Init_StageTimer()
 {
 	time = 0;
 }
+/*Init total time*/
 void Timer_InitTotalTime()
 {
 	totalTime = 0;
