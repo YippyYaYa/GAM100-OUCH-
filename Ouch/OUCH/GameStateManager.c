@@ -1,11 +1,22 @@
+/******************************************************************************/
+/*!
+\file   GameStateManager.c
+\author Chong Yi Fang
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the functions to control the game states
+*/
+/******************************************************************************/
+
 #pragma once
-#include "GameStateManager.h"
-#include "Game.h"
-#include "Loading.h"
-#include "MainMenu.h"
-#include "Credits.h"
-#include "Score.h"
-#include "GameOver.h"
+#include "GameStateManager.h" /* Function Declarations */
+#include "Game.h"             /* Game Functions */
+#include "Loading.h"          /* Loading screen */
+#include "MainMenu.h"         /* Main Menu */
+#include "Credits.h"          /* Credits */
+#include "Score.h"            /* Score */
+#include "GameOver.h"         /* Game Over */
 
 static enum GameState currentState; /* Store current game stage */
 

@@ -1,14 +1,25 @@
+/******************************************************************************/
+/*!
+\file   GameOver.c
+\author Chong Yi Fang
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the initialisation and updating for gameover screen
+*/
+/******************************************************************************/
+
 #pragma once
-#include "GameOver.h"
-#include "Grid.h"
-#include "GameStateManager.h"
-#include <stdio.h>
-#include <Windows.h>
-#include "Colours.h"
-#include "WindowsHelper.h"
+#include "GameOver.h"         /* Function Declarations */
+#include "Grid.h"             /* For initialising of game over screen */
+#include "GameStateManager.h" /* For changing state */
+#include <stdio.h>            /* For printf */
+#include "Colours.h"          /* For printing in colour */
+#include "WindowsHelper.h"    /* Set cursor position */
 
 static int currentStage;
 
+/* Initialise game over screen */
 void GameOver_Init() 
 {
 	system("cls");
@@ -21,9 +32,9 @@ void GameOver_Init()
 	WindowsHelper_SetCursorPosition(35, 24);
 	printf("Or ESC to return to main menu");
 	Enemy_Init();
-	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 
+/* Update Loop */
 void GameOver_Update() 
 {
 	/*pass in enter*/

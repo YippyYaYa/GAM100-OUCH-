@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+\file   WindowsHelper.c
+\author Chong Yi Fang
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the functions dealing with the console 
+*/
+/******************************************************************************/
+
 #include <Windows.h>
 #include <stdio.h>
 #include "WindowsHelper.h"
@@ -13,11 +24,13 @@ void WindowsHelper_Init()
 	COORD bufferSize;
 	bufferSize.X = width;
 	bufferSize.Y = height;
+
 	SMALL_RECT windowSize;
 	windowSize.Left = 0;
 	windowSize.Top = 0;
 	windowSize.Right = width - 1;
 	windowSize.Bottom = height - 1;
+
 	CONSOLE_CURSOR_INFO cursorInfo;
 	DWORD consoleMode;
 

@@ -1,3 +1,14 @@
+/******************************************************************************/
+/*!
+\file   Player.c
+\author Chong Yi Fang
+\par    Course: GAM100
+\par    Copyright © 2018 DigiPen (Singapore) Corporation.
+\brief
+This file contains the functions used for player controls
+*/
+/******************************************************************************/
+
 #include "Player.h"
 #include "WindowsHelper.h"
 #include "Grid.h"
@@ -109,8 +120,8 @@ void Player_Move()
 /* Interaction */
 void Player_Interact()
 {
-	/*Spacebar Entered*/
-	if (GetAsyncKeyState(VK_SPACE) & 0x1)
+	/* Spacebar Entered */
+	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
 		switch (currentMode)
 		{
@@ -125,8 +136,8 @@ void Player_Interact()
 				break;
 		}
 	}
-	/* C Key Entered */
-	else if (GetAsyncKeyState(0x43) & 0x1)
+	/* C Key Entered, cancel posession */
+	else if (GetAsyncKeyState(0x43) & 0x8000)
 	{
 		/* Unpossess if current form is rhino or bear */
 		switch (currentMode)
@@ -137,39 +148,39 @@ void Player_Interact()
 				break;
 		}
 	}
-	/* R Key Entered */
-	else if (GetAsyncKeyState(0x52) & 0x1)
+	/* R Key Entered, reset stage */
+	else if (GetAsyncKeyState(0x52) & 0x8000)
 	{
 		GameStateManager_RestartLevel();
 	}
-	/* ESC Key Entered */
+	/* ESC Key Entered, return to main menu */
 	else if (GetAsyncKeyState(VK_ESCAPE) & 0x8000)
 	{	
 		GameStateManager_SetGameState(MainMenu);
 	}
 	/* Below keys are for cheats/debugging purposes */
-	/* Number 1 Entered */
-	else if (GetAsyncKeyState(0x31) & 0x1)
+	/* Number 1 Entered, take on rhino form */
+	else if (GetAsyncKeyState(0x31) & 0x8000)
 	{
 		player = 'R';
 		currentMode = Rhino;
 		rhinoBreakCount = 2;
 		Player_PrintPlayer();
 	}
-	/* Number 2 entered */
-	else if (GetAsyncKeyState(0x32) & 0x1)
+	/* Number 2 entered, take on bear form */
+	else if (GetAsyncKeyState(0x32) & 0x8000)
 	{
 		player = 'B';
 		currentMode = Bear;
 		Player_PrintPlayer();
 	}
-	/* Number 3 entered */
-	else if (GetAsyncKeyState(0x33) & 0x1)
+	/* Number 3 entered, advance to next stage */
+	else if (GetAsyncKeyState(0x33) & 0x8000)
 	{
 		GameStateManager_SetGameState(Score);
 	}
-	/* Number 4 entered */
-	else if (GetAsyncKeyState(0x34) & 0x1)
+	/* Number 4 entered, toggle on/off debug info */
+	else if (GetAsyncKeyState(0x34) & 0x8000)
 	{
 		debug = !debug;
 		if (!debug)
@@ -189,7 +200,7 @@ int Player_DeathCheck()
 	}
 	else if (Grid_getGrid(playerX, playerY) == 'E')
 	{
-		Game_LevelComplete();
+		GameStateManager_SetGameState(Score);
 	}
 	return 0;
 }
@@ -346,7 +357,7 @@ void Player_Monkey()
 	}
 }
 
-/* Check whether wall can be broken */
+/* Check whether wall can be broken and break if possible*/
 void Player_Rhino()
 {
 	switch (currentDirection)
@@ -458,6 +469,7 @@ void Player_PrintPlayer()
 	Colours_ResetColor();
 }
 
+/* Prints current direction facing and additional debug info if enabled */
 void Player_PrintInfo()
 {
 	WindowsHelper_SetCursorPosition(0, -1);

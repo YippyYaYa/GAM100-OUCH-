@@ -23,7 +23,6 @@ void Credits_Init()
 	Grid_initGrid(12);
 	Grid_printGrid();
 	Enemy_Init();
-	FlushConsoleInputBuffer(GetStdHandle(STD_INPUT_HANDLE));
 }
 
 /* Credits Screen update loop */
