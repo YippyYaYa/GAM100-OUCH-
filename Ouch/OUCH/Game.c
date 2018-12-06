@@ -5,6 +5,8 @@
 #include "Player.h"
 #include "SwitchPortal.h"
 #include "GameStateManager.h"
+#include "Timer.h"
+#include "Score.h"
 
 static int currentStage;
 static int totalStages;
@@ -13,6 +15,7 @@ static int totalStages;
 void Game_Init()
 {
 	system("cls");
+	Score_Init();
 	currentStage = 1;
 	totalStages = 5;
 	Game_LoadLevel(currentStage);
@@ -23,6 +26,8 @@ void Game_Init()
 void Game_Update(float dt)
 {
 	Player_Controls();
+	Timer_UpdateTimer(dt);
+	Timer_DisplayStageTime(80, -1);
 	Enemy_Update(dt);
 	/* Check if player collided with enemy */
 	if (Player_DeathCheck())
@@ -42,8 +47,9 @@ void Game_LoadLevel(int level)
 	system("cls");
 
 	/* Initialise all objects used in the game */
-	SwitchPortal_Init();
 	Enemy_Init();
+	Timer_Init_StageTimer();
+	Timer_SaveStageTimer();
 	Grid_initGrid(currentStage);
 	Grid_printGrid();
 	Player_InitPlayer();

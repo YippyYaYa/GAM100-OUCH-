@@ -8,8 +8,9 @@
 void Score_Init()
 {
 	Enemy_Init();
+	Timer_InitTotalTime();
 	system("cls");
-	DisplayStageTime(0, 0);
+	Timer_DisplayTotalTimeTaken(10, 40);
 }
 
 void Score_Update()
