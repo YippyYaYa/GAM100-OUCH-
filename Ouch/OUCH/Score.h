@@ -7,6 +7,7 @@
 \brief
 This file contains the function declarations for Score.c
 */
+/******************************************************************************/
 
 #pragma once
 
