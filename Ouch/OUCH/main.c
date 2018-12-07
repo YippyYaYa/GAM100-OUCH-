@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
-\file   main.c
-\author Chong Yi Fang
+\file   Loading.h
+\author Toh Gim Hsiang
 \par    Course: GAM100
 \par    Copyright © 2018 DigiPen (Singapore) Corporation.
 \brief
