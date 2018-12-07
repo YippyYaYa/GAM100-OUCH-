@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
 \file   Game.c
-\author Chong Yi Fang
+\author Chong Yi Fang , Ho Jun Hao
 \par    Course: GAM100
 \par    Copyright © 2018 DigiPen (Singapore) Corporation.
 \brief

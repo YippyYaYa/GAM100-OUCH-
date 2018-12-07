@@ -19,7 +19,7 @@ This file is contains function declarations for Colours.c
 #define PUSHABLE 3       /* Pushable Objects */
 #define DESTROYABLE 11   /* Destroyable objects */
 #define END 2            /* Level Exit Portal */
-#define GAMEOVER 3       /* Gameover screen */
+#define GAMEOVER 5       /* Gameover screen */
 
 void Colours_Init();
 void Colours_SetColor(WORD newColor);
