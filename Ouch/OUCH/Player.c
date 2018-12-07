@@ -180,7 +180,7 @@ void Player_Interact()
 		GameStateManager_SetGameState(Score);
 	}
 	/* Number 4 entered, toggle on/off debug info */
-	else if (GetAsyncKeyState(0x34) & 0x8000)
+	else if (GetAsyncKeyState(0x34) & 0x1)
 	{
 		debug = !debug;
 		if (!debug)
