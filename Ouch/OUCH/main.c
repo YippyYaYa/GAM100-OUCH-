@@ -1,7 +1,7 @@
 /******************************************************************************/
 /*!
-\file   Loading.h
-\author Toh Gim Hsiang
+\file   main.c
+\author Chong Yi Fang, Alex Chew
 \par    Course: GAM100
 \par    Copyright © 2018 DigiPen (Singapore) Corporation.
 \brief
