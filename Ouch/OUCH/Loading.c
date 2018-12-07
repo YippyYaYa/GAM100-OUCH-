@@ -51,3 +51,82 @@ void Loading_Update(float dt)
 }
 
 /* function definitions here */
+void DebugMessage(int index)
+{ 
+	if (index == 0)
+	{
+		printf("Success\n");
+		printf("this is loading.c debug\n");
+		printf("%f\n", tPass);
+		printf("%d\n", count);
+	}
+	/* color.h*/
+	else if (index == 1)
+	{
+		printf("Success\n");
+		printf("this is color.h debug\n");
+	}
+	else if (index == 2)
+	{
+		printf("Success\n");
+		printf("this is window.h debug\n");
+	}
+	else if (index == 3)
+	{
+		printf("Success\n");
+		printf("this is grid.h debug\n");
+	}
+	else if (index == 4)
+	{
+		printf("Success\n");
+		printf("finish loading\n");
+	}
+	else if (index == 5)
+	{
+		printf("failed\n");
+		printf("stuck at loading\n");
+	}
+}
+
+void DebugMessagewithPosition(int index, int posX, int posY)
+{
+	if (index == 0)
+	{
+		WindowsHelper_SetCursorPosition(posX, posY);
+		printf("Success\n");
+		printf("this is loading.c debug\n");
+		printf("%f\n", tPass);
+		printf("%d\n", count);
+	}
+	/* color.h*/
+	else if (index == 1)
+	{
+		WindowsHelper_SetCursorPosition(posX, posY);
+		printf("Success\n");
+		printf("this is color.h debug\n");
+	}
+	else if (index == 2)
+	{
+		WindowsHelper_SetCursorPosition(posX, posY);
+		printf("Success\n");
+		printf("this is window.h debug\n");
+	}
+	else if (index == 3)
+	{
+		WindowsHelper_SetCursorPosition(posX, posY);
+		printf("Success\n");
+		printf("this is grid.h debug\n");
+	}
+	else if (index == 4)
+	{
+		WindowsHelper_SetCursorPosition(posX, posY);
+		printf("Success\n");
+		printf("finish loading\n");
+	}
+	else if (index == 5)
+	{
+		WindowsHelper_SetCursorPosition(posX, posY);
+		printf("failed\n");
+		printf("stuck at loading\n");
+	}
+}

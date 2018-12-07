@@ -11,8 +11,8 @@ This file contains the function declarations for Loading.c
 
 
 #pragma once
-
+/* function declaration here */
 void Loading_Init();
 void Loading_Update(float dt);
-
-/* function declaration here */
+void DebugMessage(int index);
+void DebugMessagewithPosition(int index, int posX, int posY);
